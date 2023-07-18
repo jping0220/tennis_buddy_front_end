@@ -8,6 +8,7 @@ import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
 
 
+
 const App =() => {
   // const user = [{
   //   id: 1,
@@ -28,7 +29,7 @@ const App =() => {
 
     return (
       <React.Fragment>
-        <NavigationBar/>
+        <NavigationBar />
         <Layout>
           <Router>
             <Routes>
