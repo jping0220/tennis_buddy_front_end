@@ -8,9 +8,7 @@ import { Profile } from './components/Profile';
 import { SignUp } from './components/SignUp';
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
-
-
-
+import tennisPlayer from "./assets/tennisPlayer.jpg";
 
 const App =() => {
   // const user = [{
@@ -33,7 +31,7 @@ const App =() => {
     return (
       <React.Fragment>
         <div  className="jumbotron">
-          <img src="./assets/tennisPlayer Cropped.jpg" alt="tennis player background pic" />
+          <img src={tennisPlayer} alt="tennis player background pic" height={200} width={300} />
         </div>
         <NavigationBar />
         <Layout>
