@@ -1,11 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom';
 import { Home } from './Home';
 import { LogIn } from './LogIn';
 import { NoMatch } from './NoMatch';
 import { TennisUsesr } from "./components/TennisUser";
+import { Profile } from './components/Profile';
+import { SignUp } from './components/SignUp';
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
+
 
 
 
@@ -29,12 +32,17 @@ const App =() => {
 
     return (
       <React.Fragment>
+        <div  className="jumbotron">
+          <img src="./assets/tennisPlayer Cropped.jpg" alt="tennis player background pic" />
+        </div>
         <NavigationBar />
         <Layout>
           <Router>
             <Routes>
               <Route path='/' element={<Home/>} />
-              <Route path='log_in' element={<LogIn/>} />
+              <Route path='log_in' element={<LogIn />} />
+              <Route path='sign_up' element={<SignUp />} />
+              <Route path='profile' element={<Profile />} />
               <Route path='*' element={<NoMatch />} />
               <Route path='players' element={<TennisUsesr/>} />
             </Routes>
