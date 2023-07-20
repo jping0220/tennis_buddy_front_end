@@ -9,7 +9,7 @@ const SearchBar = () => {
         {zip_code: 98072 },
         {zip_code: 98034 },
         {zip_code: 98033 },
-        { zip_code: 98003 }];
+        {zip_code: 98003 }];
     
     const handleChange = (e) => {
         const inputValue = e.target.value;
