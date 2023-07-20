@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from './Home';
 import { LogIn } from './LogIn';
 import { NoMatch } from './NoMatch';
@@ -9,9 +9,10 @@ import { SignUp } from './components/SignUp';
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
 import tennisPlayer from "./assets/tennisPlayer.jpg";
+import SearchBar from "./components/Search";
 
-const App =() => {
-  // const user = [{
+
+  // const userData = [{
   //   id: 1,
   //   name: 'Ping',
   //   email: 'jping@gmail.com',
@@ -28,16 +29,19 @@ const App =() => {
   //   preference: 'Weekends in the morning',
   // }];
 
+const App =() => {
+
+
     return (
       <React.Fragment>
-        <div  className="jumbotron">
-          <img src={tennisPlayer} alt="tennis player background pic" height={200} width={300} />
+        <div  className="pic">
+          <img src={tennisPlayer} alt="tennis player background pic" height={200} width={500} />
         </div>
         <NavigationBar />
         <Layout>
           <Router>
             <Routes>
-              <Route path='/' element={<Home/>} />
+              <Route path='/' element={<Home />} />
               <Route path='log_in' element={<LogIn />} />
               <Route path='sign_up' element={<SignUp />} />
               <Route path='profile' element={<Profile />} />

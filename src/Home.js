@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
+import SearchBar from './components/Search';
 
 export const Home = () => (
     <div>
-        <h2>This is home page,
-            search box will be here</h2>
+        <h1>Find Your Partner</h1>
+        <SearchBar/>
     </div>
 )
     
