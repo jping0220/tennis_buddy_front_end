@@ -34,19 +34,25 @@ const App =() => {
 
     return (
       <React.Fragment>
-        <div  className="pic">
-          <img src={tennisPlayer} alt="tennis player background pic" height={200} width={500} />
+        <div className="pic">
+          <img
+            src={tennisPlayer}
+            alt="tennis player background pic"
+            height={200}
+            width={300}
+          />
         </div>
         <NavigationBar />
+
         <Layout>
           <Router>
             <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='log_in' element={<LogIn />} />
-              <Route path='sign_up' element={<SignUp />} />
-              <Route path='profile' element={<Profile />} />
-              <Route path='*' element={<NoMatch />} />
-              <Route path='players' element={<TennisUsesr/>} />
+              <Route path="/" element={<Home />} />
+              <Route path="log_in" element={<LogIn />} />
+              <Route path="sign_up" element={<SignUp />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="*" element={<NoMatch />} />
+              <Route path="players" element={<TennisUsesr />} />
             </Routes>
           </Router>
         </Layout>
