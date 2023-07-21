@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home } from './Home';
-import { LogIn } from './LogIn';
-import { NoMatch } from './NoMatch';
+import { Home } from './components/Home';
+import { LogIn } from './components/LogIn';
+import { NoMatch } from './components/NoMatch';
 import { TennisUsesr } from "./components/TennisUser";
 import { Profile } from './components/Profile';
 import { SignUp } from './components/SignUp';
