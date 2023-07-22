@@ -16,12 +16,12 @@ import axios from "axios";
 
 
 const App = () => {
-  const API = "http://localhost:5000";
+  const API = "https://tennis-buddy-back-end.onrender.com";
   const [searchResult, setSearchResults] = useState([])
   
   
   const handleSearch = (formData) => {
-    // console.log(formData)
+    console.log(`${formData.name}formdata`);
     axios
       .get(`${API}/search`, { params: formData })
    

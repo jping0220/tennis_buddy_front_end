@@ -15,10 +15,14 @@ const SearchForm = ({ addForm }) => {
             ...prevData,
             [name]: value,
         }));
+        console.log(value)
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        // console.log(`${searchFormData.name} searchformdata in handlesubmit`);
+        // addForm(searchFormData);
+
         const formData = {};
       
         if (searchFormData.zipCode.trim() !== "") {
@@ -32,10 +36,12 @@ const SearchForm = ({ addForm }) => {
         // Check if both zip code and tennis level are empty.
         // If both are empty, we will not perform the search.
         if (Object.keys(formData).length > 0) {
+            console.log(`${formData.name}formdata in handlesubmit`)
           addForm(formData);
         } else {
           console.log("Please enter either zip code or tennis level.");
         }
+        setSearchFormData(INITIAL_SEARCH_DATA);
     };
     
 
@@ -74,7 +80,7 @@ const SearchForm = ({ addForm }) => {
                 />
                 <label htmlFor="tennis_level">Tennis Level</label>
                 <input
-                    required
+                    // required
                     type="number"
                     id="tennis_level"
                     name="tennisLevel"
