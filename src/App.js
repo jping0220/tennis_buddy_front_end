@@ -1,36 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import { LogIn } from './components/LogIn';
 import { NoMatch } from './components/NoMatch';
-import { TennisUsesr } from "./components/TennisUser";
+import  TennisUserList from './components/TennisUserList';
 import { Profile } from './components/Profile';
 import { SignUp } from './components/SignUp';
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
 import tennisPlayer from "./assets/tennisPlayer.jpg";
-import SearchBar from "./components/Search";
+import SearchForm from "./components/SearchForm";
+import axios from "axios";
 
 
-  // const userData = [{
-  //   id: 1,
-  //   name: 'Ping',
-  //   email: 'jping@gmail.com',
-  //   tennis_level: 3.5,
-  //   zip_code: '12345',
-  //   preference: 'Singles and night time',
-  // },
-  // {
-  //   id: 2,
-  //   name: 'Laura',
-  //   email: 'Laura@gmail.com',
-  //   tennis_level: 3.0,
-  //   zip_code: '54321',
-  //   preference: 'Weekends in the morning',
-  // }];
 
-const App =() => {
 
+const App = () => {
+  const API = "http://localhost:5000"
+  const [searchResult, setSearchResults] = useState([])
+  
+  const handleSearch = (formData) => {
+    axios
+      .post(`${API}/search`, formData)
+      .then((response) => setSearchResults(response.data))
+      .catch((error) => console.error("Error fetching data:", error));
+  };
+  
 
     return (
       <React.Fragment>
@@ -52,9 +47,10 @@ const App =() => {
               <Route path="sign_up" element={<SignUp />} />
               <Route path="profile" element={<Profile />} />
               <Route path="*" element={<NoMatch />} />
-              <Route path="players" element={<TennisUsesr />} />
+              <Route path="players" element={<TennisUserList searchResult={searchResult} />} />
             </Routes>
           </Router>
+          <SearchForm addForm={handleSearch}/>
         </Layout>
       </React.Fragment>
     );
@@ -63,5 +59,3 @@ const App =() => {
 
 export default App;
 
-{/* <h1>Tennis User Management</h1>
-{user.map((user) => (<TennisUser key={user.id} user={user} />))} */}
