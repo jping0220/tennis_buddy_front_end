@@ -10,12 +10,7 @@ const SearchForm = ({ onSearch }) => {
   const [searchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
 
   const handleChange = (event) => {
-    // const newFormData = {
-    //   ...searchFormData,
-    //   [event.target.name]: event.target.value,
-    // };
-    // console.log(event.target.value);
-    // setSearchFormData(newFormData);
+
     const { name, value } = event.target;
     setSearchFormData((prevData) => ({
         ...prevData,
@@ -23,30 +18,37 @@ const SearchForm = ({ onSearch }) => {
     }));
     console.log(value)
   };
+    
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(`${searchFormData.zip_code} searchformdata in handlesubmit`);
-    onSearch(searchFormData);
+      event.preventDefault();
+      const formData = {};
+    // console.log(`${searchFormData.zip_code} searchformdata in handlesubmit`);
+    //   onSearch(searchFormData);
+      
+
+  
+      
+
     // setSearchFormData(INITIAL_SEARCH_DATA);
     // const formData = {};
 
-    // if (searchFormData.zipCode.trim() !== "") {
-    //   formData.zipCode = searchFormData.zipCode;
-    // }
+    if (searchFormData.zip_code.trim() !== "") {
+      formData.zip_code = searchFormData.zip_code;
+    }
 
-    // if (searchFormData.tennisLevel.trim() !== "") {
-    //   formData.tennisLevel = searchFormData.tennisLevel;
-    // }
+    if (searchFormData.tennis_level.trim() !== "") {
+      formData.tennis_level = searchFormData.tennis_level;
+    }
 
-    // // Check if both zip code and tennis level are empty.
-    // // If both are empty, we will not perform the search.
-    // if (Object.keys(formData).length > 0) {
-    //     console.log(`${formData.name}formdata in handlesubmit`)
-    //   addForm(formData);
-    // } else {
-    //   console.log("Please enter either zip code or tennis level.");
-    // }
+    // Check if both zip code and tennis level are empty.
+    // If both are empty, we will not perform the search.
+    if (Object.keys(formData).length > 0) {
+        // console.log(`${formData.name}formdata in handlesubmit`)
+      onSearch(formData);
+    } else {
+      console.log("Please enter either zip code or tennis level.");
+    }
   };
 
   // This is gatherin number by number what's in the forms:
@@ -84,7 +86,7 @@ const SearchForm = ({ onSearch }) => {
         />
         <label htmlFor="tennis_level">Tennis Level</label>
         <input
-          // required
+        // required
           type="number"
           id="tennis_level"
           name="tennis_level"
