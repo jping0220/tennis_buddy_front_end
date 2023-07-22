@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PropTypes } from 'prop-types';
 
 const INITIAL_SEARCH_DATA = {
-    zipCode: "",
+    zip_code: "",
     tennis_level: "",
   };
   
