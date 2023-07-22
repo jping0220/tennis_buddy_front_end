@@ -21,12 +21,12 @@ const App = () => {
   
   
   const handleSearch = (formData) => {
-    console.log(formData)
+    // console.log(formData)
     axios
       .get(`${API}/search`, { params: formData })
    
       .then((response) => {
-        console.log("API Response:", response.data);
+        // console.log("API Response:", response.data);
         setSearchResults(response.data)
     })
 

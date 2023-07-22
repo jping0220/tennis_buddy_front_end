@@ -6,8 +6,8 @@ const INITIAL_SEARCH_DATA = {
     tennisLevel: "",
   };
   
-const SearchForm = ({ addForm}) => {
-    const [SearchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
+const SearchForm = ({ addForm }) => {
+    const [searchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
     
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -16,27 +16,49 @@ const SearchForm = ({ addForm}) => {
             [name]: value,
         }));
     };
-    // This is gatherin number by number what's in the forms:
-    // const handleChange = (event) => {
-    //     const newSearchFormdData = {
-    //         ...SearchFormData,
-    //         [event.target.zipCode]: event.target.value,
-    //         [event.target.tennisLevel]: event.target.value
-    //     };
-    //     console.log(event.target);
-    //     setSearchFormData(newSearchFormdData);
-    // };
-  
-    // THis is submitting what is in the form:
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        const formData = {};
+      
+        if (searchFormData.zipCode.trim() !== "") {
+          formData.zipCode = searchFormData.zipCode;
+        }
+      
+        if (searchFormData.tennisLevel.trim() !== "") {
+          formData.tennisLevel = searchFormData.tennisLevel;
+        }
+      
+        // Check if both zip code and tennis level are empty.
+        // If both are empty, we will not perform the search.
+        if (Object.keys(formData).length > 0) {
+          addForm(formData);
+        } else {
+          console.log("Please enter either zip code or tennis level.");
+        }
+    };
+    
+
+        // This is gatherin number by number what's in the forms:
+        // const handleChange = (event) => {
+        //     const newSearchFormdData = {
+        //         ...SearchFormData,
+        //         [event.target.zipCode]: event.target.value,
+        //         [event.target.tennisLevel]: event.target.value
+        //     };
+        //     console.log(event.target);
+        //     setSearchFormData(newSearchFormdData);
+        // };
+  
+        // THis is submitting what is in the form:
+        // const handleSubmit = (event) => {
+        //     event.preventDefault();
         // this comes from app--> use to be addBoard --> addFormData --> takes the input
   
-        addForm(SearchFormData);
+        // addForm(searchFormData);
         // value to reset the state in the App funcion
         //turns the form again back to "":
         // setSearchFormData(INITIAL_BOARD_DATA);
-    };
 
     return (
         <form onSubmit={handleSubmit} className='new-board-form__form'>
@@ -47,7 +69,7 @@ const SearchForm = ({ addForm}) => {
                     type="number"
                     id="zip_code"
                     name="zipCode"
-                    value={SearchFormData.zipCode}
+                    value={searchFormData.zipCode}
                     onChange={handleChange}
                 />
                 <label htmlFor="tennis_level">Tennis Level</label>
@@ -56,19 +78,20 @@ const SearchForm = ({ addForm}) => {
                     type="number"
                     id="tennis_level"
                     name="tennisLevel"
-                    value={SearchFormData.tennisLevel}
+                    value={searchFormData.tennisLevel}
                     onChange={handleChange}
                 />
-                <input className="submit_board" type="submit" value="submit"/>
+                <input className="submit_board" type="submit" value="submit" />
 
                 {/* <button type="submit">Search now!</button> */}
             </React.Fragment>
-        </form>    
-  );
-}
+        </form>
+    );
+};
+
 SearchForm.propTypes = {
-    addForm:PropTypes.func.isRequired,
-}
+    addForm: PropTypes.func.isRequired,
+};
 
 export default SearchForm;
 
