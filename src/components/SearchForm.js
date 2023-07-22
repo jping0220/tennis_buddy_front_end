@@ -26,9 +26,13 @@ const SearchForm = ({ onSearch }) => {
     // console.log(`${searchFormData.zip_code} searchformdata in handlesubmit`);
     //   onSearch(searchFormData);
 
-    if (searchFormData.zip_code.trim() !== "") {
-      formData.zip_code = searchFormData.zip_code;
-    }
+      if (searchFormData.zip_code.trim() !== "") {
+          formData.zip_code = searchFormData.zip_code;
+      }
+      else if (searchFormData.tennis_level.trim() !== "") {
+          formData.tennis_level = searchFormData.tennis_level;
+      }
+  
 
     // Check if both zip code and tennis level are empty.
     // If both are empty, we will not perform the search.
