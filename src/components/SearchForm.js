@@ -61,7 +61,7 @@ const SearchForm = ({ addForm}) => {
                 />
                 <input className="submit_board" type="submit" value="submit"/>
 
-                <button type="submit">Search now!</button>
+                {/* <button type="submit">Search now!</button> */}
             </React.Fragment>
         </form>    
   );

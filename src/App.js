@@ -16,13 +16,20 @@ import axios from "axios";
 
 
 const App = () => {
-  const API = "http://localhost:5000"
+  const API = "http://localhost:5000";
   const [searchResult, setSearchResults] = useState([])
   
+  
   const handleSearch = (formData) => {
+    console.log(formData)
     axios
-      .post(`${API}/search`, formData)
-      .then((response) => setSearchResults(response.data))
+      .get(`${API}/search`, { params: formData })
+   
+      .then((response) => {
+        console.log("API Response:", response.data);
+        setSearchResults(response.data)
+    })
+
       .catch((error) => console.error("Error fetching data:", error));
   };
   
@@ -42,15 +49,15 @@ const App = () => {
         <Layout>
           <Router>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home handleSearch={handleSearch}/>} />
               <Route path="log_in" element={<LogIn />} />
               <Route path="sign_up" element={<SignUp />} />
               <Route path="profile" element={<Profile />} />
               <Route path="*" element={<NoMatch />} />
-              <Route path="players" element={<TennisUserList searchResult={searchResult} />} />
             </Routes>
           </Router>
-          <SearchForm addForm={handleSearch}/>
+          <SearchForm addForm={handleSearch} />
+          <TennisUserList searchResult={searchResult} />
         </Layout>
       </React.Fragment>
     );

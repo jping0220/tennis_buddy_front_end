@@ -1,18 +1,18 @@
 import React from 'react';
-import TennisUserDetails from './TennisUserDetails';
+import TennisUser from './TennisUser';
 
 
-const TennisUserList = ({ searchResults }) => {
+const TennisUserList = ({ searchResult }) => {
+  console.log(searchResult)
+  if (!searchResult || searchResult.length === 0) {
+    return <p>No matching users found.</p>;
+  }
     return (
       <div>
         <h1>Tennis User Management</h1>
-        {searchResults.length > 0 ? (
-          searchResults.map((user) => (
-            <TennisUserDetails key={user.id} user={user} />
-          ))
-        ) : (
-          <p>No matching users found.</p>
-        )}
+        {searchResult.map((user) => (
+          <TennisUser key={user.tennis_user_id} user={user} />
+        ))}
       </div>
     );
   };
