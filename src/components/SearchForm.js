@@ -25,26 +25,14 @@ const SearchForm = ({ onSearch }) => {
       const formData = {};
     // console.log(`${searchFormData.zip_code} searchformdata in handlesubmit`);
     //   onSearch(searchFormData);
-      
-
-  
-      
-
-    // setSearchFormData(INITIAL_SEARCH_DATA);
-    // const formData = {};
 
     if (searchFormData.zip_code.trim() !== "") {
       formData.zip_code = searchFormData.zip_code;
     }
 
-    if (searchFormData.tennis_level.trim() !== "") {
-      formData.tennis_level = searchFormData.tennis_level;
-    }
-
     // Check if both zip code and tennis level are empty.
     // If both are empty, we will not perform the search.
     if (Object.keys(formData).length > 0) {
-        // console.log(`${formData.name}formdata in handlesubmit`)
       onSearch(formData);
     } else {
       console.log("Please enter either zip code or tennis level.");
