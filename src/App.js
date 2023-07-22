@@ -18,17 +18,20 @@ import axios from "axios";
 const App = () => {
   const API = "https://tennis-buddy-back-end.onrender.com";
   const [searchResult, setSearchResults] = useState([])
-  
-  
+  // { params: formData }
+  // const back_params = {
+  //   zip_code: formData.zipCode,
+  //   tennis_level: formData.tennisLevel,
+  //  }
   const handleSearch = (formData) => {
-    console.log(`${formData.name}formdata`);
+    console.log(`${formData.zipCode}formdata`);
     axios
-      .get(`${API}/search`, { params: formData })
-   
+      .get(`${API}/search`, { params: {formData} })
+
       .then((response) => {
-        // console.log("API Response:", response.data);
-        setSearchResults(response.data)
-    })
+        console.log("API Response:", response.data);
+        setSearchResults(response.data);
+      })
 
       .catch((error) => console.error("Error fetching data:", error));
   };
@@ -49,14 +52,14 @@ const App = () => {
         <Layout>
           <Router>
             <Routes>
-              <Route path="/" element={<Home handleSearch={handleSearch}/>} />
+              <Route path="/" element={<Home/>} />
               <Route path="log_in" element={<LogIn />} />
               <Route path="sign_up" element={<SignUp />} />
               <Route path="profile" element={<Profile />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Router>
-          <SearchForm addForm={handleSearch} />
+          <SearchForm onSearch={handleSearch}/>
           <TennisUserList searchResult={searchResult} />
         </Layout>
       </React.Fragment>

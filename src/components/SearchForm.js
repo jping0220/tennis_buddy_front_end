@@ -2,97 +2,101 @@ import React, { useState } from "react";
 import { PropTypes } from 'prop-types';
 
 const INITIAL_SEARCH_DATA = {
-    zipCode: "",
-    tennisLevel: "",
+    zip_code: "",
+    tennis_level: "",
   };
   
-const SearchForm = ({ addForm }) => {
-    const [searchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
-    
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setSearchFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-        console.log(value)
+const SearchForm = ({ onSearch }) => {
+  const [searchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
+
+  const handleChange = (event) => {
+    const newFormData = {
+      ...searchFormData,
+      [event.target.name]: event.target.value,
     };
+    console.log(event.target.value);
+    setSearchFormData(newFormData);
+    // const { name, value } = event.target;
+    // setSearchFormData((prevData) => ({
+    //     ...prevData,
+    //     [name]: value,
+    // }));
+    // console.log(value)
+  };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // console.log(`${searchFormData.name} searchformdata in handlesubmit`);
-        // addForm(searchFormData);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(`${searchFormData.zip_code} searchformdata in handlesubmit`);
+    onSearch(searchFormData);
+    // setSearchFormData(INITIAL_SEARCH_DATA);
+    // const formData = {};
 
-        const formData = {};
-      
-        if (searchFormData.zipCode.trim() !== "") {
-          formData.zipCode = searchFormData.zipCode;
-        }
-      
-        if (searchFormData.tennisLevel.trim() !== "") {
-          formData.tennisLevel = searchFormData.tennisLevel;
-        }
-      
-        // Check if both zip code and tennis level are empty.
-        // If both are empty, we will not perform the search.
-        if (Object.keys(formData).length > 0) {
-            console.log(`${formData.name}formdata in handlesubmit`)
-          addForm(formData);
-        } else {
-          console.log("Please enter either zip code or tennis level.");
-        }
-        setSearchFormData(INITIAL_SEARCH_DATA);
-    };
-    
+    // if (searchFormData.zipCode.trim() !== "") {
+    //   formData.zipCode = searchFormData.zipCode;
+    // }
 
-        // This is gatherin number by number what's in the forms:
-        // const handleChange = (event) => {
-        //     const newSearchFormdData = {
-        //         ...SearchFormData,
-        //         [event.target.zipCode]: event.target.value,
-        //         [event.target.tennisLevel]: event.target.value
-        //     };
-        //     console.log(event.target);
-        //     setSearchFormData(newSearchFormdData);
-        // };
-  
-        // THis is submitting what is in the form:
-        // const handleSubmit = (event) => {
-        //     event.preventDefault();
-        // this comes from app--> use to be addBoard --> addFormData --> takes the input
-  
-        // addForm(searchFormData);
-        // value to reset the state in the App funcion
-        //turns the form again back to "":
-        // setSearchFormData(INITIAL_BOARD_DATA);
+    // if (searchFormData.tennisLevel.trim() !== "") {
+    //   formData.tennisLevel = searchFormData.tennisLevel;
+    // }
 
-    return (
-        <form onSubmit={handleSubmit} className='new-board-form__form'>
-            <React.Fragment>
-                <label htmlFor="zip_code">Zip Code</label>
-                <input
-                    required
-                    type="number"
-                    id="zip_code"
-                    name="zipCode"
-                    value={searchFormData.zipCode}
-                    onChange={handleChange}
-                />
-                <label htmlFor="tennis_level">Tennis Level</label>
-                <input
-                    // required
-                    type="number"
-                    id="tennis_level"
-                    name="tennisLevel"
-                    value={searchFormData.tennisLevel}
-                    onChange={handleChange}
-                />
-                <input className="submit_board" type="submit" value="submit" />
+    // // Check if both zip code and tennis level are empty.
+    // // If both are empty, we will not perform the search.
+    // if (Object.keys(formData).length > 0) {
+    //     console.log(`${formData.name}formdata in handlesubmit`)
+    //   addForm(formData);
+    // } else {
+    //   console.log("Please enter either zip code or tennis level.");
+    // }
+  };
 
-                {/* <button type="submit">Search now!</button> */}
-            </React.Fragment>
-        </form>
-    );
+  // This is gatherin number by number what's in the forms:
+  // const handleChange = (event) => {
+  //     const newSearchFormdData = {
+  //         ...SearchFormData,
+  //         [event.target.zipCode]: event.target.value,
+  //         [event.target.tennisLevel]: event.target.value
+  //     };
+  //     console.log(event.target);
+  //     setSearchFormData(newSearchFormdData);
+  // };
+
+  // THis is submitting what is in the form:
+  // const handleSubmit = (event) => {
+  //     event.preventDefault();
+  // this comes from app--> use to be addBoard --> addFormData --> takes the input
+
+  // addForm(searchFormData);
+  // value to reset the state in the App funcion
+  //turns the form again back to "":
+  // setSearchFormData(INITIAL_BOARD_DATA);
+
+  return (
+    <form onSubmit={handleSubmit} className="new-board-form__form">
+      <React.Fragment>
+        <label htmlFor="zip_code">Zip Code</label>
+        <input
+          required
+          type="number"
+          id="zip_code"
+          name="zipCode"
+          value={searchFormData.zipCode}
+          onChange={handleChange}
+        />
+        <label htmlFor="tennis_level">Tennis Level</label>
+        <input
+          // required
+          type="number"
+          id="tennis_level"
+          name="tennisLevel"
+          value={searchFormData.tennisLevel}
+          onChange={handleChange}
+        />
+        <input className="submit_board" type="submit" value="submit" />
+
+        {/* <button type="submit">Search now!</button> */}
+      </React.Fragment>
+    </form>
+  );
 };
 
 SearchForm.propTypes = {
