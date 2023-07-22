@@ -24,14 +24,20 @@ const App = () => {
   //   tennis_level: formData.tennisLevel,
   //  }
   const handleSearch = (formData) => {
-    console.log(`${formData.zipCode}formdata`);
-    axios
-      .get(`${API}/search`, { params: {formData} })
+  //   console.log(`${formData.zipCode}formdata`);
+  //   axios
+  //     .get(`${API}/search`, { params: {formData} })
 
-      .then((response) => {
-        console.log("API Response:", response.data);
-        setSearchResults(response.data);
-      })
+  //     .then((response) => {
+  //       console.log("API Response:", response.data);
+  //       setSearchResults(response.data);
+  // })
+      axios
+        .get(`${API}/search`, { params: formData })
+        .then((response) => {
+          console.log("API Response:", response.data);
+          setSearchResults(response.data);
+        })
 
       .catch((error) => console.error("Error fetching data:", error));
   };

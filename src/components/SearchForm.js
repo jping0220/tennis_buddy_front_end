@@ -10,18 +10,18 @@ const SearchForm = ({ onSearch }) => {
   const [searchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
 
   const handleChange = (event) => {
-    const newFormData = {
-      ...searchFormData,
-      [event.target.name]: event.target.value,
-    };
-    console.log(event.target.value);
-    setSearchFormData(newFormData);
-    // const { name, value } = event.target;
-    // setSearchFormData((prevData) => ({
-    //     ...prevData,
-    //     [name]: value,
-    // }));
-    // console.log(value)
+    // const newFormData = {
+    //   ...searchFormData,
+    //   [event.target.name]: event.target.value,
+    // };
+    // console.log(event.target.value);
+    // setSearchFormData(newFormData);
+    const { name, value } = event.target;
+    setSearchFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+    }));
+    console.log(value)
   };
 
   const handleSubmit = (event) => {
@@ -78,8 +78,8 @@ const SearchForm = ({ onSearch }) => {
           required
           type="number"
           id="zip_code"
-          name="zipCode"
-          value={searchFormData.zipCode}
+          name="zip_code"
+          value={searchFormData.zip_code}
           onChange={handleChange}
         />
         <label htmlFor="tennis_level">Tennis Level</label>
@@ -87,8 +87,8 @@ const SearchForm = ({ onSearch }) => {
           // required
           type="number"
           id="tennis_level"
-          name="tennisLevel"
-          value={searchFormData.tennisLevel}
+          name="tennis_level"
+          value={searchFormData.tennis_level}
           onChange={handleChange}
         />
         <input className="submit_board" type="submit" value="submit" />
@@ -100,7 +100,7 @@ const SearchForm = ({ onSearch }) => {
 };
 
 SearchForm.propTypes = {
-    addForm: PropTypes.func.isRequired,
+    SearchForm: PropTypes.func.isRequired,
 };
 
 export default SearchForm;
