@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { PropTypes } from 'prop-types';
 
 const INITIAL_SEARCH_DATA = {
-    zip_code: "",
-    tennis_level: "",
-  };
+    zipCode: "",
+    tennislevel: "",
+};
   
 const SearchForm = ({ onSearch }) => {
   const [searchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
