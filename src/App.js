@@ -19,20 +19,9 @@ const App = () => {
   const API = "https://tennis-buddy-back-end.onrender.com";
   const [searchResult, setSearchResults] = useState([])
   const [matchFound, setMatchFound] = useState(true);
-  // { params: formData }
-  // const back_params = {
-  //   zip_code: formData.zipCode,
-  //   tennis_level: formData.tennisLevel,
-  //  }
-  const handleSearch = (formData) => {
-  //   console.log(`${formData.zipCode}formdata`);
-  //   axios
-  //     .get(`${API}/search`, { params: {formData} })
 
-  //     .then((response) => {
-  //       console.log("API Response:", response.data);
-  //       setSearchResults(response.data);
-  // })
+  const handleSearch = (formData) => {
+
       axios
         .get(`${API}/search`, { params: formData })
         .then((response) => {
@@ -41,7 +30,9 @@ const App = () => {
           setMatchFound(response.data.length > 0);
         })
 
-        .catch((error) => console.error("Error fetching data:", error));
+        .catch((error) => { console.error("Error fetching data:", error);
+          setMatchFound(false);
+        });
   };
   
 
@@ -60,7 +51,12 @@ const App = () => {
         <Layout>
           <Router>
             <Routes>
-              <Route path="/" element={<Home onSearch={handleSearch} searchResult={searchResult} />} />
+              <Route path="/" element={
+                <Home
+                  onSearch={handleSearch}
+                  searchResult={searchResult}
+                  matchFound={matchFound}
+                />} />
               <Route path="log_in" element={<LogIn />} />
               <Route path="sign_up" element={<SignUp />} />
               <Route path="profile" element={<Profile />} />
