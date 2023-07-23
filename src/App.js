@@ -18,6 +18,7 @@ import axios from "axios";
 const App = () => {
   const API = "https://tennis-buddy-back-end.onrender.com";
   const [searchResult, setSearchResults] = useState([])
+  const [matchFound, setMatchFound] = useState(true);
   // { params: formData }
   // const back_params = {
   //   zip_code: formData.zipCode,
@@ -37,9 +38,10 @@ const App = () => {
         .then((response) => {
           console.log("API Response:", response.data);
           setSearchResults(response.data);
+          setMatchFound(response.data.length > 0);
         })
 
-      .catch((error) => console.error("Error fetching data:", error));
+        .catch((error) => console.error("Error fetching data:", error));
   };
   
 
@@ -65,8 +67,6 @@ const App = () => {
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Router>
-          {/* <SearchForm onSearch={handleSearch}/>
-          <TennisUserList searchResult={searchResult} /> */}
         </Layout>
       </React.Fragment>
     );

@@ -2,21 +2,22 @@ import React, { useState } from "react";
 import { PropTypes } from 'prop-types';
 
 const INITIAL_SEARCH_DATA = {
-    zipCode: "",
-    tennislevel: "",
+    zip_code: "",
+    tennis_level: "",
 };
   
 const SearchForm = ({ onSearch }) => {
-  const [searchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
+    const [searchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
+    
 
-  const handleChange = (event) => {
+    const handleChange = (event) => {
 
-    const { name, value } = event.target;
-    setSearchFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-    }));
-    console.log(value)
+        const { name, value } = event.target;
+        setSearchFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+        console.log(value)
   };
     
 
@@ -37,10 +38,10 @@ const SearchForm = ({ onSearch }) => {
     // Check if both zip code and tennis level are empty.
     // If both are empty, we will not perform the search.
     if (Object.keys(formData).length > 0) {
-      onSearch(formData);
-    } else {
-      console.log("Please enter either zip code or tennis level.");
+        onSearch(formData);
+        
     }
+
   };
 
   // This is gatherin number by number what's in the forms:
@@ -86,15 +87,13 @@ const SearchForm = ({ onSearch }) => {
           onChange={handleChange}
         />
         <input className="submit_board" type="submit" value="submit" />
-
-        {/* <button type="submit">Search now!</button> */}
       </React.Fragment>
     </form>
   );
 };
 
 SearchForm.propTypes = {
-    SearchForm: PropTypes.func.isRequired,
+    onSearch: PropTypes.func.isRequired,
 };
 
 export default SearchForm;
