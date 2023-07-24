@@ -93,7 +93,10 @@ const App = () => {
               />
               <Route path="log_in" />
               {/* element={} */}
-              <Route path="sign_up" element={<SignUp />} />
+              <Route
+                path="sign_up"
+                element={<SignUp onlisting={callPostRequest} />}
+              />
               <Route path="profile" element={<Profile />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
