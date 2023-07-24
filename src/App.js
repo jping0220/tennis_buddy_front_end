@@ -95,7 +95,7 @@ const App = () => {
               {/* element={} */}
               <Route
                 path="sign_up"
-                element={<SignUp onlisting={callPostRequest} />}
+                element={<SignUp onListing={callPostRequest} />}
               />
               <Route path="profile" element={<Profile />} />
               <Route path="*" element={<NoMatch />} />
