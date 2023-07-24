@@ -30,91 +30,93 @@ const tennisLevels = [
 ];
   
 const NewUserForm = ({ onListing }) => {
-    const [formData, setForData] = useState(INITIAL_FORM_DATA);
+    const [formProfileData, setFormData] = useState(INITIAL_FORM_DATA);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setForData((prevData) => ({
-            ...prevData,
-            [name]: value,
+        setFormData((prevData) => ({
+          ...prevData,
+          [name]: value,
         }));
+      console.log(value);
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        onListing(formData);
-        setForData(INITIAL_FORM_DATA);
+      event.preventDefault();
+      console.log(formProfileData);
+        onListing(formProfileData);
+        setFormData(INITIAL_FORM_DATA);
     };
 
 
     return (
-        <Form onListing={handleSubmit}>
-            <Form.Group controlID="name">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                />
-            </Form.Group>
+      <Form onListing={handleSubmit}>
+        <Form.Group controlId="name">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type="text"
+            name="name"
+            value={formProfileData.name}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-            <Form.Group controlID="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                />
-            </Form.Group>
+        <Form.Group controlID="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="text"
+            name="email"
+            value={formProfileData.email}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-            <Form.Group controlID="zip_code">
-                <Form.Label>Zip Code</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="zip_code"
-                    value={formData.zip_code}
-                    onChange={handleChange}
-                    required
-                />
-            </Form.Group>
+        <Form.Group controlID="zip_code">
+          <Form.Label>Zip Code</Form.Label>
+          <Form.Control
+            type="text"
+            name="zip_code"
+            value={formProfileData.zip_code}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
-            <Form.Group controlID="tennis_level">
-                <Form.Label>Tennis Level</Form.Label>
-                <Form.Control
-                    as="select"
-                    type="text"
-                    name="tennis_level"
-                    value={formData.tennis_level}
-                    onChange={handleChange}
-                    required
-                >
-                    {tennisLevels.map((level) => (
-                        <option key={level.value} value={level.value}>
-                            {level.label}
-                        </option>
-                    ))}
-                </Form.Control>
-            </Form.Group>
+        <Form.Group controlID="tennis_level">
+          <Form.Label>Tennis Level</Form.Label>
+          <Form.Control
+            as="select"
+            type="text"
+            name="tennis_level"
+            value={formProfileData.tennis_level}
+            onChange={handleChange}
+            required
+          >
+            {tennisLevels.map((level) => (
+              <option key={level.value} value={level.value}>
+                {level.label}
+              </option>
+            ))}
+          </Form.Control>
+        </Form.Group>
 
-            <Form.Group controlID="preferences">
-                <Form.Label>Preference</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="preferences"
-                    value={formData.preferences}
-                    onChange={handleChange}
-                    required
-                />
-            </Form.Group>
-            
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-        </Form>
+        <Form.Group controlID="preferences">
+          <Form.Label>Preference</Form.Label>
+          <Form.Control
+            type="text"
+            name="preferences"
+            value={formProfileData.preferences}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
     );
 };
 NewUserForm.propTypes = {
