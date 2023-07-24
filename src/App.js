@@ -106,7 +106,6 @@ const App = () => {
             </Routes>
           </Router>
           <h3>User is {isAuthenticated ? "Logged in" : "Not logged in"}</h3>
-          {/* {isAuthenticated && <NewUserForm onListing={callPostRequest} />} */}
         </Layout>
       </React.Fragment>
     );
