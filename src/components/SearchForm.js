@@ -45,14 +45,14 @@ const SearchForm = ({ onSearch }) => {
       event.preventDefault();
       const formData = {};
 
-
+      
       if (searchFormData.zip_code.trim() !== "") {
           formData.zip_code = searchFormData.zip_code;
       }
-      else if (searchFormData.tennis_level.trim() !== "") {
+      if (searchFormData.tennis_level.trim() !== "") {
           formData.tennis_level = searchFormData.tennis_level;
       }
-  
+    
     if (Object.keys(formData).length > 0) {
         onSearch(formData);
         
