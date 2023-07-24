@@ -1,21 +1,33 @@
 import React, {useState} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-import { LogIn } from './components/LogIn';
+// import { LogIn } from './components/LogIn';
 import { NoMatch } from './components/NoMatch';
 // import  TennisUserList from './components/TennisUserList';
-import { Profile } from './components/Profile';
+import Profile from './components/Profile';
 import { SignUp } from './components/SignUp';
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
 import tennisPlayer from "./assets/tennisPlayer.jpg";
 // import SearchForm from "./components/SearchForm";
+import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 
 
 
 
+
+
 const App = () => {
+    const {
+      loginWithPopup,
+      loginWithRedirect,
+      logout,
+      user,
+      isAuthenticated,
+      getAccessTokenSilently,
+    } = useAuth0();
+
   const API = "https://tennis-buddy-back-end.onrender.com";
   const [searchResult, setSearchResults] = useState([])
   const [matchFound, setMatchFound] = useState(true);
@@ -51,18 +63,24 @@ const App = () => {
         <Layout>
           <Router>
             <Routes>
-              <Route path="/" element={
-                <Home
-                  onSearch={handleSearch}
-                  searchResult={searchResult}
-                  matchFound={matchFound}
-                />} />
-              <Route path="log_in" element={<LogIn />} />
+              <Route
+                path="/"
+                element={
+                  <Home
+                    onSearch={handleSearch}
+                    searchResult={searchResult}
+                    matchFound={matchFound}
+                  />
+                }
+              />
+              <Route path="log_in" />
+              {/* element={} */}
               <Route path="sign_up" element={<SignUp />} />
               <Route path="profile" element={<Profile />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Router>
+          <h3>User is {isAuthenticated ? "Logged in" : "Not logged in"}</h3>
         </Layout>
       </React.Fragment>
     );
