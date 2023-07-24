@@ -2,7 +2,7 @@
 // copy format from boostrap
 // const NewUserForm = ({ onListing }) => {
 import React, { useState } from "react";
-import PropTypes from "prop-type";
+import PropTypes from "prop-types";
 import { Form, Button } from "react-bootstrap";
 
 const INITIAL_FORM_DATA = {
@@ -10,7 +10,7 @@ const INITIAL_FORM_DATA = {
     email: "",
     zip_code: "",
     tennis_level: "",
-    preference: ""
+    preferences: ""
 };
 
 const tennisLevels = [
@@ -100,12 +100,12 @@ const NewUserForm = ({ onListing }) => {
                 </Form.Control>
             </Form.Group>
 
-            <Form.Group controlID="preference">
+            <Form.Group controlID="preferences">
                 <Form.Label>Preference</Form.Label>
                 <Form.Control
                     type="text"
-                    name="preference"
-                    value={formData.preference}
+                    name="preferences"
+                    value={formData.preferences}
                     onChange={handleChange}
                     required
                 />

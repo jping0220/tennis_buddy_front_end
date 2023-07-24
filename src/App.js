@@ -5,10 +5,11 @@ import Home from './components/Home';
 import { NoMatch } from './components/NoMatch';
 // import  TennisUserList from './components/TennisUserList';
 import Profile from './components/Profile';
-import { SignUp } from './components/SignUp';
+import SignUp from './components/SignUp';
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
 import tennisPlayer from "./assets/tennisPlayer.jpg";
+// import NewUserForm from "./components/NewUserForm";
 // import SearchForm from "./components/SearchForm";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
@@ -46,15 +47,19 @@ const App = () => {
         });
   };
 // this function is not ready:
-  async function callPostRequest() {
+  async function callPostRequest(formProfileData) {
     try {
       const token = await getAccessTokenSilently();
       const response = await axios.post(
         "https://tennis-buddy-back-end.onrender.com/users/me",
         {
           headers: { authorization: `Bearer ${token}` },
-          params: {
-            // here the params: formProfileData,
+          params: {// here the params: formProfileData,
+            name: formProfileData.name,
+            email: formProfileData.email,
+            zip_code: formProfileData.zip_code,
+            tennis_level: formProfileData.tennis_level,
+            preferences: formProfileData.preferences          
           },
         }
       );
@@ -94,14 +99,14 @@ const App = () => {
               <Route path="log_in" />
               {/* element={} */}
               <Route
-                path="sign_up"
-                element={<SignUp onListing={callPostRequest} />}
+                path="sign_up" element={<SignUp isAuthenticated={isAuthenticated}   onListing={callPostRequest} />}
               />
               <Route path="profile" element={<Profile />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Router>
           <h3>User is {isAuthenticated ? "Logged in" : "Not logged in"}</h3>
+          {/* {isAuthenticated && <NewUserForm onListing={callPostRequest} />} */}
         </Layout>
       </React.Fragment>
     );
