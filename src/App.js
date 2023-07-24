@@ -33,7 +33,6 @@ const App = () => {
   const [matchFound, setMatchFound] = useState(true);
 
   const handleSearch = (formData) => {
-
       axios
         .get(`${API}/search`, { params: formData })
         .then((response) => {
@@ -46,6 +45,22 @@ const App = () => {
           setMatchFound(false);
         });
   };
+// this function is not ready:
+  async function callProtectedApi() {
+    try {
+      const token = await getAccessTokenSilently();
+      const response = await axios.get(
+        "https://tennis-buddy-back-end.onrender.com/users/me",
+        {
+          headers: { authorization: `Bearer ${token}` },
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   
 
     return (
