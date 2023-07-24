@@ -31,6 +31,7 @@ const tennisLevels = [
   
 const NewUserForm = ({ onListing }) => {
     const [formProfileData, setFormData] = useState(INITIAL_FORM_DATA);
+    // console.log(onListing)
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -43,9 +44,9 @@ const NewUserForm = ({ onListing }) => {
 
     const handleSubmit = (event) => {
       event.preventDefault();
-      console.log(formProfileData);
+      console.log(formProfileData.name);
         onListing(formProfileData);
-        setFormData(INITIAL_FORM_DATA);
+        // setFormData(INITIAL_FORM_DATA);
     };
 
 
@@ -62,7 +63,7 @@ const NewUserForm = ({ onListing }) => {
           />
         </Form.Group>
 
-        <Form.Group controlID="email">
+        <Form.Group controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="text"
@@ -73,7 +74,7 @@ const NewUserForm = ({ onListing }) => {
           />
         </Form.Group>
 
-        <Form.Group controlID="zip_code">
+        <Form.Group controlId="zip_code">
           <Form.Label>Zip Code</Form.Label>
           <Form.Control
             type="text"
@@ -84,7 +85,7 @@ const NewUserForm = ({ onListing }) => {
           />
         </Form.Group>
 
-        <Form.Group controlID="tennis_level">
+        <Form.Group controlId="tennis_level">
           <Form.Label>Tennis Level</Form.Label>
           <Form.Control
             as="select"
@@ -102,7 +103,7 @@ const NewUserForm = ({ onListing }) => {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group controlID="preferences">
+        <Form.Group controlId="preferences">
           <Form.Label>Preference</Form.Label>
           <Form.Control
             type="text"

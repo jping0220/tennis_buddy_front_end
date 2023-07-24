@@ -50,6 +50,7 @@ const App = () => {
   async function callPostRequest(formProfileData) {
     try {
       const token = await getAccessTokenSilently();
+      console.log(`testing formprofiledata: ${formProfileData}` )
       const response = await axios.post(
         "https://tennis-buddy-back-end.onrender.com/users/me",
         {
@@ -99,7 +100,7 @@ const App = () => {
               <Route path="log_in" />
               {/* element={} */}
               <Route
-                path="sign_up" element={<SignUp isAuthenticated={isAuthenticated}   onListing={callPostRequest} />}
+                path="sign_up" element={<SignUp  onListing={callPostRequest} />}
               />
               <Route path="profile" element={<Profile />} />
               <Route path="*" element={<NoMatch />} />
