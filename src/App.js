@@ -46,13 +46,16 @@ const App = () => {
         });
   };
 // this function is not ready:
-  async function callProtectedApi() {
+  async function callPostRequest() {
     try {
       const token = await getAccessTokenSilently();
-      const response = await axios.get(
+      const response = await axios.post(
         "https://tennis-buddy-back-end.onrender.com/users/me",
         {
           headers: { authorization: `Bearer ${token}` },
+          params: {
+            // here the params: formProfileData,
+          },
         }
       );
       console.log(response.data);
