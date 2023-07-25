@@ -17,14 +17,6 @@ const Styles = styled.div`
     }
 `;
 
-
-const suma = (x, y) => x + y;
-const suma2 = (x, y) => {
-    // .. aca puede ir mas codigo
-    return x + y;
-};
-
-
 export const NavigationBar = () => {
       const { isAuthenticated } = useAuth0();
 

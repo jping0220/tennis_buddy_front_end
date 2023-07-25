@@ -6,12 +6,3 @@ export const LoginRedirect = () => {
   loginWithRedirect();
 //  return <button onClick={() => loginWithRedirect()}>Log In</button>;
 };
-
-
-
-
-// export const LogIn = () => (
-//     <div>
-//         <h2>log in format will be here</h2>
-//     </div>
-// )
