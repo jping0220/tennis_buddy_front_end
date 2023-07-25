@@ -10,7 +10,7 @@ const Home = ({ onSearch, searchResult, matchFound }) => {
             <SearchForm onSearch={onSearch} searchResult={searchResult} />
             {matchFound ? (
                 <TennisUserList searchResult={searchResult} />) : (
-                <p>No Match Found</p>
+                <p>No Match Player Was Found</p>
             )}
         </div>
     );

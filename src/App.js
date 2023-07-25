@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState, useCallback} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 // import { LogIn } from './components/LogIn';
@@ -32,6 +32,8 @@ const App = () => {
   const API = "https://tennis-buddy-back-end.onrender.com";
   const [searchResult, setSearchResults] = useState([])
   const [matchFound, setMatchFound] = useState(true);
+  const [userData, setUserData] = useState(null);
+
 
   const handleSearch = (formData) => {
       axios
@@ -46,7 +48,8 @@ const App = () => {
           setMatchFound(false);
         });
   };
-// this function is not ready:
+
+
   async function callPostRequest(formProfileData) {
     try {
       const token = await getAccessTokenSilently();
@@ -69,9 +72,36 @@ const App = () => {
     }
   }
 
+
+  const getUserData = useCallback(async () => {
+    try {
+      const token = await getAccessTokenSilently(); 
+      const response = await axios.get(
+        "https://tennis-buddy-back-end.onrender.com/users/me",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error.message);
+      
+      return null;
+    }
+  }, [getAccessTokenSilently]);
   
 
-    return (
+  useEffect(() => {
+    if (isAuthenticated) {
+      getUserData().then((data) => {
+        setUserData(data); 
+      });
+    }
+    // console.log("userData in App useEffect:", userData);
+  }, [isAuthenticated, getUserData]);
+  
+
+  return (
       <React.Fragment>
         <div className="pic">
           <img
@@ -101,7 +131,7 @@ const App = () => {
               <Route
                 path="sign_up" element={<SignUp  onListing={callPostRequest} />}
               />
-              <Route path="profile" element={<Profile />} />
+              <Route path="profile" element={<Profile userData={userData} />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Router>
