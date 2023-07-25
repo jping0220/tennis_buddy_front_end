@@ -1,6 +1,3 @@
-// look in searchForm for inspiration
-// copy format from boostrap
-// const NewUserForm = ({ onListing }) => {
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Form, Button } from "react-bootstrap";

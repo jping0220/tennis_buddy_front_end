@@ -5,9 +5,10 @@ const TennisUser = ({ user }) => {
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Body>
-        <Card.Title>{user.name}</Card.Title>
+        <Card.Title>name:{user.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">Zip Code: {user.zip_code}</Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">Email: {user.email}</Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted">Skill Level: {user.tennis_level}</Card.Subtitle>
         <Card.Text>
           Preferences: {user.preferences}
         </Card.Text>
