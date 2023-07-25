@@ -4,11 +4,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = ({ userData }) => {
   // console.log("userData in Profile:",userData.user.name)
-  const { user, isAuthenticated, isLoading,} = useAuth0();
-
-  // if (isLoading) {
-  //   return <div>Loading ...</div>;
-  // }
+  const { user, isAuthenticated } = useAuth0();
+  
+  
   if (!userData) {
     return <div>Loading...</div>
   }
