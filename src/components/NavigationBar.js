@@ -40,10 +40,10 @@ export const NavigationBar = () => {
                 </Nav.Item>
               )}
               <Nav.Item>
-                <Nav.Link href="/sign_up">Sign Up</Nav.Link>
+                <Nav.Link href="/sign_up">Player Registration</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/profile">Profile</Nav.Link>
+                <Nav.Link href="/profile">Player Profile</Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>

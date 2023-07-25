@@ -112,7 +112,6 @@ const App = () => {
         />
       </div>
       <NavigationBar />
-      {/* <NavBar/> */}
 
       <Layout>
         <Router>
@@ -129,7 +128,6 @@ const App = () => {
             />
             <Route path="log_in" element={<LoginRedirect />} />
             <Route path="log_out" element={<LogoutRedirect />} />
-            {/* element={} */}
             <Route
               path="sign_up"
               element={<SignUp onListing={callPostRequest} />}
@@ -138,7 +136,6 @@ const App = () => {
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </Router>
-        <h3>User is {isAuthenticated ? "Logged in" : "Not logged in"}</h3>
       </Layout>
     </React.Fragment>
   );
