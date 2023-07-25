@@ -1,9 +1,6 @@
 import React, {useEffect, useState, useCallback} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-// import { LogIn } from './components/LogIn';
-// import { NoMatch } from './components/NoMatch';
-// import  TennisUserList from './components/TennisUserList';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
 import { Layout } from "./components/Layout";
@@ -13,10 +10,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { LoginRedirect } from "./components/LogInRedirect";
 import { LogoutRedirect } from "./components/LogoutRedirect";
-
-
-
-
 
 
 const App = () => {
@@ -35,7 +28,8 @@ const App = () => {
   const [userData, setUserData] = useState(null);
   // this is the new_form state (after post):
   const [showForm, setShowForm] = useState(true);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  // these are the editform state
+  const [showSuccessMessage, setShowSuccessMessage] = useState(true);
   const [showEditForm, setShowEditForm] = useState(false);
 
 
@@ -46,7 +40,7 @@ const App = () => {
         .then((response) => {
           console.log("API Response:", response.data);
           setSearchResults(response.data);
-          // setMatchFound(response.data.length > 0);
+          setMatchFound(response.data.length > 0);
         })
 
         .catch((error) => { console.error("Error fetching data:", error);
@@ -54,6 +48,8 @@ const App = () => {
         });
   };
 
+
+  
 // post new user
   async function callPostRequest(formProfileData) {
     try {
@@ -74,9 +70,12 @@ const App = () => {
       console.log(response.data);
       setShowForm(false);
     } catch (error) {
+      setShowEditForm(false);
       console.log(error.message);
+      console.log(`message to display 409 error`)
     }
   }
+
 
 // get user
   const getUserData = useCallback(async () => {
@@ -174,12 +173,12 @@ const App = () => {
             />
             <Route path="log_in" element={<LoginRedirect />} />
             <Route path="log_out" element={<LogoutRedirect />} />
-            {showForm && (
+             
               <Route
                 path="sign_up"
-                element={<SignUp onListing={callPostRequest} />}
+                element={<SignUp onListing={callPostRequest} showForm={showForm} />}
               />
-            )}
+      
             <Route
               path="profile"
               element={<Profile
@@ -190,7 +189,7 @@ const App = () => {
                 showSuccessMessage={showSuccessMessage}
   />}
             />
-            {/* <Route path="*" element={<NoMatch />} /> */}
+
           </Routes>
         </Router>
       </Layout>
