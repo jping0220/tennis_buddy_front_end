@@ -4,8 +4,6 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from "@auth0/auth0-react";
 import App from "./App";
-import LoginButton from './components/LogIn';
-import LogoutButton from './components/LogOut';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,8 +18,6 @@ root.render(
     scope="email"
   >
     <App />
-    <LoginButton></LoginButton>
-    <LogoutButton></LogoutButton>
   </Auth0Provider>
   // <React.StrictMode>
   //   <App />

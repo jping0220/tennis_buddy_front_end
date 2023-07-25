@@ -9,10 +9,10 @@ import SignUp from './components/SignUp';
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
 import tennisPlayer from "./assets/tennisPlayer.jpg";
-// import NewUserForm from "./components/NewUserForm";
-// import SearchForm from "./components/SearchForm";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import { LoginRedirect } from "./components/LogInRedirect";
+import { LogoutRedirect } from "./components/LogoutRedirect";
 
 
 
@@ -102,43 +102,46 @@ const App = () => {
   
 
   return (
-      <React.Fragment>
-        <div className="pic">
-          <img
-            src={tennisPlayer}
-            alt="tennis player background pic"
-            height={200}
-            width={300}
-          />
-        </div>
-        <NavigationBar />
+    <React.Fragment>
+      <div className="pic">
+        <img
+          src={tennisPlayer}
+          alt="tennis player background pic"
+          height={200}
+          width={300}
+        />
+      </div>
+      <NavigationBar />
+      {/* <NavBar/> */}
 
-        <Layout>
-          <Router>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Home
-                    onSearch={handleSearch}
-                    searchResult={searchResult}
-                    matchFound={matchFound}
-                  />
-                }
-              />
-              <Route path="log_in" />
-              {/* element={} */}
-              <Route
-                path="sign_up" element={<SignUp  onListing={callPostRequest} />}
-              />
-              <Route path="profile" element={<Profile userData={userData} />} />
-              <Route path="*" element={<NoMatch />} />
-            </Routes>
-          </Router>
-          <h3>User is {isAuthenticated ? "Logged in" : "Not logged in"}</h3>
-        </Layout>
-      </React.Fragment>
-    );
+      <Layout>
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  onSearch={handleSearch}
+                  searchResult={searchResult}
+                  matchFound={matchFound}
+                />
+              }
+            />
+            <Route path="log_in" element={<LoginRedirect />} />
+            <Route path="log_out" element={<LogoutRedirect />} />
+            {/* element={} */}
+            <Route
+              path="sign_up"
+              element={<SignUp onListing={callPostRequest} />}
+            />
+            <Route path="profile" element={<Profile userData={userData} />} />
+            <Route path="*" element={<NoMatch />} />
+          </Routes>
+        </Router>
+        <h3>User is {isAuthenticated ? "Logged in" : "Not logged in"}</h3>
+      </Layout>
+    </React.Fragment>
+  );
 
   };
 
