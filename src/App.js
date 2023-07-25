@@ -33,6 +33,7 @@ const App = () => {
   const [searchResult, setSearchResults] = useState([])
   const [matchFound, setMatchFound] = useState(true);
   const [userData, setUserData] = useState(null);
+  // this is the new_form state (after post):
   const [showForm, setShowForm] = useState(true);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
@@ -163,11 +164,16 @@ const App = () => {
             />
             <Route path="log_in" element={<LoginRedirect />} />
             <Route path="log_out" element={<LogoutRedirect />} />
-            {showForm && <Route
-              path="sign_up"
-              element={<SignUp onListing={callPostRequest} />}
-            />}
-            <Route path="profile" element={<Profile userData={userData} />} />
+            {showForm && (
+              <Route
+                path="sign_up"
+                element={<SignUp onListing={callPostRequest} />}
+              />
+            )}
+            <Route
+              path="profile"
+              element={<Profile onDelete={handleDelete} userData={userData} />}
+            />
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </Router>
