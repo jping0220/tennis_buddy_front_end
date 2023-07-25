@@ -2,7 +2,7 @@ import React, {useEffect, useState, useCallback} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 // import { LogIn } from './components/LogIn';
-import { NoMatch } from './components/NoMatch';
+// import { NoMatch } from './components/NoMatch';
 // import  TennisUserList from './components/TennisUserList';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
@@ -38,7 +38,7 @@ const App = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
 
-  
+
 // search query by two or one param
   const handleSearch = (formData) => {
       axios
@@ -190,7 +190,7 @@ const App = () => {
                 showSuccessMessage={showSuccessMessage}
   />}
             />
-            <Route path="*" element={<NoMatch />} />
+            {/* <Route path="*" element={<NoMatch />} /> */}
           </Routes>
         </Router>
       </Layout>
