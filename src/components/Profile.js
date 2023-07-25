@@ -42,8 +42,7 @@ const Profile = ({ userData, onEditSubmit, onDelete, showSuccessMessage }) => {
             <p>Preferences: {userData.user.preferences}</p>
           </React.Fragment>
         )}
-        
-        {/* Show success message if changes were made */}
+
         {showSuccessMessage && <div>Changes were made successfully.</div>}
 
         {/* Show edit form if user clicked on edit button */}
@@ -56,7 +55,6 @@ const Profile = ({ userData, onEditSubmit, onDelete, showSuccessMessage }) => {
           <button onClick={() => setShowEditForm(true)}>Edit</button>
         )}
 
-        {/* Show delete button */}
         <button onClick={handleDelete}>Delete</button>
         
         
