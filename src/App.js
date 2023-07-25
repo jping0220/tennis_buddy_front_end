@@ -33,7 +33,11 @@ const App = () => {
   const [searchResult, setSearchResults] = useState([])
   const [matchFound, setMatchFound] = useState(true);
   const [userData, setUserData] = useState(null);
+<<<<<<< HEAD
   const [showForm, setShowForm] = useState(true);
+=======
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+>>>>>>> c941ac61e3088bc3680ce00d0e794e105b7efd80
 
 // search query by two or one param
   const handleSearch = (formData) => {
@@ -102,6 +106,38 @@ const App = () => {
     // console.log("userData in App useEffect:", userData);
   }, [isAuthenticated, getUserData]);
   
+
+
+  // const handleEditSubmit = async (updatedData) => {
+  //   try {
+  //     const token = await getAccessTokenSilently();
+  //     const response = await axios.put("https://tennis-buddy-back-end.onrender.com/users/me", {
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     });
+  //     console.log("Updated form data:", response.data);
+  //     setShowSuccessMessage(true);
+  //     setShowEditForm(false);
+  //     // Optionally, can update the local userData state with the response data
+  //     // setUserData(response.data);
+  //   } catch (error) {
+  //     console.error("Error updating user data:", error);
+  //   }
+  // };
+
+  const handleDelete = async () => {
+    try {
+      const token = await getAccessTokenSilently();
+      await axios.delete("https://tennis-buddy-back-end.onrender.com/users/me", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      console.log("User data deleted successfully.");
+      setShowSuccessMessage(true);
+      setUserData(null);
+    } catch (error) {
+      console.error("Error deleting user data:", error);
+    }
+  };
+
 
   return (
     <React.Fragment>

@@ -37,7 +37,7 @@ const NewUserForm = ({ onListing }) => {
           ...prevData,
           [name]: value,
         }));
-      console.log(value);
+    //   console.log(value);
     };
 
     const handleSubmit = (event) => {
@@ -46,6 +46,7 @@ const NewUserForm = ({ onListing }) => {
       onListing(formProfileData);
         // setFormData(INITIAL_FORM_DATA);
       setShowSuccessMessage(true);
+
     };
 
 
