@@ -27,7 +27,8 @@ const tennisLevels = [
 ];
   
 const NewUserForm = ({ onListing }) => {
-    const [formProfileData, setFormData] = useState(INITIAL_FORM_DATA);
+  const [formProfileData, setFormData] = useState(INITIAL_FORM_DATA);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     // console.log(onListing)
 
     const handleChange = (event) => {
@@ -42,12 +43,14 @@ const NewUserForm = ({ onListing }) => {
     const handleSubmit = (event) => {
       event.preventDefault();
       console.log(formProfileData.name);
-        onListing(formProfileData);
+      onListing(formProfileData);
         // setFormData(INITIAL_FORM_DATA);
+      setShowSuccessMessage(true);
     };
 
 
-    return (
+  return (
+    <div>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="name">
           <Form.Label>Name</Form.Label>
@@ -115,7 +118,14 @@ const NewUserForm = ({ onListing }) => {
           Submit
         </Button>
       </Form>
-    );
+      {showSuccessMessage && (
+        <div>
+          <h3>Success! Your form has been submitted.</h3>
+          {/* You can display any additional success message or actions here */}
+        </div>
+      )}
+    </div>
+  );
 };
 NewUserForm.propTypes = {
     onListing: PropTypes.func.isRequired,

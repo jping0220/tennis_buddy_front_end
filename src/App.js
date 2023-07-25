@@ -33,15 +33,16 @@ const App = () => {
   const [searchResult, setSearchResults] = useState([])
   const [matchFound, setMatchFound] = useState(true);
   const [userData, setUserData] = useState(null);
+  const [showForm, setShowForm] = useState(true);
 
-
+// search query by two or one param
   const handleSearch = (formData) => {
       axios
         .get(`${API}/search`, { params: formData })
         .then((response) => {
           console.log("API Response:", response.data);
           setSearchResults(response.data);
-          setMatchFound(response.data.length > 0);
+          // setMatchFound(response.data.length > 0);
         })
 
         .catch((error) => { console.error("Error fetching data:", error);
@@ -49,7 +50,7 @@ const App = () => {
         });
   };
 
-
+// post new user
   async function callPostRequest(formProfileData) {
     try {
       const token = await getAccessTokenSilently();
@@ -67,12 +68,13 @@ const App = () => {
         }
       );
       console.log(response.data);
+      setShowForm(false);
     } catch (error) {
       console.log(error.message);
     }
   }
 
-
+// get user
   const getUserData = useCallback(async () => {
     try {
       const token = await getAccessTokenSilently(); 
@@ -128,10 +130,10 @@ const App = () => {
             />
             <Route path="log_in" element={<LoginRedirect />} />
             <Route path="log_out" element={<LogoutRedirect />} />
-            <Route
+            {showForm && <Route
               path="sign_up"
               element={<SignUp onListing={callPostRequest} />}
-            />
+            />}
             <Route path="profile" element={<Profile userData={userData} />} />
             <Route path="*" element={<NoMatch />} />
           </Routes>

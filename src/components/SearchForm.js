@@ -27,9 +27,8 @@ const tennisLevels = [
 
 
 const SearchForm = ({ onSearch }) => {
-    const [searchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
-    
-
+  const [searchFormData, setSearchFormData] = useState(INITIAL_SEARCH_DATA);
+  
     const handleChange = (event) => {
 
         const { name, value } = event.target;
@@ -57,43 +56,45 @@ const SearchForm = ({ onSearch }) => {
         onSearch(formData);
         
     }
-
+    
   };
     
     
   return (
-    <Form onSubmit={handleSubmit} className="new-board-form__form">
-      <Form.Group controlId="zip_code">
-        <Form.Label>Zip Code</Form.Label>
-        <Form.Control
-          required
-          type="number"
-          name="zip_code"
-          value={searchFormData.zip_code}
-          onChange={handleChange}
-        />
-      </Form.Group>
+    <div>
+      <Form onSubmit={handleSubmit} className="new-board-form__form">
+        <Form.Group controlId="zip_code">
+          <Form.Label>Zip Code</Form.Label>
+          <Form.Control
+            required
+            type="number"
+            name="zip_code"
+            value={searchFormData.zip_code}
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-      <Form.Group controlId="tennis_level">
-        <Form.Label>Tennis Level</Form.Label>
-        <Form.Control
-          as="select"
-          name="tennis_level"
-          value={searchFormData.tennis_level}
-          onChange={handleChange}
-        >
-          {tennisLevels.map((level) => (
-            <option key={level.value} value={level.value}>
-              {level.label}
-            </option>
-          ))}
-        </Form.Control>
-      </Form.Group>
+        <Form.Group controlId="tennis_level">
+          <Form.Label>Tennis Level</Form.Label>
+          <Form.Control
+            as="select"
+            name="tennis_level"
+            value={searchFormData.tennis_level}
+            onChange={handleChange}
+          >
+            {tennisLevels.map((level) => (
+              <option key={level.value} value={level.value}>
+                {level.label}
+              </option>
+            ))}
+          </Form.Control>
+        </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Search
-      </Button>
-    </Form>
+        <Button variant="primary" type="submit">
+          Search
+        </Button>
+      </Form>
+    </div>
   );
 };
 
