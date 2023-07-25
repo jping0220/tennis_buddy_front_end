@@ -33,11 +33,8 @@ const App = () => {
   const [searchResult, setSearchResults] = useState([])
   const [matchFound, setMatchFound] = useState(true);
   const [userData, setUserData] = useState(null);
-<<<<<<< HEAD
   const [showForm, setShowForm] = useState(true);
-=======
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
->>>>>>> c941ac61e3088bc3680ce00d0e794e105b7efd80
 
 // search query by two or one param
   const handleSearch = (formData) => {
