@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import EditForm from "./EditForm";
 
 
-const Profile = ({ userData }) => {
-  // console.log("userData in Profile:",userData.user.name)
-  const { user, isAuthenticated } = useAuth0();
+const Profile = ({ userData, onEditSubmit, onDelete, showSuccessMessage }) => {
+  console.log("userData in Profile:",userData)
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [showEditForm, setShowEditForm] = useState(false);
+
   
-  
-  if (!userData) {
-    return <div>Loading...</div>
+  if (isLoading) {
+    return <div>Loading ...</div>;
   }
+
+  if (!userData) {
+    return <div>No User Data Available</div>
+  }
+  
+  const handleEditSubmit = (updateData) => {
+    onEditSubmit(updateData);
+  };
+  
+  const handleDelete = () => {
+    onDelete();
+  };
+
 
   return (
     isAuthenticated && (
@@ -27,6 +42,23 @@ const Profile = ({ userData }) => {
             <p>Preferences: {userData.user.preferences}</p>
           </React.Fragment>
         )}
+        
+        {/* Show success message if changes were made */}
+        {showSuccessMessage && <div>Changes were made successfully.</div>}
+
+        {/* Show edit form if user clicked on edit button */}
+        {showEditForm ? (
+          <EditForm
+            initialData={userData}
+            onEditSubmit={handleEditSubmit}
+          />
+        ) : (
+          <button onClick={() => setShowEditForm(true)}>Edit</button>
+        )}
+
+        {/* Show delete button */}
+        <button onClick={handleDelete}>Delete</button>
+        
         
       </div>
     )

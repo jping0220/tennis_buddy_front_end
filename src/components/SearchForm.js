@@ -97,32 +97,6 @@ const SearchForm = ({ onSearch }) => {
   );
 };
 
-//   return (
-//     <form onSubmit={handleSubmit} className="new-board-form__form">
-//       <React.Fragment>
-//         <label htmlFor="zip_code">Zip Code</label>
-//         <input
-//           required
-//           type="number"
-//           id="zip_code"
-//           name="zip_code"
-//           value={searchFormData.zip_code}
-//           onChange={handleChange}
-//         />
-//         <label htmlFor="tennis_level">Tennis Level</label>
-//         <input
-//         // required
-//           type="number"
-//           id="tennis_level"
-//           name="tennis_level"
-//           value={searchFormData.tennis_level}
-//           onChange={handleChange}
-//         />
-//         <input className="submit_board" type="submit" value="submit" />
-//       </React.Fragment>
-//     </form>
-//   );
-// };
 
 SearchForm.propTypes = {
     onSearch: PropTypes.func.isRequired,

@@ -36,14 +36,14 @@ const NewUserForm = ({ onListing }) => {
           ...prevData,
           [name]: value,
         }));
-      console.log(value);
+    //   console.log(value);
     };
 
     const handleSubmit = (event) => {
       event.preventDefault();
-      console.log(formProfileData.name);
+    //   console.log(formProfileData.name);
         onListing(formProfileData);
-        // setFormData(INITIAL_FORM_DATA);
+       
     };
 
 

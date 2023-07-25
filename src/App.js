@@ -33,6 +33,7 @@ const App = () => {
   const [searchResult, setSearchResults] = useState([])
   const [matchFound, setMatchFound] = useState(true);
   const [userData, setUserData] = useState(null);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
 
   const handleSearch = (formData) => {
@@ -101,6 +102,38 @@ const App = () => {
   }, [isAuthenticated, getUserData]);
   
 
+
+  // const handleEditSubmit = async (updatedData) => {
+  //   try {
+  //     const token = await getAccessTokenSilently();
+  //     const response = await axios.put("https://tennis-buddy-back-end.onrender.com/users/me", {
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     });
+  //     console.log("Updated form data:", response.data);
+  //     setShowSuccessMessage(true);
+  //     setShowEditForm(false);
+  //     // Optionally, can update the local userData state with the response data
+  //     // setUserData(response.data);
+  //   } catch (error) {
+  //     console.error("Error updating user data:", error);
+  //   }
+  // };
+
+  const handleDelete = async () => {
+    try {
+      const token = await getAccessTokenSilently();
+      await axios.delete("https://tennis-buddy-back-end.onrender.com/users/me", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      console.log("User data deleted successfully.");
+      setShowSuccessMessage(true);
+      setUserData(null);
+    } catch (error) {
+      console.error("Error deleting user data:", error);
+    }
+  };
+
+
   return (
     <React.Fragment>
       <div className="pic">
@@ -132,7 +165,12 @@ const App = () => {
               path="sign_up"
               element={<SignUp onListing={callPostRequest} />}
             />
-            <Route path="profile" element={<Profile userData={userData} />} />
+            <Route path="profile" element={<Profile
+              userData={userData}
+              // onEditSubmit={handleEditSubmit}
+              onDelete={handleDelete}
+              showSuccessMessage={showSuccessMessage}
+               />} />
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </Router>
