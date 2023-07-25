@@ -36,7 +36,9 @@ const App = () => {
   // this is the new_form state (after post):
   const [showForm, setShowForm] = useState(true);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showEditForm, setShowEditForm] = useState(false);
 
+  
 // search query by two or one param
   const handleSearch = (formData) => {
       axios
@@ -106,21 +108,29 @@ const App = () => {
   
 
 
-  // const handleEditSubmit = async (updatedData) => {
-  //   try {
-  //     const token = await getAccessTokenSilently();
-  //     const response = await axios.put("https://tennis-buddy-back-end.onrender.com/users/me", {
-  //       headers: { Authorization: `Bearer ${token}` },
-  //     });
-  //     console.log("Updated form data:", response.data);
-  //     setShowSuccessMessage(true);
-  //     setShowEditForm(false);
-  //     // Optionally, can update the local userData state with the response data
-  //     // setUserData(response.data);
-  //   } catch (error) {
-  //     console.error("Error updating user data:", error);
-  //   }
-  // };
+  const handleEditSubmit = async (updatedData) => {
+    try {
+      const token = await getAccessTokenSilently();
+      const response = await axios.patch("https://tennis-buddy-back-end.onrender.com/users/me",
+      {
+          name: updatedData.name,
+          email: updatedData.email,
+          zip_code: updatedData.zip_code,
+          tennis_level: updatedData.tennis_level,
+          preferences: updatedData.preferences          
+        },
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      console.log("Updated form data:", response.data);
+      setShowSuccessMessage(true);
+      setShowEditForm(false);
+      // Optionally, can update the local userData state with the response data
+      // setUserData(response.data);
+    } catch (error) {
+      console.error("Error updating user data:", error);
+    }
+  };
 
   const handleDelete = async () => {
     try {
@@ -172,7 +182,13 @@ const App = () => {
             )}
             <Route
               path="profile"
-              element={<Profile onDelete={handleDelete} userData={userData} />}
+              element={<Profile
+                onDelete={handleDelete}
+                userData={userData}
+                onEditSubmit={handleEditSubmit}
+                showEditForm={showEditForm}
+                showSuccessMessage={showSuccessMessage}
+  />}
             />
             <Route path="*" element={<NoMatch />} />
           </Routes>

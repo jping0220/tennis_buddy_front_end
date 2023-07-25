@@ -43,8 +43,6 @@ const Profile = ({ userData, onEditSubmit, onDelete, showSuccessMessage }) => {
           </React.Fragment>
         )}
 
-        {showSuccessMessage && <div>Changes were made successfully.</div>}
-
         {/* Show edit form if user clicked on edit button */}
         {showEditForm ? (
           <EditForm
@@ -57,6 +55,7 @@ const Profile = ({ userData, onEditSubmit, onDelete, showSuccessMessage }) => {
 
         <button onClick={handleDelete}>Delete</button>
         
+        {showSuccessMessage && <div>Changes were made successfully.</div>}
         
       </div>
     )

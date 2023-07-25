@@ -3,6 +3,22 @@ import PropTypes from "prop-types";
 import { Form, Button } from "react-bootstrap";
 
 
+const tennisLevels = [
+  { value: "", label: "Select a level" },
+  { value: "1.0", label: "1.0 - Novice" },
+  { value: "1.5", label: "1.5 - Advance Novice" },
+  { value: "2.0", label: "2.0 - Beginner" },
+  { value: "2.5", label: "2.5 - Advance Beginner" },
+  { value: "3.0", label: "3.0 - Intermediate" },
+  { value: "3.5", label: "3.5 - Advance Intermediate" },
+  { value: "4.0", label: "4.0 - Competitor" },
+  { value: "4.5", label: "4.5 - Advance Competitor" },
+  { value: "5.0", label: "5.0 - Expert" },
+  { value: "5.5", label: "5.5 - Advance Expert" },
+  { value: "6.0", label: "6.0 - Tournament Player" },
+  { value: "7.0", label: "7.0 - Professional Player" },
+];
+
 const EditForm = ({ initialData, onEditSubmit }) => {
     const [formData, setFormData] = useState(initialData);
   
@@ -28,7 +44,7 @@ const EditForm = ({ initialData, onEditSubmit }) => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            required
+         
           />
         </Form.Group>
   
@@ -39,7 +55,7 @@ const EditForm = ({ initialData, onEditSubmit }) => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            required
+        
           />
         </Form.Group>
   
@@ -50,7 +66,7 @@ const EditForm = ({ initialData, onEditSubmit }) => {
             name="zip_code"
             value={formData.zip_code}
             onChange={handleChange}
-            required
+          
           />
         </Form.Group>
   
@@ -61,8 +77,13 @@ const EditForm = ({ initialData, onEditSubmit }) => {
             name="tennis_level"
             value={formData.tennis_level}
             onChange={handleChange}
-            required
+         
           >
+            {tennisLevels.map((level) => (
+              <option key={level.value} value={level.value}>
+                {level.label}
+              </option>
+            ))}
             {/* Your options for tennis levels */}
           </Form.Control>
         </Form.Group>
@@ -74,7 +95,7 @@ const EditForm = ({ initialData, onEditSubmit }) => {
             name="preferences"
             value={formData.preferences}
             onChange={handleChange}
-            required
+       
           />
         </Form.Group>
   
