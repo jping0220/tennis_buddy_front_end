@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 
 const TennisUser = ({ user }) => {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card style={{ width: "30rem" }}>
       <Card.Body>
         <Card.Title>name:{user.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">Zip Code: {user.zip_code}</Card.Subtitle>
