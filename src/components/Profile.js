@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 const Profile = ({ userData }) => {
-  // console.log("userData in Profile:",userData.zip_code)
+  // console.log("userData in Profile:",userData.user.name)
   const { user, isAuthenticated, isLoading,} = useAuth0();
 
   // if (isLoading) {
@@ -22,11 +22,11 @@ const Profile = ({ userData }) => {
 
         {userData && (
           <React.Fragment>
-            {/* <p>Name: {userData.name}</p>
-            <p>Email: {userData.email}</p> */}
-            <p>Zip Code: {userData.zip_code}</p>
-            <p>Tennis Level: {userData.tennis_level}</p>
-            <p>Preferences: {userData.preferences}</p>
+            <p>Name: {userData.user.name}</p>
+            {/* <p>Email: {userData.email}</p> */}
+            <p>Zip Code: {userData.user.zip_code}</p>
+            <p>Tennis Level: {userData.user.tennis_level}</p>
+            <p>Preferences: {userData.user.preferences}</p>
           </React.Fragment>
         )}
         
