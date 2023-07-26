@@ -51,7 +51,7 @@ const EditForm = ({ initialData, onEditSubmit }) => {
         <Form.Group controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
-            type="text"
+            type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -62,7 +62,7 @@ const EditForm = ({ initialData, onEditSubmit }) => {
         <Form.Group controlId="zip_code">
           <Form.Label>Zip Code</Form.Label>
           <Form.Control
-            type="text"
+            type="number"
             name="zip_code"
             value={formData.zip_code}
             onChange={handleChange}
