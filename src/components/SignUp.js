@@ -10,7 +10,7 @@ const SignUp = ({ onListing , showForm, errorMessage}) => {
         ) : (
           <p>Succesfully submitted form</p>
         )}
-        {errorMessage && <div>Error: {errorMessage}</div>}
+        {errorMessage && <div>Caution: {errorMessage}</div>}
       </div>
     );
 };

@@ -20,20 +20,20 @@ const tennisLevels = [
 ];
 
 const EditForm = ({ initialData, onEditSubmit }) => {
-    const [formData, setFormData] = useState(initialData);
-  
+  const [formData, setFormData] = useState(initialData);
     const handleChange = (event) => {
       const { name, value } = event.target;
       setFormData((prevData) => ({
         ...prevData,
         [name]: value,
       }));
+      console.log(value)
     };
   
     const handleSubmit = (event) => {
       event.preventDefault();
       onEditSubmit(formData);
-      window.location.reload();
+      // window.location.reload();
     };
 
   

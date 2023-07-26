@@ -139,12 +139,15 @@ const App = () => {
       setShowSuccessPatch(true);
       setShowEditForm(false);
       // Optionally, can update the local userData state with the response data
-      // setUserData(response.data);
+      setUserData(response.data);
+     
     } catch (error) {
       console.error("Error updating user data:", error);
       setShowSuccessPatch(false);
     }
   };
+
+
 // Delete profile
   const handleDelete = async () => {
     try {
