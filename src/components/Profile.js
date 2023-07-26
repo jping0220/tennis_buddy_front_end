@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import EditForm from "./EditForm";
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 
 const Profile = ({
@@ -24,8 +25,11 @@ const Profile = ({
       <div>
         <h3>No Personal Profile Available</h3>
         <p>
-          <Link to="/sign_up">Click here to sign up</Link>
+          <Link to="/sign_up">
+            <Button variant="primary">Click here to sign up</Button>
+            </Link>
         </p>
+        
       </div>
     );
   }
