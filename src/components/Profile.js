@@ -10,7 +10,7 @@ const Profile = ({
   onEditSubmit,
   onDelete,
   showSuccessPatch,
-  showSuccessDelete,
+  successDelete,
 }) => {
   console.log("userData in Profile:", userData);
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -23,13 +23,17 @@ const Profile = ({
   if (!userData) {
     return (
       <div>
+        {successDelete && (
+          <div>
+            <h3>Success! The item has been deleted.</h3>
+          </div>
+        )}
         <h3>No Personal Profile Available</h3>
         <p>
           <Link to="/sign_up">
             <Button variant="primary">Click here to sign up</Button>
-            </Link>
+          </Link>
         </p>
-        
       </div>
     );
   }
@@ -70,15 +74,10 @@ const Profile = ({
         )}
 
         <button onClick={handleDelete}>Delete</button>
-
+        
         {showSuccessPatch && (
           <div>
             <h3>Changes were made successfully.</h3>
-          </div>
-        )}
-        {showSuccessDelete && (
-          <div>
-            <h3>Success! The item has been deleted.</h3>
           </div>
         )}
       </div>

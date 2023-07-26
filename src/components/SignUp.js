@@ -1,7 +1,6 @@
 import React from "react";
 import NewUserForm from "./NewUserForm";
 
-
 const SignUp = ({ onListing , showForm, errorMessage}) => {
     return (
       <div>

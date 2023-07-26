@@ -32,7 +32,7 @@ const App = () => {
   // these are the editform state
   const [showSuccessPatch, setShowSuccessPatch] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
-  const [showSuccessDelete, setShowSuccessDelete] = useState(false);
+  const [successDelete, setSuccessDelete] = useState(false);
 
 
 
@@ -153,11 +153,11 @@ const App = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("User data deleted successfully.");
-      setShowSuccessDelete(true)
+      setSuccessDelete(true)
       setUserData(null);
     } catch (error) {
       console.error("Error deleting user data:", error);
-      setShowSuccessDelete(false);
+      setSuccessDelete(false);
       // if (error.response) {
       //   // The request was made, and the server responded with a status code other than 2xx
       //   console.error("Server Error:", error.response.data);
@@ -223,7 +223,7 @@ const App = () => {
                   onEditSubmit={handleEditSubmit}
                   showEditForm={showEditForm}
                   showSuccessPatch={showSuccessPatch}
-                  showSuccessDelete={showSuccessDelete}
+                  successDelete={successDelete}
                 />
               }
             />
