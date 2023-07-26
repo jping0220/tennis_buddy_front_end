@@ -28,6 +28,7 @@ const App = () => {
   const [userData, setUserData] = useState(null);
   // this is the new_form state (after post):
   const [showForm, setShowForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
   // these are the editform state
   const [showSuccessMessage, setShowSuccessMessage] = useState(true);
   const [showEditForm, setShowEditForm] = useState(false);
@@ -42,7 +43,6 @@ const App = () => {
           setSearchResults(response.data);
           setMatchFound(response.data.length > 0);
         })
-
         .catch((error) => { console.error("Error fetching data:", error);
           setMatchFound(false);
         });
@@ -70,9 +70,22 @@ const App = () => {
       console.log(response.data);
       setShowForm(false);
     } catch (error) {
-      setShowEditForm(false);
+      setShowForm(true);
       console.log(error.message);
-      console.log(`message to display 409 error`)
+      if (error.response) {
+        // The request was made, and the server responded with a status code other than 2xx
+        console.error("Server Error:", error.response.data);
+        setErrorMessage(error.response.data.msg); // Assuming the server returns an error message in the response data
+      } else if (error.request) {
+        // The request was made, but no response was received (e.g., server is down)
+        console.error("No Response:", error.request);
+        setErrorMessage("No response from the server");
+      } else {
+        // Something else happened in making the request that triggered an error
+        console.error("Error:", error.message);
+        setErrorMessage("An error occurred while making the request");
+      }
+      
     }
   }
 
@@ -176,7 +189,7 @@ const App = () => {
              
               <Route
                 path="sign_up"
-                element={<SignUp onListing={callPostRequest} showForm={showForm} />}
+                element={<SignUp onListing={callPostRequest} showForm={showForm} errorMessage={errorMessage} />}
               />
       
             <Route

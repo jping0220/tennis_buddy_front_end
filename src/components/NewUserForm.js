@@ -28,8 +28,7 @@ const tennisLevels = [
   
 const NewUserForm = ({ onListing }) => {
   const [formProfileData, setFormData] = useState(INITIAL_FORM_DATA);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-    // console.log(onListing)
+  
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -37,7 +36,7 @@ const NewUserForm = ({ onListing }) => {
           ...prevData,
           [name]: value,
         }));
-    //   console.log(value);
+    
     };
 
     const handleSubmit = (event) => {
@@ -45,8 +44,6 @@ const NewUserForm = ({ onListing }) => {
       console.log(formProfileData.name);
       onListing(formProfileData);
         // setFormData(INITIAL_FORM_DATA);
-      setShowSuccessMessage(true);
-
     };
 
 
@@ -119,12 +116,7 @@ const NewUserForm = ({ onListing }) => {
           Submit
         </Button>
       </Form>
-      {showSuccessMessage && (
-        <div>
-          <h3>Success! Your form has been submitted.</h3>
-          {/* You can display any additional success message or actions here */}
-        </div>
-      )}
+      
     </div>
   );
 };
@@ -134,4 +126,13 @@ NewUserForm.propTypes = {
 
 export default NewUserForm;
 
+
+// {
+//   showSuccessMessage && (
+//     <div>
+//       <h3>Success! Your form has been submitted.</h3>
+//       {/* You can display any additional success message or actions here */}
+//     </div>
+//   );
+// }
 
