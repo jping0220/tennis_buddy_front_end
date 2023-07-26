@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import EditForm from "./EditForm";
+import { Link } from 'react-router-dom';
 
 
 const Profile = ({
@@ -19,8 +20,16 @@ const Profile = ({
   }
 
   if (!userData) {
-    return <div>No Personal Profile Available</div>;
+    return (
+      <div>
+        <h3>No Personal Profile Available</h3>
+        <p>
+          <Link to="/sign_up">Click here to sign up</Link>
+        </p>
+      </div>
+    );
   }
+ 
 
   const handleEditSubmit = (updateData) => {
     onEditSubmit(updateData);
@@ -29,6 +38,8 @@ const Profile = ({
   const handleDelete = () => {
     onDelete();
   };
+
+
 
   return (
     isAuthenticated && (
