@@ -3,28 +3,32 @@ import { useAuth0 } from "@auth0/auth0-react";
 import EditForm from "./EditForm";
 
 
-const Profile = ({ userData, onEditSubmit, onDelete, showSuccessMessage }) => {
-  console.log("userData in Profile:",userData)
+const Profile = ({
+  userData,
+  onEditSubmit,
+  onDelete,
+  showSuccessPatch,
+  showSuccessDelete,
+}) => {
+  console.log("userData in Profile:", userData);
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [showEditForm, setShowEditForm] = useState(false);
 
-  
   if (isLoading) {
     return <div>Loading ...</div>;
   }
 
   if (!userData) {
-    return <div>No User Data Available</div>
+    return <div>No User Data Available</div>;
   }
-  
+
   const handleEditSubmit = (updateData) => {
     onEditSubmit(updateData);
   };
-  
+
   const handleDelete = () => {
     onDelete();
   };
-
 
   return (
     isAuthenticated && (
@@ -36,7 +40,7 @@ const Profile = ({ userData, onEditSubmit, onDelete, showSuccessMessage }) => {
         {userData && (
           <React.Fragment>
             <p>Name: {userData.user.name}</p>
-            {/* <p>Email: {userData.email}</p> */}
+            <p>Email: {userData.user.email}</p>
             <p>Zip Code: {userData.user.zip_code}</p>
             <p>Tennis Level: {userData.user.tennis_level}</p>
             <p>Preferences: {userData.user.preferences}</p>
@@ -45,18 +49,23 @@ const Profile = ({ userData, onEditSubmit, onDelete, showSuccessMessage }) => {
 
         {/* Show edit form if user clicked on edit button */}
         {showEditForm ? (
-          <EditForm
-            initialData={userData}
-            onEditSubmit={handleEditSubmit}
-          />
+          <EditForm initialData={userData} onEditSubmit={handleEditSubmit} />
         ) : (
           <button onClick={() => setShowEditForm(true)}>Edit</button>
         )}
 
         <button onClick={handleDelete}>Delete</button>
-        
-        {showSuccessMessage && <div>Changes were made successfully.</div>}
-        
+
+        {showSuccessPatch && (
+          <div>
+            <h3>Changes were made successfully.</h3>
+          </div>
+        )}
+        {showSuccessDelete && (
+          <div>
+            <h3>Success! The item has been deleted.</h3>
+          </div>
+        )}
       </div>
     )
   );

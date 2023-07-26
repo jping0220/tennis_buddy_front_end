@@ -26,12 +26,15 @@ const App = () => {
   const [searchResult, setSearchResults] = useState([])
   const [matchFound, setMatchFound] = useState(true);
   const [userData, setUserData] = useState(null);
-  // this is the new_form state (after post):
+  // these are for the new_form state (after post):
   const [showForm, setShowForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   // these are the editform state
-  const [showSuccessMessage, setShowSuccessMessage] = useState(true);
+  const [showSuccessPatch, setShowSuccessPatch] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showSuccessDelete, setShowSuccessDelete] = useState(false);
+
+
 
 
 // search query by two or one param
@@ -117,7 +120,7 @@ const App = () => {
   }, [isAuthenticated, getUserData]);
   
 
-
+// Patch/Edit user information
   const handleEditSubmit = async (updatedData) => {
     try {
       const token = await getAccessTokenSilently();
@@ -133,15 +136,16 @@ const App = () => {
         headers: { Authorization: `Bearer ${token}` }
       });
       console.log("Updated form data:", response.data);
-      setShowSuccessMessage(true);
+      setShowSuccessPatch(true);
       setShowEditForm(false);
       // Optionally, can update the local userData state with the response data
       // setUserData(response.data);
     } catch (error) {
       console.error("Error updating user data:", error);
+      setShowSuccessPatch(false);
     }
   };
-
+// Delete profile
   const handleDelete = async () => {
     try {
       const token = await getAccessTokenSilently();
@@ -149,10 +153,24 @@ const App = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("User data deleted successfully.");
-      setShowSuccessMessage(true);
+      setShowSuccessDelete(true)
       setUserData(null);
     } catch (error) {
       console.error("Error deleting user data:", error);
+      setShowSuccessDelete(false);
+      if (error.response) {
+        // The request was made, and the server responded with a status code other than 2xx
+        console.error("Server Error:", error.response.data);
+        setErrorMessage(error.response.data.msg); // Assuming the server returns an error message in the response data
+      } else if (error.request) {
+        // The request was made, but no response was received (e.g., server is down)
+        console.error("No Response:", error.request);
+        setErrorMessage("No response from the server");
+      } else {
+        // Something else happened in making the request that triggered an error
+        console.error("Error:", error.message);
+        setErrorMessage("An error occurred while making the request");
+      }    
     }
   };
 
@@ -184,23 +202,31 @@ const App = () => {
             />
             <Route path="log_in" element={<LoginRedirect />} />
             <Route path="log_out" element={<LogoutRedirect />} />
-             
-              <Route
-                path="sign_up"
-                element={<SignUp onListing={callPostRequest} showForm={showForm} errorMessage={errorMessage} />}
-              />
-      
+
             <Route
-              path="profile"
-              element={<Profile
-                onDelete={handleDelete}
-                userData={userData}
-                onEditSubmit={handleEditSubmit}
-                showEditForm={showEditForm}
-                showSuccessMessage={showSuccessMessage}
-  />}
+              path="sign_up"
+              element={
+                <SignUp
+                  onListing={callPostRequest}
+                  showForm={showForm}
+                  errorMessage={errorMessage}
+                />
+              }
             />
 
+            <Route
+              path="profile"
+              element={
+                <Profile
+                  onDelete={handleDelete}
+                  userData={userData}
+                  onEditSubmit={handleEditSubmit}
+                  showEditForm={showEditForm}
+                  showSuccessPatch={showSuccessPatch}
+                  showSuccessDelete={showSuccessDelete}
+                />
+              }
+            />
           </Routes>
         </Router>
       </Layout>

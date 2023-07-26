@@ -36,7 +36,6 @@ const NewUserForm = ({ onListing }) => {
           ...prevData,
           [name]: value,
         }));
-    
     };
 
     const handleSubmit = (event) => {
