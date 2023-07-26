@@ -64,7 +64,7 @@ const NewUserForm = ({ onListing }) => {
         <Form.Group controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
-            type="text"
+            type="email"
             name="email"
             value={formProfileData.email}
             onChange={handleChange}
@@ -75,7 +75,7 @@ const NewUserForm = ({ onListing }) => {
         <Form.Group controlId="zip_code">
           <Form.Label>Zip Code</Form.Label>
           <Form.Control
-            type="text"
+            type="number"
             name="zip_code"
             value={formProfileData.zip_code}
             onChange={handleChange}
