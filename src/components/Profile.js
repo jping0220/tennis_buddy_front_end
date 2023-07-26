@@ -19,7 +19,7 @@ const Profile = ({
   }
 
   if (!userData) {
-    return <div>No User Data Available</div>;
+    return <div>No Personal Profile Available</div>;
   }
 
   const handleEditSubmit = (updateData) => {

@@ -33,7 +33,9 @@ const EditForm = ({ initialData, onEditSubmit }) => {
     const handleSubmit = (event) => {
       event.preventDefault();
       onEditSubmit(formData);
+      window.location.reload();
     };
+
   
     return (
       <Form onSubmit={handleSubmit}>

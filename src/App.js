@@ -158,19 +158,19 @@ const App = () => {
     } catch (error) {
       console.error("Error deleting user data:", error);
       setShowSuccessDelete(false);
-      if (error.response) {
-        // The request was made, and the server responded with a status code other than 2xx
-        console.error("Server Error:", error.response.data);
-        setErrorMessage(error.response.data.msg); // Assuming the server returns an error message in the response data
-      } else if (error.request) {
-        // The request was made, but no response was received (e.g., server is down)
-        console.error("No Response:", error.request);
-        setErrorMessage("No response from the server");
-      } else {
-        // Something else happened in making the request that triggered an error
-        console.error("Error:", error.message);
-        setErrorMessage("An error occurred while making the request");
-      }    
+      // if (error.response) {
+      //   // The request was made, and the server responded with a status code other than 2xx
+      //   console.error("Server Error:", error.response.data);
+      //   setErrorMessage(error.response.data.msg); // Assuming the server returns an error message in the response data
+      // } else if (error.request) {
+      //   // The request was made, but no response was received (e.g., server is down)
+      //   console.error("No Response:", error.request);
+      //   setErrorMessage("No response from the server");
+      // } else {
+      //   // Something else happened in making the request that triggered an error
+      //   console.error("Error:", error.message);
+      //   setErrorMessage("An error occurred while making the request");
+      // }    
     }
   };
 
