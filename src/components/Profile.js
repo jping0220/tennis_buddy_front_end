@@ -39,7 +39,7 @@ const Profile = ({
   }
  
 
-  const handleEditSubmit = (updateData) => {
+  const handleEditSubmit = async (updateData) => {
     onEditSubmit(updateData);
     setShowEditForm(false);
   };
@@ -69,7 +69,7 @@ const Profile = ({
 
         {/* Show edit form if user clicked on edit button */}
         {showEditForm ? (
-          <EditForm initialData={userData} onEditSubmit={handleEditSubmit} />
+          <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
         ) : (
           <button onClick={() => setShowEditForm(true)}>Edit</button>
         )}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Form, Button } from "react-bootstrap";
 
@@ -21,6 +21,12 @@ const tennisLevels = [
 
 const EditForm = ({ initialData, onEditSubmit }) => {
   const [formData, setFormData] = useState(initialData);
+
+    // useEffect(() => {
+    //   setFormData(initialData);
+    // }, [initialData]);
+  
+  
     const handleChange = (event) => {
       const { name, value } = event.target;
       setFormData((prevData) => ({
@@ -29,11 +35,10 @@ const EditForm = ({ initialData, onEditSubmit }) => {
       }));
       console.log(value)
     };
-  
+    
     const handleSubmit = (event) => {
       event.preventDefault();
       onEditSubmit(formData);
-      // window.location.reload();
     };
 
   
@@ -91,7 +96,7 @@ const EditForm = ({ initialData, onEditSubmit }) => {
         </Form.Group>
   
         <Form.Group controlId="preferences">
-          <Form.Label>Preference</Form.Label>
+          <Form.Label>Preferences</Form.Label>
           <Form.Control
             type="text"
             name="preferences"
