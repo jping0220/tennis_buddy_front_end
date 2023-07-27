@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+
 
 const INITIAL_FORM_DATA = {
     name: "",
@@ -27,6 +30,8 @@ const tennisLevels = [
 ];
   
 const NewUserForm = ({ onListing }) => {
+  const navigate = useNavigate();
+
   const [formProfileData, setFormData] = useState(INITIAL_FORM_DATA);
   
 
@@ -42,6 +47,8 @@ const NewUserForm = ({ onListing }) => {
       event.preventDefault();
       console.log(formProfileData.name);
       onListing(formProfileData);
+      
+      navigate("/profile");
         // setFormData(INITIAL_FORM_DATA);
     };
 

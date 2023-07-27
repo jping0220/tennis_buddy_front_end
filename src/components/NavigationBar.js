@@ -1,53 +1,55 @@
 import React from "react";
 import { Nav, Navbar } from 'react-bootstrap';
-import styled from 'styled-components';
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
+import { RouterNavLink } from "./RouterNavLink";
 
-const Styles = styled.div`
-    .navbar {
-        background-color: #222;
 
-    }
-    .navbar-brand, .navbar-nav .nav-link {
-        color: #bbb;
+// const Styles = styled.div`
+//   .navbar {
+//     background-color: #222;
+//   }
+//   .navbar-brand,
+//   .navbar-nav .nav-link {
+//     color: #bbb;
 
-        &:hover {
-            color: white;
-        }
-    }
-`;
+//     &:hover {
+//       color: white;
+//     }
+//   }
+// `;
 
 export const NavigationBar = () => {
       const { isAuthenticated } = useAuth0();
 
     return (
-      <Styles>
-        <Navbar expand="lg">
-          <Navbar.Brand href="/">Tennis Buddy</Navbar.Brand>
+        <Navbar expand="lg" variant="dark" bg="dark">
+          <Navbar.Brand>
+            <Link to="/">Tennis Buddy</Link>
+          </Navbar.Brand>
           <Navbar.Toggle ria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
               <Nav.Item>
-                <Nav.Link href="/">Home</Nav.Link>
+                <RouterNavLink to="/">Home</RouterNavLink>
               </Nav.Item>
               {isAuthenticated ? (
                 <Nav.Item>
-                  <Nav.Link href="/log_out">Log Out</Nav.Link>
+                  <RouterNavLink to="/log_out">Log Out</RouterNavLink>
                 </Nav.Item>
               ) : (
                 <Nav.Item>
-                  <Nav.Link href="/log_in">Log In</Nav.Link>
+                  <RouterNavLink to="/log_in">Log In</RouterNavLink>
                 </Nav.Item>
               )}
               <Nav.Item>
-                <Nav.Link href="/sign_up">Player Registration</Nav.Link>
+                <RouterNavLink to="/sign_up">Player Registration</RouterNavLink>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/profile">Player Profile</Nav.Link>
+                <RouterNavLink to="/profile">Player Profile</RouterNavLink>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-      </Styles>
     );
 };

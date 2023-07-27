@@ -140,7 +140,7 @@ const App = () => {
       setShowEditForm(false);
       // Optionally, can update the local userData state with the response data
       setUserData(response.data);
-     
+
     } catch (error) {
       console.error("Error updating user data:", error);
       setShowSuccessPatch(false);
@@ -180,18 +180,18 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <div className="pic">
-        <img
-          src={tennisPlayer}
-          alt="tennis player background pic"
-          height={200}
-          width={300}
-        />
-      </div>
-      <NavigationBar />
+      <Router>
+        <div className="pic">
+          <img
+            src={tennisPlayer}
+            alt="tennis player background pic"
+            height={200}
+            width={300}
+          />
+        </div>
+        <NavigationBar />
 
-      <Layout>
-        <Router>
+        <Layout>
           <Routes>
             <Route
               path="/"
@@ -231,8 +231,8 @@ const App = () => {
               }
             />
           </Routes>
-        </Router>
-      </Layout>
+        </Layout>
+      </Router>
     </React.Fragment>
   );
 
