@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useCallback} from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
@@ -31,9 +31,7 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   // these are the editform state
   const [showEditForm, setShowEditForm] = useState(false);
-  const [successDelete, setSuccessDelete] = useState(false);
-
-
+  const [successDelete, setSuccessDelete] = useState(false); 
 
 
 // search query by two or one param

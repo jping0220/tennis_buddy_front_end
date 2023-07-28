@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import EditForm from "./EditForm";
 import { Link } from 'react-router-dom';
@@ -15,6 +15,16 @@ const Profile = ({
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [showEditForm, setShowEditForm] = useState(false);
   const [showSuccessPatch, setShowSuccessPatch] = useState(false);
+  // const[changesMade, setChangesMade] = useState(false);
+
+  // useEffect(() => {
+  //   if (changesMade) {
+  //     const timer = setTimeout(() => {
+  //       window.location.reload();
+  //     }, 2000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [changesMade]);
 
   if (isLoading) {
     return <div>Loading ...</div>;
@@ -43,11 +53,13 @@ const Profile = ({
     onEditSubmit(updateData);
     setShowSuccessPatch(true);
     setShowEditForm(false);
+    // setChangesMade(true);
 
   };
 
   const handleDelete = () => {
     onDelete();
+    // setChangesMade(true);
   };
 
 
