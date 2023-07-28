@@ -33,6 +33,9 @@ export const NavigationBar = () => {
             <Nav.Item>
               <RouterNavLink to="/">Home</RouterNavLink>
             </Nav.Item>
+            <Nav.Item>
+              <RouterNavLink to="/about_us">About Us</RouterNavLink>
+            </Nav.Item>
             {isAuthenticated ? (
               <>
                 <Nav.Item>

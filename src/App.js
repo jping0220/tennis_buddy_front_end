@@ -11,6 +11,7 @@ import axios from "axios";
 import { LoginRedirect } from "./components/LogInRedirect";
 import { LogoutRedirect } from "./components/LogoutRedirect";
 import { Link } from 'react-router-dom';
+import { AboutUs } from "./components/AboutUs";
 
 
 const App = () => {
@@ -185,14 +186,13 @@ const App = () => {
         <div className="pic">
           <Link to="/">
             <img
-            src={tennisPlayer}
-            alt="tennis player background pic"
-            height={150}
-            width={200}
+              src={tennisPlayer}
+              alt="tennis player background pic"
+              height={150}
+              width={200}
             />
           </Link>
         </div>
-
 
         <NavigationBar />
 
@@ -208,6 +208,14 @@ const App = () => {
                 />
               }
             />
+
+            <Route
+              path="about_us"
+              element={
+                <AboutUs></AboutUs>
+              }
+            />
+
             <Route path="log_in" element={<LoginRedirect />} />
             <Route path="log_out" element={<LogoutRedirect />} />
 
