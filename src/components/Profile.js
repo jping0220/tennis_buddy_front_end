@@ -25,11 +25,11 @@ const Profile = ({
   if (!userData) {
     return (
       <div>
-        {successDelete && (
+        {/* {successDelete && (
           <div>
             <h3>Success! The item has been deleted.</h3>
           </div>
-        )}
+        )} */}
         <h3>No Personal Profile Available</h3>
         <p>
           <Link to="/sign_up">
