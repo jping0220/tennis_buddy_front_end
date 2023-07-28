@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Form, Button } from "react-bootstrap";
-// import { useNavigate } from "react-router-dom";
 
 
 const INITIAL_FORM_DATA = {
@@ -28,8 +27,8 @@ const tennisLevels = [
     { value: "7.0", label: "7.0 - Professional Player" },
 ];
   
-const NewUserForm = ({ onListing, navigate }) => {
-  // const navigate = useNavigate();
+const NewUserForm = ({ onListing}) => {
+
 
   const [formProfileData, setFormData] = useState(INITIAL_FORM_DATA);
   
@@ -47,16 +46,6 @@ const NewUserForm = ({ onListing, navigate }) => {
       console.log(formProfileData.name);
       onListing(formProfileData);
   };
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     console.log(formProfileData.name);
-  //     await onListing(formProfileData);
-  //     setFormData(INITIAL_FORM_DATA); // Redirect to the profile page after form submission
-  //   } catch (error) {
-  //     // Handle error if necessary
-  //   }
-  // };
 
 
   return (
