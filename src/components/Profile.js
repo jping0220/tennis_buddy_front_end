@@ -9,7 +9,6 @@ const Profile = ({
   userData,
   onEditSubmit,
   onDelete,
-  // showSuccessPatch,
   successDelete,
 }) => {
   console.log("userData in Profile....:", userData);
