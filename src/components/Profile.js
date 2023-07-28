@@ -9,12 +9,13 @@ const Profile = ({
   userData,
   onEditSubmit,
   onDelete,
-  showSuccessPatch,
+  // showSuccessPatch,
   successDelete,
 }) => {
   console.log("userData in Profile....:", userData);
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showSuccessPatch, setShowSuccessPatch] = useState(false);
 
   if (isLoading) {
     return <div>Loading ...</div>;
@@ -41,7 +42,9 @@ const Profile = ({
 
   const handleEditSubmit = async (updateData) => {
     onEditSubmit(updateData);
+    setShowSuccessPatch(true);
     setShowEditForm(false);
+
   };
 
   const handleDelete = () => {

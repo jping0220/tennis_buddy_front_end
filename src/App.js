@@ -30,7 +30,7 @@ const App = () => {
   const [showForm, setShowForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   // these are the editform state
-  const [showSuccessPatch, setShowSuccessPatch] = useState(false);
+  // const [showSuccessPatch, setShowSuccessPatch] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
   const [successDelete, setSuccessDelete] = useState(false);
 
@@ -136,14 +136,14 @@ const App = () => {
         headers: { Authorization: `Bearer ${token}` }
       });
       console.log("Updated form data:", response.data);
-      setShowSuccessPatch(true);
+      // setShowSuccessPatch(true);
       setShowEditForm(false);
       // Optionally, can update the local userData state with the response data
       setUserData(response.data);
 
     } catch (error) {
       console.error("Error updating user data:", error);
-      setShowSuccessPatch(false);
+      // setShowSuccessPatch(false);
     }
   };
 
@@ -225,7 +225,7 @@ const App = () => {
                   userData={userData}
                   onEditSubmit={handleEditSubmit}
                   showEditForm={showEditForm}
-                  showSuccessPatch={showSuccessPatch}
+                  // showSuccessPatch={showSuccessPatch}
                   successDelete={successDelete}
                 />
               }
