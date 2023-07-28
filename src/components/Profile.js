@@ -15,16 +15,16 @@ const Profile = ({
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [showEditForm, setShowEditForm] = useState(false);
   const [showSuccessPatch, setShowSuccessPatch] = useState(false);
-  // const[changesMade, setChangesMade] = useState(false);
+  const[changesMade, setChangesMade] = useState(false);
 
-  // useEffect(() => {
-  //   if (changesMade) {
-  //     const timer = setTimeout(() => {
-  //       window.location.reload();
-  //     }, 2000);
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [changesMade]);
+  useEffect(() => {
+    if (changesMade) {
+      const timer = setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [changesMade]);
 
   if (isLoading) {
     return <div>Loading ...</div>;
@@ -53,13 +53,13 @@ const Profile = ({
     onEditSubmit(updateData);
     setShowSuccessPatch(true);
     setShowEditForm(false);
-    // setChangesMade(true);
+    setChangesMade(true);
 
   };
 
   const handleDelete = () => {
     onDelete();
-    // setChangesMade(true);
+    setChangesMade(true);
   };
 
 
@@ -81,7 +81,6 @@ const Profile = ({
           </React.Fragment>
         )}
 
-        {/* Show edit form if user clicked on edit button */}
         {showEditForm ? (
           <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
         ) : (
