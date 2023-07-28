@@ -25,7 +25,7 @@ export const NavigationBar = () => {
     return (
         <Navbar expand="lg" variant="dark" bg="dark">
           <Navbar.Brand>
-            <Link to="/">Tennis Buddy</Link>
+            {/* <Link to="/">Tennis Buddy</Link> */}
           </Navbar.Brand>
           <Navbar.Toggle ria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

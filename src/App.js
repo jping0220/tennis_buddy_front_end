@@ -5,11 +5,12 @@ import Profile from './components/Profile';
 import SignUp from './components/SignUp';
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
-import tennisPlayer from "./assets/tennisPlayer.jpg";
+import tennisPlayer from "./assets/tennis-buddy-logo.png";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { LoginRedirect } from "./components/LogInRedirect";
 import { LogoutRedirect } from "./components/LogoutRedirect";
+import { Link } from 'react-router-dom';
 
 
 const App = () => {
@@ -182,13 +183,17 @@ const App = () => {
     <React.Fragment>
       <Router>
         <div className="pic">
-          <img
+          <Link to="/">
+            <img
             src={tennisPlayer}
             alt="tennis player background pic"
-            height={200}
-            width={300}
-          />
+            height={150}
+            width={200}
+            />
+          </Link>
         </div>
+
+
         <NavigationBar />
 
         <Layout>
