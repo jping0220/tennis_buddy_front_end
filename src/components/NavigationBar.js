@@ -23,33 +23,45 @@ export const NavigationBar = () => {
       const { isAuthenticated } = useAuth0();
 
     return (
-        <Navbar expand="lg" variant="dark" bg="dark">
-          <Navbar.Brand>
-            {/* <Link to="/">Tennis Buddy</Link> */}
-          </Navbar.Brand>
-          <Navbar.Toggle ria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
-              <Nav.Item>
-                <RouterNavLink to="/">Home</RouterNavLink>
-              </Nav.Item>
-              {isAuthenticated ? (
+      <Navbar expand="lg" variant="dark" bg="dark">
+        {/* <Navbar.Brand>
+          <Link to="/">Tennis Buddy</Link>
+        </Navbar.Brand> */}
+        <Navbar.Toggle ria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Item>
+              <RouterNavLink to="/">Home</RouterNavLink>
+            </Nav.Item>
+            {isAuthenticated ? (
+              <>
                 <Nav.Item>
                   <RouterNavLink to="/log_out">Log Out</RouterNavLink>
                 </Nav.Item>
-              ) : (
+                <Nav.Item>
+                  <RouterNavLink to="/profile">Player Profile</RouterNavLink>
+                </Nav.Item>
+              </>
+            ) : (
+              <>
                 <Nav.Item>
                   <RouterNavLink to="/log_in">Log In</RouterNavLink>
                 </Nav.Item>
-              )}
-              <Nav.Item>
-                <RouterNavLink to="/sign_up">Player Registration</RouterNavLink>
-              </Nav.Item>
-              <Nav.Item>
-                <RouterNavLink to="/profile">Player Profile</RouterNavLink>
-              </Nav.Item>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+                <Nav.Item>
+                  <RouterNavLink to="/sign_up">
+                    Player Registration
+                  </RouterNavLink>
+                </Nav.Item>
+              </>
+            )}
+            {/* <Nav.Item>
+              <RouterNavLink to="/sign_up">Player Registration</RouterNavLink>
+            </Nav.Item> */}
+            {/* <Nav.Item>
+              <RouterNavLink to="/profile">Player Profile</RouterNavLink>
+            </Nav.Item> */}
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     );
 };
