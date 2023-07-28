@@ -53,20 +53,24 @@ const App = () => {
   async function callPostRequest(formProfileData) {
     try {
       const token = await getAccessTokenSilently();
+      const newUserPayload = {
+        name: formProfileData.name,
+        email: formProfileData.email,
+        zip_code: formProfileData.zip_code,
+        tennis_level: formProfileData.tennis_level,
+        preferences: formProfileData.preferences,
+      };
       const response = await axios.post(
         "https://tennis-buddy-back-end.onrender.com/users/me",
+        newUserPayload,
         {
-            name: formProfileData.name,
-            email: formProfileData.email,
-            zip_code: formProfileData.zip_code,
-            tennis_level: formProfileData.tennis_level,
-            preferences: formProfileData.preferences          
-          },
-        {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}` },
         }
       );
       console.log(response.data);
+      setUserData({
+        user: newUserPayload
+      });
       setShowForm(false);
     } catch (error) {
       setShowForm(true);
