@@ -157,6 +157,7 @@ const App = () => {
       console.log("User data deleted successfully.");
       setSuccessDelete(true)
       setUserData(null);
+      setShowForm(true)
     } catch (error) {
       console.error("Error deleting user data:", error);
       setSuccessDelete(false);
