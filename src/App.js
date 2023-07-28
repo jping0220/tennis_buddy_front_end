@@ -82,7 +82,7 @@ const App = () => {
       } else {
         // Something else happened in making the request that triggered an error
         console.error("Error:", error.message);
-        setErrorMessage("An error occurred while making the request");
+        setErrorMessage("Please log in first!");
       }    
     }
   }
