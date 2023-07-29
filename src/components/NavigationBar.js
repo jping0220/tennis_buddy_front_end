@@ -30,13 +30,15 @@ export const NavigationBar = () => {
         </Navbar.Brand> */}
         <Navbar.Toggle ria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
+          <Nav className="mr-auto" >
             <Nav.Item>
               <RouterNavLink to="/">Home</RouterNavLink>
             </Nav.Item>
             <Nav.Item>
               <RouterNavLink to="/about_us">About Us</RouterNavLink>
             </Nav.Item>
+          </Nav>
+          <Nav className="ml-auto">
             {isAuthenticated ? (
               <>
                 <Nav.Item>
