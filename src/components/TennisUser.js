@@ -9,7 +9,7 @@ const TennisUser = ({ user }) => {
         <Card.Subtitle className="user-info-zip-code">Zip Code: {user.zip_code}</Card.Subtitle>
         <Card.Subtitle className="user-info-email">Email: {user.email}</Card.Subtitle>
         <Card.Subtitle className="user-info-skill-level">Skill Level: {user.tennis_level}</Card.Subtitle>
-        <Card.Text>
+        <Card.Text className="user-info-preferences">
           Preferences: {user.preferences}
         </Card.Text>
       </Card.Body>
