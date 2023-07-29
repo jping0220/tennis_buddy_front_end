@@ -98,7 +98,7 @@ const SearchForm = ({ onSearch }) => {
         </Form.Group>
 
         <Button variant="primary" type="submit" className="tennis-search-button">
-          <span role='img' aria-label="search-icon">🎾</span>
+          <span role='img' aria-label="search-icon">🎾 </span>
           Search
         </Button>
       </Form>

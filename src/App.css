@@ -1,11 +1,10 @@
 /* logo pic on top of page */
 .pic img {
-    width: 16%;
-    /* height: -10%; */
+    width: 18%;
     object-fit: cover;
-    margin-left: 370px;
-    /* margin-bottom: px; */
+    margin-left: 270px;
     margin-top: -100px;
+    margin-bottom: -20px;
 }
 
 
@@ -39,7 +38,18 @@ body{
     background-attachment: fixed;
     background-position: center center;
     flex: 1; /* Use flex: 1 to make the main container take up the remaining vertical space */
-    padding-top: 100px;
+    padding-top: 75px;
+  }
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* Adjust the opacity (0.5 = 50% transparent) */
+    z-index: -1; /* Place the pseudo-element below the content */
   }
 
   
@@ -56,7 +66,7 @@ body{
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 6px;
-    color:#090909;
+    color:#075d18;
 }
 
 
@@ -70,50 +80,26 @@ body{
     border-radius: 50px;
     padding: 12px 20px;
     font-size: 16px;
-    width: 400px;
+    width: 300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* .tennis-ball-input::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform:matrix3d(10px);
-    width: 20px;
-    height: 20px;
-    /* background-image: url("tennis-ball-image.png"); Replace with your tennis ball image */
-    /* background-size: cover;
-    background-repeat: no-repeat;
-  } */
 
 
 .tennis-level-select select {
     background-color: #f1f1f1;
-    border: none;
+    border: #acff07;
     border-radius: 50px;
     padding: 12px 20px;
     font-size: 16px;
-    width: 400px;
+    width: 300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-  /* .tennis-level-select::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    background-image: url("tennis-racket-image.png"); /* Replace with your tennis racket image */
-    /* background-size: cover;
-    background-repeat: no-repeat;
-  } */ 
 
  
 .tennis-search-button {
-    background-color:#090909;
+    background-color:#255b28;
     border: none;
     border-radius: 50px;
     padding: 14px 20px;
@@ -122,7 +108,6 @@ body{
     cursor:pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-top: 10px;
-    align-self:baseline;
 }
   
 .tennis-search-button:hover {
@@ -139,7 +124,7 @@ body{
   }
 
 .home-container h2 {
-    color:#acff07;
+    color:#0b0c0b;
     text-align: center;
     margin-bottom: 20px;
     font-weight: bold;
@@ -161,10 +146,10 @@ body{
     width: 30rem;
     background-color:white;
     border-radius: 200%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
     text-align: center;
     display: flex;
     flex-direction: row;
