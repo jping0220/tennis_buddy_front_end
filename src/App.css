@@ -29,3 +29,11 @@
     margin-right: 30px;
 }
 
+body{
+    background-image: url('./assets/tennisPlayer.jpg');
+    background-size:cover;
+    background-repeat: no-repeat; /* Prevent image repetition */
+  }
+
+  
+

@@ -23,11 +23,9 @@ import { RouterNavLink } from "./RouterNavLink";
 export const NavigationBar = () => {
       const { isAuthenticated } = useAuth0();
 
-    return (
+  return (
+     
       <Navbar expand="lg" variant="dark" bg="dark">
-        {/* <Navbar.Brand>
-          <Link to="/">Tennis Buddy</Link>
-        </Navbar.Brand> */}
         <Navbar.Toggle ria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto" >

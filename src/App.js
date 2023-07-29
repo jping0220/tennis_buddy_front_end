@@ -189,16 +189,13 @@ const App = () => {
             <img
               src={tennisPlayer}
               alt="tennis player background pic"
-              // height={50}
-              // width={50}
-              // style ={{objectFit:"contain", width: "30%", height: "150px" }}
             />
           </Link>
         </div>
-
+        
+        <div className='main-container'>
         <NavigationBar />
-
-        <Layout>
+        <Layout >
           <Routes>
             <Route
               path="/"
@@ -245,9 +242,10 @@ const App = () => {
               }
             />
           </Routes>
-        </Layout>
-      </Router>
-    </React.Fragment>
+          </Layout>
+      </div>
+    </Router>
+  </React.Fragment>
   );
 
   };
