@@ -6,7 +6,7 @@ import Profile from './components/Profile';
 import SignUp from './components/SignUp';
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
-import tennisPlayer from "./assets/tennis-buddy-logo (2).png";
+import tennisPlayer from "./assets/tennis-buddy-logo (6).png";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { LoginRedirect } from "./components/LogInRedirect";
