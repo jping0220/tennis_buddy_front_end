@@ -1,11 +1,12 @@
-import React, {useEffect, useState, useCallback} from "react";
+import './App.css';
+import React, { useEffect, useState, useCallback } from "react";
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
 import { Layout } from "./components/Layout";
 import { NavigationBar } from "./components/NavigationBar";
-import tennisPlayer from "./assets/tennis-buddy-logo.png";
+import tennisPlayer from "./assets/tennis-buddy-logo (2).png";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { LoginRedirect } from "./components/LogInRedirect";
@@ -31,7 +32,7 @@ const App = () => {
   // these are for the new_form state (after post):
   const [showForm, setShowForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  // these are the editform state
+  // these are the editform statex
   const [showEditForm, setShowEditForm] = useState(false);
   const [successDelete, setSuccessDelete] = useState(false); 
 
@@ -188,8 +189,9 @@ const App = () => {
             <img
               src={tennisPlayer}
               alt="tennis player background pic"
-              height={150}
-              width={200}
+              // height={50}
+              // width={50}
+              // style ={{objectFit:"contain", width: "30%", height: "150px" }}
             />
           </Link>
         </div>

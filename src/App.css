@@ -1,0 +1,16 @@
+.pic img {
+    width: 10%;
+    /* height: 10%; */
+    object-fit: cover;
+    margin-left: 50px;
+}
+
+.navbar {
+    font-weight:bold;
+}
+
+.nav-link {
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
