@@ -42,11 +42,22 @@ body{
   }
 
   
+
+ /* below are the styling for search form in SearchForm component*/
+
 .tennis-search-form {
     display:flex;
     flex-direction: column;
     align-items:center;
 }
+
+.tennis-search-form label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color:#090909;
+}
+
 
 .zip-code-input {
     position: relative;
@@ -76,7 +87,7 @@ body{
   } */
 
 
-  .tennis-level-select select {
+.tennis-level-select select {
     background-color: #f1f1f1;
     border: none;
     border-radius: 50px;
@@ -84,7 +95,7 @@ body{
     font-size: 16px;
     width: 400px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
+}
 
   /* .tennis-level-select::before {
     content: "";
@@ -100,7 +111,7 @@ body{
   } */ 
 
  
-  .tennis-search-button {
+.tennis-search-button {
     background-color: #2e7f30; /* Green color for tennis */
     border: none;
     border-radius: 50px;
@@ -110,8 +121,32 @@ body{
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-top: 10px;
-  }
+}
   
-  .tennis-search-button:hover {
-    background-color: #45a049; /* Darker green color on hover */
+.tennis-search-button:hover {
+    background-color: #45a049;
+}
+
+
+  /* below are the styling for search message in Home component*/
+
+.home-container {
+    /* background-color: #45a049; */
+    padding: 20px;
+  }
+
+.home-container h2 {
+    color:#acff07;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+.home-container .no-match-message {
+    color: #fff;
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: larger;
   }
