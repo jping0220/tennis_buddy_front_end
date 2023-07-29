@@ -64,7 +64,7 @@ const SearchForm = ({ onSearch }) => {
     
     
   return (
-    <div>
+    <div className="tennis-search-form">
       <Form onSubmit={handleSubmit} className="new-board-form__form">
         <Form.Group controlId="zip_code">
           <Form.Label>Zip Code</Form.Label>
