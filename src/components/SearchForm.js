@@ -51,9 +51,12 @@ const SearchForm = ({ onSearch }) => {
       if (searchFormData.tennis_level.trim() !== "") {
           formData.tennis_level = searchFormData.tennis_level;
       }
-    
-    if (Object.keys(formData).length > 0) {
+      
+      if (formData.zip_code || formData.tennis_level) { // Check if either zip_code or tennis_level has a value
         onSearch(formData);
+        
+    // if (Object.keys(formData).length > 0) {
+    //     onSearch(formData);
         
     }
     
@@ -66,7 +69,7 @@ const SearchForm = ({ onSearch }) => {
         <Form.Group controlId="zip_code">
           <Form.Label>Zip Code</Form.Label>
           <Form.Control
-            required
+            // required
             type="number"
             name="zip_code"
             value={searchFormData.zip_code}

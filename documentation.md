@@ -2,10 +2,10 @@
 Tennis Buddy
 
 ## Team Members
-Jiaping Chen - Laura Perez
+Jiaping Chen / Laura Perez
 
 ## About
-Tennis Buddies is a web app that allows people to search for a tennis partner to play together 
+Tennis Buddies is a web app that allows people to search for a tennis partner to play together for
 matches or just to find someone to hit the tennis for fun !
 
 ## Features
@@ -43,4 +43,4 @@ PostgresSQL
 
 ## Deployment Technologies
 Render 
-Netlify (frontEnd)
+
