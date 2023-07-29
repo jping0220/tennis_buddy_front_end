@@ -113,7 +113,7 @@ body{
 
  
 .tennis-search-button {
-    background-color: #2e7f30; /* Green color for tennis */
+    background-color:#090909;
     border: none;
     border-radius: 50px;
     padding: 14px 20px;
@@ -122,6 +122,7 @@ body{
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-top: 10px;
+    align-self:baseline;
 }
   
 .tennis-search-button:hover {
@@ -159,21 +160,24 @@ body{
 .tennis-user-card {
     width: 30rem;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
   }
   
-  .tennis-user-card h2 {
+.tennis-user-card h2 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
   }
   
-  .tennis-user-card .user-info-zip-code {
+.tennis-user-card .user-info-name {
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
@@ -181,7 +185,15 @@ body{
     margin-bottom: 6px;
   }
 
-  .tennis-user-card .user-info-email {
+.tennis-user-card .user-info-zip-code {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 6px;
+  }
+
+.tennis-user-card .user-info-email {
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
@@ -190,9 +202,9 @@ body{
   }
   
   
-  .tennis-user-card .user-info-skill-level {
+.tennis-user-card .user-info-skill-level {
     font-size: 16px;
     font-weight: bold;
-    color: #4CAF50; /* Green color for skill level */
+    color: #4CAF50;
     margin-top: 10px;
   }
