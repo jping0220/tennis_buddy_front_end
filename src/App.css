@@ -1,3 +1,4 @@
+/* logo pic on top of page */
 .pic img {
     width: 16%;
     /* height: -10%; */
@@ -7,6 +8,8 @@
     margin-top: -100px;
 }
 
+
+/* navigation bar */
 .navbar {
     font-weight:bold;
 }
@@ -17,10 +20,6 @@
     margin-left: 10px;
 }
 
-/* .nav-link.active {
-    color:#acff07;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-} */
 
 .mr-auto{
     margin-left: 30px;
@@ -31,6 +30,8 @@
     margin-right: 30px;
 }
 
+
+/* website background picture */
 body{
     background-image: url('./assets/tennisPlayer.jpg');
     background-size:100%;
@@ -128,7 +129,8 @@ body{
 }
 
 
-  /* below are the styling for search message in Home component*/
+
+/* below are the styling for search message in Home component*/
 
 .home-container {
     /* background-color: #45a049; */
@@ -149,4 +151,48 @@ body{
     margin-top: 40px;
     font-weight: bold;
     font-size: larger;
+  }
+
+
+/* below are the styling for search result in TennisUser component*/
+
+.tennis-user-card {
+    width: 30rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .tennis-user-card h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .tennis-user-card .user-info-zip-code {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 6px;
+  }
+
+  .tennis-user-card .user-info-email {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 6px;
+  }
+  
+  
+  .tennis-user-card .user-info-skill-level {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4CAF50; /* Green color for skill level */
+    margin-top: 10px;
   }
