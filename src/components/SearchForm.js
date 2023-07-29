@@ -68,6 +68,7 @@ const SearchForm = ({ onSearch }) => {
       <Form onSubmit={handleSubmit} className="new-board-form__form">
         <Form.Group controlId="zip_code">
           <Form.Label>Zip Code</Form.Label>
+          <div className="zip-code-input">
           <Form.Control
             // required
             type="number"
@@ -75,10 +76,12 @@ const SearchForm = ({ onSearch }) => {
             value={searchFormData.zip_code}
             onChange={handleChange}
           />
+         </div> 
         </Form.Group>
 
         <Form.Group controlId="tennis_level">
           <Form.Label>Tennis Level</Form.Label>
+          <div className="tennis-level-select">
           <Form.Control
             as="select"
             name="tennis_level"
@@ -90,10 +93,12 @@ const SearchForm = ({ onSearch }) => {
                 {level.label}
               </option>
             ))}
-          </Form.Control>
+            </Form.Control>
+            </div>
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="tennis-search-button">
+          <span role='img' aria-label="search-icon">🎾</span>
           Search
         </Button>
       </Form>
