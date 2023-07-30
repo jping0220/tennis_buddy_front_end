@@ -120,8 +120,8 @@ body::before {
 /* below are the styling for search message in Home component*/
 
 .home-container {
-    /* background-color: #45a049; */
     padding: 20px;
+    margin-top: 20px;
   }
 
 .home-container h2 {
@@ -133,7 +133,7 @@ body::before {
 
 
 .home-container .no-match-message {
-    color: #fff;
+    color: #090808;
     text-align: center;
     margin-top: 40px;
     font-weight: bold;
@@ -213,6 +213,9 @@ body::before {
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
+    max-height:calc(100vh - 200px);
+    overflow-y: auto;
+    margin-top: 20px;
 }
 
 
@@ -225,12 +228,13 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* margin-left: 5px; */
 }
 
 
 /* below are the styling for user sign-up form in NewUserForm component*/
 
-.container {
+.user-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -290,8 +294,8 @@ textarea {
   resize: vertical;
 }
 
-button[type="submit"] {
-  background-color: #26b0b0;
+/* button[type="submit"] {
+  background-color: #18126c;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -303,5 +307,5 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #196521; 
-}
+} */
 

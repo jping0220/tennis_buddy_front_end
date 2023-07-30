@@ -50,7 +50,7 @@ const NewUserForm = ({ onListing}) => {
 
 
   return (
-    <div className="container">
+    <div className="user-form-container">
       <div className="image-container">
         <img src={signUpForm} alt="Tennis" className="tennis-image"/>
       </div>
