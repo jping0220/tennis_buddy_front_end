@@ -226,3 +226,82 @@ body::before {
   justify-content: center;
   align-items: center;
 }
+
+
+/* below are the styling for user sign-up form in NewUserForm component*/
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+
+.image-container {
+  margin-bottom: 20px;
+  position:absolute;
+  display:flex;
+  justify-content: flex-end;
+  margin-bottom: 430px;
+  margin-left:250px;
+}
+
+.tennis-image {
+  max-width: 150px; 
+}
+
+.registration-form {
+  background-color: #584e16;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #e0e9e4; 
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #35eaea; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: #26b0b0;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #196521; 
+}
+

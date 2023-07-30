@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Form, Button } from "react-bootstrap";
+import signUpForm from "../assets/RegistrationForm.png"
 
 
 const INITIAL_FORM_DATA = {
@@ -49,8 +50,12 @@ const NewUserForm = ({ onListing}) => {
 
 
   return (
-    <div>
-      <Form onSubmit={handleSubmit}>
+    <div className="container">
+      <div className="image-container">
+        <img src={signUpForm} alt="Tennis" className="tennis-image"/>
+      </div>
+      <Form onSubmit={handleSubmit} className="registration-form">
+        <h2>Tennis Player Registration Form</h2>
         <Form.Group controlId="name">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -103,7 +108,7 @@ const NewUserForm = ({ onListing}) => {
         </Form.Group>
 
         <Form.Group controlId="preferences">
-          <Form.Label>Preference</Form.Label>
+          <Form.Label>Preferences</Form.Label>
           <Form.Control
             type="text"
             name="preferences"
