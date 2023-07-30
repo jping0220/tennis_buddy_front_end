@@ -12,7 +12,7 @@ export const SignUp = ({ onListing, showForm, errorMessage }) => {
         ) : (
           <p>User Created Successfully!</p>
         )}
-        {errorMessage && <div>Caution: {errorMessage}</div>}
+        {errorMessage && <div className="error-message">Caution: {errorMessage}</div>}
       </div>
     );
 };

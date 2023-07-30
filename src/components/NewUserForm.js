@@ -118,7 +118,8 @@ const NewUserForm = ({ onListing}) => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="user-form-button">
+        <span role='img' aria-label="search-icon">🎾 </span>
           Submit
         </Button>
       </Form>

@@ -294,18 +294,29 @@ textarea {
   resize: vertical;
 }
 
-/* button[type="submit"] {
-  background-color: #18126c;
-  color: #fff;
+.user-form-button[type="submit"] {
+
+  background-color:#255b28;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
+  border-radius: 50px;
+  padding: 14px 20px;
   font-size: 16px;
+  color: white;
+  cursor:pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  margin-left: 120px;
 }
 
-button[type="submit"]:hover {
-  background-color: #196521; 
-} */
+.user-form-button[type="submit"]:hover {
+  background-color: #268f9b; 
+}
 
+.error-message {
+  margin-top: -30px;
+  color:#020201;
+  font-weight: bold;
+  position:absolute;
+  display:flex;
+  margin-left:100px;
+}
