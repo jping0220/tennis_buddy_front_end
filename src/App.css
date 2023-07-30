@@ -108,7 +108,7 @@ body::before {
     cursor:pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-top: 10px;
-    margin-left: 200px;
+    margin-left: 90px;
 }
   
 .tennis-search-button:hover {
@@ -204,3 +204,15 @@ body::before {
     color: #181b18;
     margin-top: 10px;
   }
+
+
+
+/* below are the styling for user list after search in TennisUserList component*/
+
+.tennis-user-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+
