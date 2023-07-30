@@ -312,6 +312,14 @@ textarea {
   background-color: #268f9b; 
 }
 
+
+.success-message {
+  margin-top: 100px;
+  color:#020201;
+  font-weight: bold;
+  font-size: larger;
+}
+
 .error-message {
   margin-top: -30px;
   color:#020201;
@@ -320,3 +328,4 @@ textarea {
   display:flex;
   margin-left:100px;
 }
+

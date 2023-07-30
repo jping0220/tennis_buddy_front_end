@@ -11,7 +11,7 @@ export const Profile = ({
   userData,
   onEditSubmit,
   onDelete,
-  successDelete,
+  // successDelete,
 }) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [showEditForm, setShowEditForm] = useState(false);
