@@ -2,7 +2,8 @@ import React from 'react';
 import SearchForm from './SearchForm';
 import TennisUserList from './TennisUserList';
 
-const Home = ({ onSearch, searchResult, matchFound }) => {
+
+export const Home = ({ onSearch, searchResult, matchFound }) => {
     return (
         <div className='home-container'>
             {/* <h1>Find Your Tennis Partner</h1> */}
@@ -16,4 +17,4 @@ const Home = ({ onSearch, searchResult, matchFound }) => {
     );
 };
 
-export default Home;
+// export default Home;

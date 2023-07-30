@@ -5,16 +5,15 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 
-const Profile = ({
+
+
+export const Profile = ({
   userData,
   onEditSubmit,
   onDelete,
   successDelete,
 }) => {
-  console.log("userData in Profile....:", userData);
   const { user, isAuthenticated, isLoading } = useAuth0();
-  console.log(`isAuthenticated: ${isAuthenticated}`);
-  console.log("Auth0 user:", user);
   const [showEditForm, setShowEditForm] = useState(false);
   const [showSuccessPatch, setShowSuccessPatch] = useState(false);
 
@@ -90,4 +89,4 @@ const Profile = ({
   );
 };
 
-export default Profile;
+// export default Profile;

@@ -216,3 +216,7 @@ body::before {
 }
 
 
+.text-background{
+  background-color: #f1f1f1;
+  margin: 5%;
+}

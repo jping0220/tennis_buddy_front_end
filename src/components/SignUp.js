@@ -2,7 +2,7 @@ import React from "react";
 import NewUserForm from "./NewUserForm";
 
 
-const SignUp = ({ onListing, showForm, errorMessage }) => {
+export const SignUp = ({ onListing, showForm, errorMessage }) => {
 
     return (
       <div>
@@ -17,4 +17,4 @@ const SignUp = ({ onListing, showForm, errorMessage }) => {
     );
 };
 
-export default SignUp;
+// export default SignUp;

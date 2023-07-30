@@ -1,17 +1,22 @@
-// import adagirls from "./assets/adagirls.png";
+import Ping_Laura from "../assets/Ping_Laura.jpg";
+import Card from "react-bootstrap/Card";
+
 
 export const AboutUs = () => {
-
   return (
-    <div>
-      <h2>About Us</h2>
-      <img
-        // src={adagirls}
-        alt="Ping and Laura in Chelan"
-        height={150}
-        width={200}
-      />
-      <p>THis is a short parragph about a you and me</p>
-    </div>
+    <Card style={{ width: "18rem" }}>
+      <Card.Img variant="top" src={Ping_Laura} />
+      <Card.Body>
+        <Card.Title>Ping and Laura</Card.Title>
+        <Card.Text>
+          We have problem , we wanted play tennis! and we decided to solve
+          together.
+        </Card.Text>
+        
+        
+      </Card.Body>
+    </Card>
+    // </div>
   );
 };
+
