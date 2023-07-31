@@ -55,30 +55,35 @@ export const Profile = ({
 
   return (
     isAuthenticated && (
-      <div>
-        <img src={user.picture} alt={user.name} />
+      <div className="profile-container">
+        <img src={user.picture} alt={user.name} className="email-image" />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
 
         {userData && (
           <React.Fragment>
-            <p>Name: {userData.user.name}</p>
-            <p>Email: {userData.user.email}</p>
-            <p>Zip Code: {userData.user.zip_code}</p>
-            <p>Tennis Level: {userData.user.tennis_level}</p>
-            <p>Preferences: {userData.user.preferences}</p>
+            <div className="profile-info">
+              <p>Name: {userData.user.name}</p>
+              <p>Email: {userData.user.email}</p>
+              <p>Zip Code: {userData.user.zip_code}</p>
+              <p>Tennis Level: {userData.user.tennis_level}</p>
+                <p>Preferences: {userData.user.preferences}</p>
+            </div>
           </React.Fragment>
         )}
 
-        {/* Show edit form if user clicked on edit button */}
-        {showEditForm ? (
-          <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
-        ) : (
-          <button onClick={() => setShowEditForm(true)}>Edit</button>
-        )}
-
-        <button onClick={handleDelete}>Delete</button>
+        <div className="profile-buttons">
+          {/* Show edit form if user clicked on edit button */}
+          {showEditForm ? (
+            <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
+          ) : (
+            <button onClick={() => setShowEditForm(true)} className= "edit-btn">Edit</button>
+          )}
+        </div>
         
+        <button onClick={handleDelete} className="delete-btn">Delete</button>
+
+
         {showSuccessPatch && (
           <div>
             <h3>Changes were made successfully.</h3>
