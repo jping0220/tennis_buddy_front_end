@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Form, Button } from "react-bootstrap";
 import signUpForm from "../assets/RegistrationForm.png"
+import { useAuth0 } from "@auth0/auth0-react";
 
 
-const INITIAL_FORM_DATA = {
-    name: "",
-    email: "",
-    zip_code: "",
-    tennis_level: "",
-    preferences: ""
-};
+
+// const INITIAL_FORM_DATA = {
+//     name: "",
+//     email: "",
+//     zip_code: "",
+//     tennis_level: "",
+//     preferences: ""
+// };
 
 const tennisLevels = [
     { value: "", label: "Select a level" },
@@ -29,8 +31,14 @@ const tennisLevels = [
 ];
   
 const NewUserForm = ({ onListing}) => {
-
-
+  const { user } = useAuth0();
+  const INITIAL_FORM_DATA = {
+    name: user.name,
+    email: user.email,
+    zip_code: "",
+    tennis_level: "",
+    preferences: "",
+  };
   const [formProfileData, setFormData] = useState(INITIAL_FORM_DATA);
   
 
