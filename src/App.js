@@ -216,14 +216,11 @@ const App = () => {
                 path="sign_up"
                 element={
                   <AuthenticationGuard
-                    component={
-                      <SignUp
-                        onListing={callPostRequest}
-                        showForm={showForm}
-                        errorMessage={errorMessage}
-                      />
-                    }
-                  ></AuthenticationGuard>
+                    component={SignUp}
+                    onListing={callPostRequest}
+                    showForm={showForm}
+                    errorMessage={errorMessage}
+                  />
                 }
               />
 
