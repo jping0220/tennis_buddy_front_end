@@ -63,33 +63,30 @@ export const Profile = ({
         {userData && (
           <React.Fragment>
             <div className="profile-info">
-              <p>Name: {userData.user.name}</p>
-              <p>Email: {userData.user.email}</p>
-              <p>Zip Code: {userData.user.zip_code}</p>
-              <p>Tennis Level: {userData.user.tennis_level}</p>
-                <p>Preferences: {userData.user.preferences}</p>
+              <p><strong>Name:</strong>  {userData.user.name}</p>
+              <p><strong>Email:</strong> {userData.user.email}</p>
+              <p><strong>Zip Code:</strong> {userData.user.zip_code}</p>
+              <p><strong>Tennis Level:</strong> {userData.user.tennis_level}</p>
+              <p><strong>Preferences:</strong> {userData.user.preferences}</p>
             </div>
           </React.Fragment>
         )}
 
-        <div className="profile-buttons">
-          {/* Show edit form if user clicked on edit button */}
-          {showEditForm ? (
-            <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
-          ) : (
-            <button onClick={() => setShowEditForm(true)} className= "edit-btn">Edit</button>
-          )}
-        </div>
         
-        <button onClick={handleDelete} className="delete-btn">Delete</button>
-
+        {showEditForm ? (
+          <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
+        ) : (
+          <button onClick={() => setShowEditForm(true)} className="edit-btn">Edit</button>
+        )}
+      
+          <button onClick={handleDelete} className="delete-btn">Delete</button>
 
         {showSuccessPatch && (
           <div>
             <h3>Changes were made successfully.</h3>
           </div>
         )}
-      </div>
+    </div>    
     )
   );
 };
