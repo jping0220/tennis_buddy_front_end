@@ -13,6 +13,8 @@ import { LoginRedirect } from "./components/LogInRedirect";
 import { LogoutRedirect } from "./components/LogoutRedirect";
 import { Link } from 'react-router-dom';
 import { AboutUs } from "./components/AboutUs";
+import { AuthenticationGuard } from "./components/Authentication-guard";
+
 
 
 const App = () => {
@@ -186,66 +188,62 @@ const App = () => {
       <Router>
         <div className="pic">
           <Link to="/">
-            <img
-              src={tennisPlayer}
-              alt="tennis player background pic"
-            />
+            <img src={tennisPlayer} alt="tennis player background pic" />
           </Link>
         </div>
-        
-        <div className='main-container'>
-        <NavigationBar />
-        <Layout >
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  onSearch={handleSearch}
-                  searchResult={searchResult}
-                  matchFound={matchFound}
-                />
-              }
-            />
 
-            <Route
-              path="about_us"
-              element={
-                <AboutUs></AboutUs>
-              }
-            />
+        <div className="main-container">
+          <NavigationBar />
+          <Layout>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Home
+                    onSearch={handleSearch}
+                    searchResult={searchResult}
+                    matchFound={matchFound}
+                  />
+                }
+              />
 
-            <Route path="log_in" element={<LoginRedirect />} />
-            <Route path="log_out" element={<LogoutRedirect />} />
+              <Route path="about_us" element={<AboutUs></AboutUs>} />
 
-            <Route
-              path="sign_up"
-              element={
-                <SignUp
-                  onListing={callPostRequest}
-                  showForm={showForm}
-                  errorMessage={errorMessage}
-                />
-              }
-            />
+              <Route path="log_in" element={<LoginRedirect />} />
+              <Route path="log_out" element={<LogoutRedirect />} />
 
-            <Route
-              path="profile"
-              element={
-                <Profile
-                  onDelete={handleDelete}
-                  userData={userData}
-                  onEditSubmit={handleEditSubmit}
-                  showEditForm={showEditForm}
-                  successDelete={successDelete}
-                />
-              }
-            />
-          </Routes>
+              <Route
+                path="sign_up"
+                element={
+                  <AuthenticationGuard
+                    component={
+                      <SignUp
+                        onListing={callPostRequest}
+                        showForm={showForm}
+                        errorMessage={errorMessage}
+                      />
+                    }
+                  ></AuthenticationGuard>
+                }
+              />
+
+              <Route
+                path="profile"
+                element={
+                  <Profile
+                    onDelete={handleDelete}
+                    userData={userData}
+                    onEditSubmit={handleEditSubmit}
+                    showEditForm={showEditForm}
+                    successDelete={successDelete}
+                  />
+                }
+              />
+            </Routes>
           </Layout>
-      </div>
-    </Router>
-  </React.Fragment>
+        </div>
+      </Router>
+    </React.Fragment>
   );
 
   };
