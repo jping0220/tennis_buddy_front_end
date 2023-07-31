@@ -332,6 +332,10 @@ textarea {
 
 /* below are the styling for user info in Proile component*/
 
+.no-personal-profile-msg{
+  margin: 100px;
+}
+
 .profile-container {
   background-color: #f2f6a0;
   border-radius: 10px;
@@ -450,3 +454,4 @@ button.delete-btn {
   margin-left: -200px;
   margin-bottom: -35px;
 }
+

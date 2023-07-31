@@ -23,7 +23,7 @@ export const Profile = ({
 
   if (!userData) {
     return (
-      <div>
+      <div className="no-personal-profile-msg">
         {/* {successDelete && (
           <div>
             <h3>Success! The item has been deleted.</h3>
@@ -32,7 +32,9 @@ export const Profile = ({
         <h3>No Personal Profile Available</h3>
         <p>
           <Link to="/sign_up">
-            <Button variant="primary">Click here to sign up</Button>
+            <Button className="tennis-search-button" variant="primary">
+            <span role='img' aria-label="search-icon">🎾 </span>
+              Click here to sign up</Button>
           </Link>
         </p>
       </div>
