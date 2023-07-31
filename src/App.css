@@ -256,7 +256,7 @@ body::before {
 }
 
 .registration-form {
-  background-color: #584e16;
+  background-color: #f3e595;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -266,7 +266,7 @@ body::before {
 h2 {
   text-align: left;
   margin-bottom: 20px;
-  color: #e0e9e4; 
+  color: #070807; 
 }
 
 .form-group {
@@ -276,7 +276,7 @@ h2 {
 label {
   display: block;
   font-weight: bold;
-  color: #35eaea; 
+  color: #008080; 
 }
 
 input[type="text"],
