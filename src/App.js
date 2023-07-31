@@ -238,6 +238,9 @@ const App = () => {
               />
             </Routes>
           </Layout>
+          <footer className="footer">
+                <p className="footer-content">&copy; {new Date().getFullYear()} Tennis Buddy. All rights reserved.</p>
+          </footer>
         </div>
       </Router>
     </React.Fragment>
