@@ -105,10 +105,11 @@ const EditForm = ({ initialData, onEditSubmit }) => {
        
           />
         </Form.Group>
-  
-        <Button variant="primary" type="submit">
+
+          <Button className="save-change-button" variant="primary" type="submit" >
           Save Changes
-        </Button>
+          </Button>
+
       </Form>
     );
   };

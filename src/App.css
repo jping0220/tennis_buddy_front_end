@@ -431,7 +431,22 @@ button.delete-btn {
   color: #fff;
   font-weight: bold;
   background-color: #f13535; 
-  margin-top: -1000px;
-  margin-bottom: 10px;
+  margin-top: -100px;
+  margin-bottom: 0px;
   margin-left: 250px;
+}
+
+
+/* below code are for save change button after editing in EidtForm component. */
+.save-change-button{
+  padding:10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  background-color: #008080;
+  margin:20px;
+  margin-top: 30px;
+  margin-left: -200px;
+  margin-bottom: -35px;
 }
