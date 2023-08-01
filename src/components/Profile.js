@@ -77,6 +77,12 @@ export const Profile = ({
         )}
 
         <div className="profile-button-container">
+          <button onClick={handleShow} className="edit-btn">Edit</button>
+          <button onClick={handleDelete} className="delete-btn">Delete</button>
+        </div>
+
+        
+        {/* <div className="profile-button-container">
           {showEditForm ? (
             <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
           ) : (
@@ -85,14 +91,14 @@ export const Profile = ({
         
             <button onClick={handleDelete} className="delete-btn">Delete</button>
           
-        </div>
+        </div> */}
+
         {showSuccessPatch && (
           <div>
             <h3>Changes were made successfully.</h3>
           </div>
         )}
 
-        
         <Modal show={showEditForm} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Edit Profile</Modal.Title>
@@ -102,7 +108,6 @@ export const Profile = ({
           </Modal.Body>
         </Modal>
         
-
     </div>    
     )
   );
