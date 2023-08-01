@@ -10,8 +10,7 @@ import { Button, Modal } from 'react-bootstrap';
 export const Profile = ({
   userData,
   onEditSubmit,
-  onDelete,
-  // successDelete,
+  onDelete
 }) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [showEditForm, setShowEditForm] = useState(false);
@@ -26,11 +25,6 @@ export const Profile = ({
   if (!userData) {
     return (
       <div className="no-personal-profile-msg">
-        {/* {successDelete && (
-          <div>
-            <h3>Success! The item has been deleted.</h3>
-          </div>
-        )} */}
         <h3>No Personal Profile Available</h3>
         <p>
           <Link to="/sign_up">
@@ -52,7 +46,7 @@ export const Profile = ({
 
   const handleDelete = () => {
     onDelete();
-    setShowSuccessPatch(true);
+  
   };
 
 
@@ -81,18 +75,6 @@ export const Profile = ({
           <button onClick={handleDelete} className="delete-btn">Delete</button>
         </div>
 
-        
-        {/* <div className="profile-button-container">
-          {showEditForm ? (
-            <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
-          ) : (
-            <button onClick={() => setShowEditForm(true)} className="edit-btn">Edit</button>
-          )}
-        
-            <button onClick={handleDelete} className="delete-btn">Delete</button>
-          
-        </div> */}
-
         {showSuccessPatch && (
           <div>
             <h3>Changes were made successfully.</h3>
@@ -112,5 +94,3 @@ export const Profile = ({
     )
   );
 };
-
-// export default Profile;

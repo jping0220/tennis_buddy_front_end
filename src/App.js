@@ -14,8 +14,12 @@ import { LogoutRedirect } from "./components/LogoutRedirect";
 import { Link } from 'react-router-dom';
 import { AboutUs } from "./components/AboutUs";
 import { AuthenticationGuard } from "./components/Authentication-guard";
+import toast, { Toaster } from 'react-hot-toast';
 
 
+
+
+const notify = () => toast('Here is your toast.');
 
 const App = () => {
     const {
@@ -160,31 +164,36 @@ const App = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("User data deleted successfully.");
-      setSuccessDelete(true)
+      // setSuccessDelete(true);
+      toast.success('Successfully deleted!');
       setUserData(null);
-      setShowForm(true)
+      setShowForm(true);
     } catch (error) {
       console.error("Error deleting user data:", error);
       setSuccessDelete(false);
-      // if (error.response) {
-      //   // The request was made, and the server responded with a status code other than 2xx
-      //   console.error("Server Error:", error.response.data);
-      //   setErrorMessage(error.response.data.msg); // Assuming the server returns an error message in the response data
-      // } else if (error.request) {
-      //   // The request was made, but no response was received (e.g., server is down)
-      //   console.error("No Response:", error.request);
-      //   setErrorMessage("No response from the server");
-      // } else {
-      //   // Something else happened in making the request that triggered an error
-      //   console.error("Error:", error.message);
-      //   setErrorMessage("An error occurred while making the request");
-      // }    
+      if (error.response) {
+        // The request was made, and the server responded with a status code other than 2xx
+        console.error("Server Error:", error.response.data);
+        setErrorMessage(error.response.data.msg); // Assuming the server returns an error message in the response data
+      } else if (error.request) {
+        // The request was made, but no response was received (e.g., server is down)
+        console.error("No Response:", error.request);
+        setErrorMessage("No response from the server");
+      } else {
+        // Something else happened in making the request that triggered an error
+        console.error("Error:", error.message);
+        setErrorMessage("An error occurred while making the request");
+      }    
     }
   };
 
 
   return (
     <React.Fragment>
+      <div>
+      <button onClick={notify}>Make me a toast</button>
+      <Toaster />
+      </div>
       <Router>
         <div className="pic">
           <Link to="/">
