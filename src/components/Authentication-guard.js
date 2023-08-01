@@ -17,8 +17,6 @@ export const AuthenticationGuard = ({
   return (
     <Component
       {...otherProps}
-      // showForm,
-      // errorMessage}
     />
   );
 };

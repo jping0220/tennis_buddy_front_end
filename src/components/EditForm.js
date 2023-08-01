@@ -21,11 +21,6 @@ const tennisLevels = [
 
 const EditForm = ({ initialData, onEditSubmit }) => {
   const [formData, setFormData] = useState(initialData);
-
-    // useEffect(() => {
-    //   setFormData(initialData);
-    // }, [initialData]);
-  
   
     const handleChange = (event) => {
       const { name, value } = event.target;

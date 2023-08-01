@@ -6,7 +6,6 @@ import TennisUserList from './TennisUserList';
 export const Home = ({ onSearch, searchResult, matchFound }) => {
     return (
         <div className='home-container'>
-            {/* <h1>Find Your Tennis Partner</h1> */}
             <h2>Search tennis players near you.</h2>
             <SearchForm onSearch={onSearch} searchResult={searchResult} />
             {matchFound ? (
@@ -17,4 +16,3 @@ export const Home = ({ onSearch, searchResult, matchFound }) => {
     );
 };
 
-// export default Home;

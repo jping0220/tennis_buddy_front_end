@@ -19,14 +19,14 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 
-const notify = () => toast('Here is your toast.');
+// const notify = () => toast('Here is your toast.');
 
 const App = () => {
     const {
-      loginWithPopup,
-      loginWithRedirect,
-      logout,
-      user,
+      // loginWithPopup,
+      // loginWithRedirect,
+      // logout,
+      // user,
       isAuthenticated,
       getAccessTokenSilently,
     } = useAuth0();
@@ -126,7 +126,6 @@ const App = () => {
         setUserData(data); 
       });
     }
-    // console.log("userData in App useEffect:", userData);
   }, [isAuthenticated, getUserData]);
   
 
@@ -146,6 +145,7 @@ const App = () => {
         headers: { Authorization: `Bearer ${token}` }
       });
       console.log("Updated form data:", response.data);
+      toast.success('Changes Were Made Successfully!');
       setShowEditForm(false);
       // Optionally, can update the local userData state with the response data
       setUserData(response.data);
@@ -164,7 +164,6 @@ const App = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("User data deleted successfully.");
-      // setSuccessDelete(true);
       toast.success('Successfully deleted!');
       setUserData(null);
       setShowForm(true);
@@ -191,7 +190,7 @@ const App = () => {
   return (
     <React.Fragment>
       <div>
-      <button onClick={notify}>Make me a toast</button>
+      {/* <button onClick={notify}>Make me a toast</button> */}
       <Toaster />
       </div>
       <Router>

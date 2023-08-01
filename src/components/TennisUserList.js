@@ -3,10 +3,8 @@ import TennisUser from './TennisUser';
 
 
 const TennisUserList = ({ searchResult}) => {
-  // console.log(searchResult)
     return (
       <div className ="tennis-user-list-container">
-        {/* <h1>Players</h1> */}
         {searchResult.map((user) => (
           <TennisUser key={user.tennis_user_id} user={user} />
         ))}

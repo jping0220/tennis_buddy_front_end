@@ -14,7 +14,7 @@ export const Profile = ({
 }) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [showEditForm, setShowEditForm] = useState(false);
-  const [showSuccessPatch, setShowSuccessPatch] = useState(false);
+  // const [showSuccessPatch, setShowSuccessPatch] = useState(false);
   const handleClose = () => setShowEditForm(false);
   const handleShow = () => setShowEditForm(true);
 
@@ -41,7 +41,7 @@ export const Profile = ({
   const handleEditSubmit = async (updateData) => {
     onEditSubmit(updateData);
     setShowEditForm(false);
-    setShowSuccessPatch(true);
+    // setShowSuccessPatch(true);
   };
 
   const handleDelete = () => {
@@ -75,11 +75,11 @@ export const Profile = ({
           <button onClick={handleDelete} className="delete-btn">Delete</button>
         </div>
 
-        {showSuccessPatch && (
+        {/* {showSuccessPatch && (
           <div>
             <h3>Changes were made successfully.</h3>
           </div>
-        )}
+        )} */}
 
         <Modal show={showEditForm} onHide={handleClose}>
           <Modal.Header closeButton>
