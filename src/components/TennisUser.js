@@ -7,6 +7,7 @@ const TennisUser = ({ user }) => {
 
   if (!isAuthenticated) {
     return (
+    <div>
       <Card className='tennis-user-card' style={{ width: "30rem" }}>
       <Card.Body>
         {/* <Card.Title className="user-info-name">Name: {user.name}</Card.Title> */}
@@ -16,8 +17,11 @@ const TennisUser = ({ user }) => {
         <Card.Text className="user-info-preferences">
           Preferences: {user.preferences}
         </Card.Text>
-      </Card.Body>
-    </Card>
+            <div className='contact-info'>log in for contact info</div>
+        </Card.Body>
+        </Card>
+        
+    </div>
     )
   }
 

@@ -213,6 +213,10 @@ body::before {
   }
 
 
+.contact-info{
+  font-weight: bold;
+  color:#1b9dc9;
+  }
 
 /* below are the styling for user list after search in TennisUserList component*/
 
