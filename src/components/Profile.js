@@ -74,20 +74,24 @@ export const Profile = ({
           </React.Fragment>
         )}
 
+        <div className="profile-button-container">
+          {showEditForm ? (
+            <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
+          ) : (
+            <button onClick={() => setShowEditForm(true)} className="edit-btn">Edit</button>
+          )}
         
-        {showEditForm ? (
-          <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
-        ) : (
-          <button onClick={() => setShowEditForm(true)} className="edit-btn">Edit</button>
-        )}
-      
-          <button onClick={handleDelete} className="delete-btn">Delete</button>
-
+            <button onClick={handleDelete} className="delete-btn">Delete</button>
+          
+        </div>
         {showSuccessPatch && (
           <div>
             <h3>Changes were made successfully.</h3>
           </div>
         )}
+
+        
+
     </div>    
     )
   );

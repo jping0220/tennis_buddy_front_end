@@ -91,7 +91,6 @@ const EditForm = ({ initialData, onEditSubmit }) => {
                 {level.label}
               </option>
             ))}
-            {/* Your options for tennis levels */}
           </Form.Control>
         </Form.Group>
   
