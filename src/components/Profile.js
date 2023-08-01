@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import EditForm from "./EditForm";
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 
 
 
@@ -16,6 +16,8 @@ export const Profile = ({
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [showEditForm, setShowEditForm] = useState(false);
   const [showSuccessPatch, setShowSuccessPatch] = useState(false);
+  const handleClose = () => setShowEditForm(false);
+  const handleShow = () => setShowEditForm(true);
 
   if (isLoading) {
     return <div>Loading ...</div>;
@@ -90,6 +92,15 @@ export const Profile = ({
           </div>
         )}
 
+        
+        <Modal show={showEditForm} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Edit Profile</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <EditForm initialData={userData.user} onEditSubmit={handleEditSubmit} />
+          </Modal.Body>
+        </Modal>
         
 
     </div>    
