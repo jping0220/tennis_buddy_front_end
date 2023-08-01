@@ -6,7 +6,6 @@ export const SignUp = ({ onListing, showForm, errorMessage }) => {
 
     return (
       <div>
-        {/* <h2>new user to sign up with personal info</h2> */}
         {showForm ? (
           <NewUserForm onListing={onListing} />
         ) : (
@@ -17,4 +16,3 @@ export const SignUp = ({ onListing, showForm, errorMessage }) => {
     );
 };
 
-// export default SignUp;
