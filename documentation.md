@@ -9,7 +9,7 @@ Tennis Buddies is a web app that allows people to search for a tennis partner to
 matches or just to find someone to hit the tennis for fun !
 
 ## Features
-
+ 
 User have access to a third party authentication service from the website. User can: create an account, login, reset password and logout. Users' data is saved in Auth0 database. 
 
 The user should be able to create a profile with information about: location, tennis level and some text with an explanation of their availabily, personal preferences, etc.
