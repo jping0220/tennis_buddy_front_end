@@ -1,4 +1,8 @@
 # tennis_buddy_front_end
+Tennis_buddy_front_end is the front-end part of a full-stack web application. This repository contains the client-side code built with React, responsible for the user interface and interactions.
+
+The backend for this application is located in a separate repository called Tennis_buddy_back_end. It provides the server-side logic and API endpoints for the application. You can find the backend repository at the following link:(https://github.com/jping0220/tennis_buddy_back_end).
+
 
 ## Overview and Purpose
 Tennis Buddy is a web app that allows people to search for a tennis partner in their area to play together 
