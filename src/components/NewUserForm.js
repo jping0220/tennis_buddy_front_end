@@ -5,15 +5,6 @@ import signUpForm from "../assets/RegistrationForm.png"
 import { useAuth0 } from "@auth0/auth0-react";
 
 
-
-// const INITIAL_FORM_DATA = {
-//     name: "",
-//     email: "",
-//     zip_code: "",
-//     tennis_level: "",
-//     preferences: ""
-// };
-
 const tennisLevels = [
     { value: "", label: "Select a level" },
     { value: "1.0", label: "1.0 - Novice" },
