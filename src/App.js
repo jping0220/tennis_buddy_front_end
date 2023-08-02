@@ -194,7 +194,7 @@ const App = () => {
       <Toaster />
       </div>
       <Router>
-        <div className="pic">
+        <div className="logo-pic">
           <Link to="/">
             <img src={tennisPlayer} alt="tennis player background pic" />
           </Link>
