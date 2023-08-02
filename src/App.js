@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import { AboutUs } from "./components/AboutUs";
 import { AuthenticationGuard } from "./components/Authentication-guard";
 import toast, { Toaster } from 'react-hot-toast';
+import Footer from "./components/Footer";
 
 
 
@@ -246,9 +247,10 @@ const App = () => {
               />
             </Routes>
           </Layout>
-          <footer className="footer">
+          {/* <footer className="footer">
                 <p className="footer-content">&copy; {new Date().getFullYear()} Tennis Buddy. All rights reserved.</p>
-          </footer>
+          </footer> */}
+          <Footer></Footer>
         </div>
       </Router>
     </React.Fragment>
