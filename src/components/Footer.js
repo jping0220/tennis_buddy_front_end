@@ -4,7 +4,7 @@ import "../App.css";
   
 function Footer() {
   return (
-    <Card style={{ backgroundColor: 'black', color: 'white', padding: '20px 0' }}className="text-center">
+    <Card style={{ backgroundColor: '#212529', color: 'white', padding: '20px 0' }}className="text-center">
       <Card.Header>Featured</Card.Header>
       <Card.Body>
         <Card.Title>Tennis Buddy</Card.Title>
