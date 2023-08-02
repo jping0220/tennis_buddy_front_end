@@ -4,16 +4,15 @@ import "../App.css";
   
 function Footer() {
   return (
-    <Card className="text-center">
-      <Card.Header>Featured</Card.Header>
-      <Card.Body>
+    <Card className="footer-text-center">
+      {/* <Card.Header>Featured</Card.Header> */}
+      {/* <Card.Body> */}
         <Card.Title>Tennis Buddy</Card.Title>
-        <Card.Text>&copy; All rights reserved. </Card.Text>
-        {/* <Button variant="primary">Go somewhere</Button> */}
-      </Card.Body>
-      <Card.Footer className="text-muted">
+        <Card.Text>&copy; All rights reserved. {new Date().getFullYear()} </Card.Text>
+      {/* </Card.Body> */}
+      {/* <Card.Footer>
         {new Date().getFullYear()}
-      </Card.Footer>
+      </Card.Footer> */}
     </Card>
   );
 }
