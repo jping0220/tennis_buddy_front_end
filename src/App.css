@@ -230,12 +230,12 @@ body{
   margin: 5%;
 }
 
-.container {
+.about-us-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-left: 5px; */
 }
+
 
 
 /* below are the styling for user sign-up form in NewUserForm component*/
