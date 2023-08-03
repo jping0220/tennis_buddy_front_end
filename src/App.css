@@ -530,3 +530,7 @@ textarea {
   height: 45%;
   width: 45%;
 }
+
+.map-info p {
+  font-weight: bold;
+}

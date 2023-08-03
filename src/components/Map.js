@@ -36,7 +36,7 @@ export const MapDisplay = ({ searchResult }) => {
   //they are stored in the latLngList state, which can be used to render the map and markers.
   const fetchCoordinates = async () => {
     const promises = searchResult.map((result) =>
-      getCoordinates(result.zip_code,result.name,result.tennis_level)
+      getCoordinates(result.zip_code,result.name,result.tennis_level,result.email,result.preferences)
     );
     
     const coordinates = await Promise.all(promises);
@@ -54,7 +54,7 @@ export const MapDisplay = ({ searchResult }) => {
 
 
 
-  const getCoordinates = async (zipCode,name,tennis_level) => {
+  const getCoordinates = async (zipCode,name,tennis_level,email,preferences) => {
     const apiKey = process.env.REACT_APP_GOOGLE_API_KEY_2;
     try {
       const response = await fetch(
@@ -69,7 +69,7 @@ export const MapDisplay = ({ searchResult }) => {
       const latitude = data.results[0]?.geometry?.location?.lat || null;
       const longitude = data.results[0]?.geometry?.location?.lng || null;
       
-      return {latitude,longitude, name, tennis_level};
+      return {latitude,longitude, name, tennis_level,email,preferences};
     
     } catch (error) {
       console.error("Error fetching coordinates:", error);
@@ -90,9 +90,9 @@ export const MapDisplay = ({ searchResult }) => {
 
 
 
-  const handleMarkerClick = (id, lat, lng, name, tennis_level) => {
+  const handleMarkerClick = (id, lat, lng, name, tennis_level, email, preferences) => {
     mapRef?.panTo({ lat, lng });
-    setInfoWindowData({ id, name, tennis_level });
+    setInfoWindowData({ id, name, tennis_level,email, preferences });
     setClickedMarkerIndex(id);
     setIsOpen(true);
   };
@@ -118,7 +118,7 @@ export const MapDisplay = ({ searchResult }) => {
                 key={index}
                 position={{ lat: position.latitude, lng: position.longitude }}
                 onClick={() => {
-                  handleMarkerClick(index, position.latitude, position.longitude, position.name, position.tennis_level);
+                  handleMarkerClick(index, position.latitude, position.longitude, position.name, position.tennis_level, position.email, position.preferences);
                 }}
               />
             ))}
@@ -132,8 +132,11 @@ export const MapDisplay = ({ searchResult }) => {
                 setIsOpen(false);
               }}
               >
-              <div>
-                  <h3>{infoWindowData.name},{infoWindowData.tennis_level}</h3>
+              <div className="map-info">
+                  <h4>{infoWindowData.name}</h4>
+                  <p>tennis level: {infoWindowData.tennis_level}</p>
+                  <p>email: {infoWindowData.email}</p>
+                  <p>preferences: {infoWindowData.preferences}</p>
               </div>
               </InfoWindow>
               )}   
