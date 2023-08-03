@@ -23,7 +23,7 @@ export const Home = ({ onSearch, searchResult, matchFound }) => {
             )}
 
             {/* below code for showing google map */}
-            <MapDisplay></MapDisplay>
+            <MapDisplay searchResult={searchResult}></MapDisplay>
         {/* <div className="App">
             {!isLoaded ? (
                 <h1>Loading...</h1>
