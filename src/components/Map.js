@@ -104,10 +104,10 @@ export const MapDisplay = ({ searchResult }) => {
           {latLngList.map((position, index) => (
             <Marker
               key={index}
-              position={{ latitude: position.latitude, longitude: position.longitude }}
+              position={{ lat: position.latitude, lng: position.longitude }}
             />
           ))}
-          {/* <Marker position={{ lat: 47.608013, lng: -122.335167 }}></Marker> */}
+          <Marker position={{ lat: 47.608013, lng: -122.335167 }}></Marker>
         </GoogleMap>
       )}
     </div>
