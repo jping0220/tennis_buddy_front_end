@@ -1,7 +1,13 @@
-import { User } from "@auth0/auth0-react";
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  Marker,
+  useJsApiLoader,
+  InfoWindow,
+} from "@react-google-maps/api";
 import { useMemo } from "react";
 import React from "react";
+import { useState } from "react";
+
 // The searchResult prop should be an array of objects, 
 // each containing a latitude and longitude property for each marker 
 // you want to display on the map. 
@@ -16,27 +22,9 @@ export const MapDisplay = ({ searchResult }) => {
   });
   const center = useMemo(() => ({ lat: 47.608013, lng: -122.335167 }), []);
 
-
-  // FUnction to fetch lat and long FIX THE API KEY:
-  // const getCoordinates = (address) => {
-  //   const apiKey = "YOUR_GOOGLE_API_KEY"; // Replace with your actual API key
-  //   return fetch(
-  //     `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       const latitude = data.results[1];
-  //       console.log(data.results[1]);
-  //       const longitude = data.results?.geometry?.location?.lng || null;
-
-  //       console.log(data.results);
-  //       return { latitude, longitude };
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching coordinates:", error);
-  //       return { latitude: null, longitude: null };
-  //     });
-  // };
+  const [mapRef, setMapRef] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+  const [infoWindowData, setInfoWindowData] = useState();
 
 
   const getCoordinates = async (address) => {
@@ -62,9 +50,6 @@ export const MapDisplay = ({ searchResult }) => {
     }
   };
   
-  
-
-
   // use a function to iterate over the searchResdult and for each zip code, call the APi to get lat and long.
   // Once the coordinates are fetched,
   //they are stored in the latLngList state, which can be used to render the map and markers.
@@ -75,10 +60,6 @@ export const MapDisplay = ({ searchResult }) => {
     
     const coordinates = await Promise.all(promises);
 
-    // console.log(`we are printing the coordinates: ${coordinates[0]}`)
-    // coordinates.forEach((coord) => {
-    //   console.log("Latitude:", coord.latitude, "Longitude:", coord.longitude);
-    // });
     return coordinates;
   };
 
@@ -91,6 +72,24 @@ export const MapDisplay = ({ searchResult }) => {
   }, [searchResult]);
 
 
+
+  // handle markers:
+  const onMapLoad = (map) => {
+    setMapRef(map);
+    const bounds = new google.maps.LatLngBounds();
+    markers?.forEach(({ lat, lng }) => bounds.extend({ lat, lng }));
+    map.fitBounds(bounds);
+  };
+
+  const handleMarkerClick = (id, lat, lng, address) => {
+    mapRef?.panTo({ lat, lng });
+    setInfoWindowData({ id, address });
+    setIsOpen(true);
+  };
+
+
+
+
   return (
     <div className="App">
       {!isLoaded ? (
@@ -100,14 +99,29 @@ export const MapDisplay = ({ searchResult }) => {
           mapContainerClassName="map-container"
           center={center}
           zoom={10}
+          onLoad={onMapLoad}
+          onClick={() => setIsOpen(false)}
         >
           {latLngList.map((position, index) => (
             <Marker
               key={index}
               position={{ lat: position.latitude, lng: position.longitude }}
-            />
+              onClick={() => {
+                handleMarkerClick(ind, lat, lng, address);
+              }}
+            >
           ))}
-          <Marker position={{ lat: 47.608013, lng: -122.335167 }}></Marker>
+          {isOpen && infoWindowData?.id === ind && (
+            <InfoWindow
+              onCloseClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              <h3>{infoWindowData.address}</h3>
+            </InfoWindow>
+              )}
+              </Marker>
+          {/* <Marker position={{ lat: 47.608013, lng: -122.335167 }}></Marker> */}
         </GoogleMap>
       )}
     </div>
