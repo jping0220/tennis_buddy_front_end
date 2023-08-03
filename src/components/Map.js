@@ -27,9 +27,7 @@ export const MapDisplay = ({ searchResult }) => {
   const [infoWindowData, setInfoWindowData] = useState({});
   const [clickedMarkerIndex, setClickedMarkerIndex] = useState(null);
 
-  // const markers = [
-  //   { address: "data info from backend"},
-  // ];
+
 
 // use a function to iterate over the searchResdult and for each zip code, call the APi to get lat and long.
   // Once the coordinates are fetched,
@@ -79,17 +77,6 @@ export const MapDisplay = ({ searchResult }) => {
   
   
 
-
-  // handle markers:
-  // const onMapLoad = (map) => {
-  //   setMapRef(map);
-  //   const bounds = new google.maps.LatLngBounds();
-  //   markers?.forEach(({ lat, lng }) => bounds.extend({ lat, lng }));
-  //   map.fitBounds(bounds);
-  // };
-
-
-
   const handleMarkerClick = (id, lat, lng, name, tennis_level, email, preferences) => {
     mapRef?.panTo({ lat, lng });
     setInfoWindowData({ id, name, tennis_level,email, preferences });
@@ -99,10 +86,9 @@ export const MapDisplay = ({ searchResult }) => {
 
  
 
-
   return (
     <div className="App">
-      {console.log('isOpen:', isOpen, 'clickedMarkerIndex:', clickedMarkerIndex)}
+      {/* {console.log('isOpen:', isOpen, 'clickedMarkerIndex:', clickedMarkerIndex)} */}
       {!isLoaded ? (
         <h1>Loading...</h1>
       ) : (
@@ -110,7 +96,6 @@ export const MapDisplay = ({ searchResult }) => {
           mapContainerClassName="map-container"
           center={center}
           zoom={10}
-          // onLoad={onMapLoad}
           onClick={() => setIsOpen(false)}
         >
             {latLngList.map((position, index) => (
@@ -140,7 +125,7 @@ export const MapDisplay = ({ searchResult }) => {
               </div>
               </InfoWindow>
               )}   
-          {/* <Marker position={{ lat: 47.608013, lng: -122.335167 }}></Marker> */}
+          <Marker position={{ lat: 47.608013, lng: -122.335167 }}></Marker>
         </GoogleMap>
       )}
     </div>
