@@ -54,7 +54,6 @@ export const MapDisplay = ({ searchResult }) => {
       const latitude = data.results[0]?.geometry?.location?.lat || null;
       const longitude = data.results[0]?.geometry?.location?.lng || null;
       
-      console.log("lat:", latitude, "lng:", longitude);
       return {latitude,longitude};
     
     } catch (error) {
@@ -76,15 +75,16 @@ export const MapDisplay = ({ searchResult }) => {
     
     const coordinates = await Promise.all(promises);
 
-    console.log(`we are printing the coordinates: ${coordinates[0]}`)
-    coordinates.forEach((coord) => {
-      console.log("Latitude:", coord.latitude, "Longitude:", coord.longitude);
-    });
+    // console.log(`we are printing the coordinates: ${coordinates[0]}`)
+    // coordinates.forEach((coord) => {
+    //   console.log("Latitude:", coord.latitude, "Longitude:", coord.longitude);
+    // });
     return coordinates;
   };
 
   //cordinates = [{lat, long}]
   const [latLngList, setLatLngList] = React.useState([]);
+  console.log("checking:",latLngList);
 
   React.useEffect(() => {
     fetchCoordinates().then((coordinates) => setLatLngList(coordinates));
@@ -104,7 +104,7 @@ export const MapDisplay = ({ searchResult }) => {
           {latLngList.map((position, index) => (
             <Marker
               key={index}
-              position={{ lat: position.lat, lng: position.lng }}
+              position={{ latitude: position.latitude, longitude: position.longitude }}
             />
           ))}
           {/* <Marker position={{ lat: 47.608013, lng: -122.335167 }}></Marker> */}
