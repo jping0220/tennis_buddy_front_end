@@ -1,14 +1,14 @@
 import React from 'react';
 import SearchForm from './SearchForm';
 import TennisUserList from './TennisUserList';
-import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import { useMemo } from "react";
 
 
 export const Home = ({ onSearch, searchResult, matchFound }) => {
-    const { isLoaded } = useLoadScript({
-        googleMapsApiKey:process.env.REACT_GOOGLE_API_KEY_2,
-      });
+    const { isLoaded } = useJsApiLoader({
+      googleMapsApiKey: "AIzaSyDEOIDOOW9FnOSJaGSonLlNeSBHijucsvM",
+    });
     const center = useMemo(() => ({ lat: 18.52043, lng: 73.856743 }), []);
     
     return (
