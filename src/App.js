@@ -17,12 +17,10 @@ import { AuthenticationGuard } from "./components/Authentication-guard";
 import toast, { Toaster } from 'react-hot-toast';
 import Footer from "./components/Footer";
 
-
-
-
 // const notify = () => toast('Here is your toast.');
 
 const App = () => {
+
     const {
       // loginWithPopup,
       // loginWithRedirect,
@@ -212,6 +210,8 @@ const App = () => {
                     onSearch={handleSearch}
                     searchResult={searchResult}
                     matchFound={matchFound}
+
+                  
                   />
                 }
               />

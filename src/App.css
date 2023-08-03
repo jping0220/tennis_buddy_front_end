@@ -518,3 +518,15 @@ textarea {
  .footer-text-muted {
   color:white;
 } */
+
+
+/* google map */
+.App {
+  height: 100vh;
+  width: 100vw;
+}
+
+.map-container {
+  height: 45%;
+  width: 45%;
+}
