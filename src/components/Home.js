@@ -6,10 +6,11 @@ import { useMemo } from "react";
 
 
 export const Home = ({ onSearch, searchResult, matchFound }) => {
+
     const { isLoaded } = useJsApiLoader({
-      googleMapsApiKey: "AIzaSyDEOIDOOW9FnOSJaGSonLlNeSBHijucsvM",
+      googleMapsApiKey:process.env.REACT_APP_GOOGLE_API_KEY_2,
     });
-    const center = useMemo(() => ({ lat: 18.52043, lng: 73.856743 }), []);
+    const center = useMemo(() => ({ lat: 47.608013, lng: -122.335167 }), []);
     
     return (
         <div className='home-container'>
