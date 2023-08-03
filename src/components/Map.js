@@ -18,23 +18,52 @@ export const MapDisplay = ({ searchResult }) => {
 
 
   // FUnction to fetch lat and long FIX THE API KEY:
-  const getCoordinates = (address) => {
-    const apiKey = "YOUR_GOOGLE_API_KEY"; // Replace with your actual API key
-    return fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const latitude = data.results[0]?.geometry?.location?.lat || null;
-        const longitude = data.results[0]?.geometry?.location?.lng || null;
-        console.log(data.results);
-        return { latitude, longitude };
-      })
-      .catch((error) => {
-        console.error("Error fetching coordinates:", error);
-        return { latitude: null, longitude: null };
-      });
+  // const getCoordinates = (address) => {
+  //   const apiKey = "YOUR_GOOGLE_API_KEY"; // Replace with your actual API key
+  //   return fetch(
+  //     `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       const latitude = data.results[1];
+  //       console.log(data.results[1]);
+  //       const longitude = data.results?.geometry?.location?.lng || null;
+
+  //       console.log(data.results);
+  //       return { latitude, longitude };
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching coordinates:", error);
+  //       return { latitude: null, longitude: null };
+  //     });
+  // };
+
+
+  const getCoordinates = async (address) => {
+    const apiKey = process.env.REACT_APP_GOOGLE_API_KEY_2;
+    try {
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`
+      );
+  
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+  
+      const data = await response.json();
+      const latitude = data.results[0]?.geometry?.location?.lat || null;
+      const longitude = data.results[0]?.geometry?.location?.lng || null;
+      
+      console.log("lat:", latitude, "lng:", longitude);
+      return {latitude,longitude};
+    
+    } catch (error) {
+      console.error("Error fetching coordinates:", error);
+      return { latitude: null, longitude: null };
+    }
   };
+  
+  
 
 
   // use a function to iterate over the searchResdult and for each zip code, call the APi to get lat and long.
@@ -44,10 +73,16 @@ export const MapDisplay = ({ searchResult }) => {
     const promises = searchResult.map((result) =>
       getCoordinates(result.zip_code)
     );
+    
     const coordinates = await Promise.all(promises);
-    console.log(`we are printing the coordinates ${coordinates}`)
+
+    console.log(`we are printing the coordinates: ${coordinates[0]}`)
+    coordinates.forEach((coord) => {
+      console.log("Latitude:", coord.latitude, "Longitude:", coord.longitude);
+    });
     return coordinates;
   };
+
   //cordinates = [{lat, long}]
   const [latLngList, setLatLngList] = React.useState([]);
 
