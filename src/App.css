@@ -12,6 +12,7 @@
 /* navigation bar */
 .navbar {
     font-weight:bold;
+    width:100%;
 }
 
 .nav-link {
@@ -523,17 +524,18 @@ textarea {
 
 /* google map */
 .App {
-  height: 100vh;
-  width: 100vw;
+  height: 40vh;
+  width: 80vw;
 }
 
 .map-container {
-  height: 60%;
-  width: 50%;
+  height: 80%;
+  width: 45%;
   position: absolute;
-  left: 80%; /* Adjust the left value to control the map width */
+  left: 75%; /* Adjust the left value to control the map width */
   top:70%;
   transform: translateX(-50%);
+  margin-bottom: 10px;
 }
 
 .map-info p {
