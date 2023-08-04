@@ -8,9 +8,7 @@ import { useMemo } from "react";
 import React from "react";
 import { useState } from "react";
 
-// The searchResult prop should be an array of objects, 
-// each containing a latitude and longitude property for each marker 
-// you want to display on the map. 
+
 
 // https://maps.googleapis.com/maps/api/geocode/json?address=98029&key=AIzaSyDEOIDOOW9FnOSJaGSonLlNeSBHijucsvM
 
@@ -29,9 +27,6 @@ export const MapDisplay = ({ searchResult }) => {
 
 
 
-// use a function to iterate over the searchResdult and for each zip code, call the APi to get lat and long.
-  // Once the coordinates are fetched,
-  //they are stored in the latLngList state, which can be used to render the map and markers.
   const fetchCoordinates = async () => {
     const promises = searchResult.map((result) =>
       getCoordinates(result.zip_code,result.name,result.tennis_level,result.email,result.preferences)
