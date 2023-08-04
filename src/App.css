@@ -219,10 +219,11 @@ body{
 .tennis-user-list-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content:center;
+    justify-content:left;
     max-height:calc(100vh - 200px);
     overflow-y: auto;
     margin-top: 20px;
+    margin-left: -150px;
 }
 
 
@@ -527,8 +528,12 @@ textarea {
 }
 
 .map-container {
-  height: 45%;
-  width: 45%;
+  height: 60%;
+  width: 30%;
+  position: absolute;
+  left: 80%; /* Adjust the left value to control the map width */
+  top:70%;
+  transform: translateX(-50%);
 }
 
 .map-info p {
