@@ -1,6 +1,5 @@
 import React from 'react';
 import TennisUser from './TennisUser';
-import { Marker } from '@react-google-maps/api';
 
 
 

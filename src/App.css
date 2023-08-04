@@ -148,28 +148,25 @@ body{
 /* below are the styling for search result in TennisUser component*/
 
 .tennis-user-card {
-    width: 30rem;
+    width: 17rem;
     background-color:white;
-    border-radius: 200%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10%;
     padding: 20px;
     margin-bottom: 10px;
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content:left;
-    overflow: hidden; /* Hide any content that overflows (to maintain circular shape) */
+    /* overflow: hidden; */
     position: relative; 
   
 }
 
-  
-.tennis-user-card h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
+.user-info {
+  text-align: left;
+}
+
+
 .tennis-user-card .user-info-name {
     margin-top: 10px;
     font-size: 16px;
@@ -220,11 +217,13 @@ body{
 .tennis-user-list-container {
     display: flex;
     flex-wrap: wrap;
+    flex-direction:column;
     justify-content:left;
     max-height:calc(100vh - 200px);
     overflow-y: auto;
     margin-top: 20px;
-    margin-left: -150px;
+    margin-left: 10px;
+    margin-right: 600px;
 }
 
 
@@ -530,7 +529,7 @@ textarea {
 
 .map-container {
   height: 60%;
-  width: 30%;
+  width: 50%;
   position: absolute;
   left: 80%; /* Adjust the left value to control the map width */
   top:70%;
