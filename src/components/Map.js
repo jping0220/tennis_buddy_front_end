@@ -18,8 +18,9 @@ export const MapDisplay = ({ searchResult }) => {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY_2,
   });
-  const center = useMemo(() => ({ lat: 47.608013, lng: -122.335167 }), []);
 
+
+  const [center, setCenter] = useState({ lat: 47.608013, lng: -122.335167 });
   const [mapRef, setMapRef] = useState();
   const [isOpen, setIsOpen] = useState(false);
   const [infoWindowData, setInfoWindowData] = useState({});
@@ -61,13 +62,20 @@ export const MapDisplay = ({ searchResult }) => {
     return coordinates;
   };
 
-  //cordinates = [{lat, long}]
+  // cordinates = [{lat, long}]
   const [latLngList, setLatLngList] = React.useState([]);
   console.log("checking:",latLngList);
 
   React.useEffect(() => {
     fetchCoordinates().then((coordinates) => setLatLngList(coordinates));
   }, [searchResult]);
+
+
+  useMemo(() => {
+    if (latLngList.length > 0) {
+      setCenter({ lat: latLngList[0]?.latitude, lng: latLngList[0]?.longitude });
+    }
+  }, [latLngList]);
 
 
 
@@ -78,7 +86,7 @@ export const MapDisplay = ({ searchResult }) => {
     setIsOpen(true);
   };
 
- 
+
 
   return (
     <div className="App">
@@ -119,7 +127,7 @@ export const MapDisplay = ({ searchResult }) => {
               </div>
               </InfoWindow>
               )}   
-          <Marker position={{ lat: 47.608013, lng: -122.335167 }}></Marker>
+          {/* <Marker position={center}></Marker> */}
         </GoogleMap>
       )}
     </div>
