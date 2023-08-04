@@ -35,7 +35,7 @@ const App = () => {
   const [matchFound, setMatchFound] = useState(true);
   const [userData, setUserData] = useState(null);
   // these are for the new_form state (after post):
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(true);   
   const [errorMessage, setErrorMessage] = useState(null);
   // these are the editform statex
   const [showEditForm, setShowEditForm] = useState(false);
