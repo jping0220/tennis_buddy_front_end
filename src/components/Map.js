@@ -26,27 +26,6 @@ export const MapDisplay = ({ searchResult }) => {
   const [clickedMarkerIndex, setClickedMarkerIndex] = useState(null);
 
 
-
-  const fetchCoordinates = async () => {
-    const promises = searchResult.map((result) =>
-      getCoordinates(result.zip_code,result.name,result.tennis_level,result.email,result.preferences)
-    );
-    
-    const coordinates = await Promise.all(promises);
-
-    return coordinates;
-  };
-
-  //cordinates = [{lat, long}]
-  const [latLngList, setLatLngList] = React.useState([]);
-  console.log("checking:",latLngList);
-
-  React.useEffect(() => {
-    fetchCoordinates().then((coordinates) => setLatLngList(coordinates));
-  }, [searchResult]);
-
-
-
   const getCoordinates = async (zipCode,name,tennis_level,email,preferences) => {
     const apiKey = process.env.REACT_APP_GOOGLE_API_KEY_2;
     try {
@@ -70,7 +49,27 @@ export const MapDisplay = ({ searchResult }) => {
     }
   };
   
-  
+
+
+  const fetchCoordinates = async () => {
+    const promises = searchResult.map((result) =>
+      getCoordinates(result.zip_code,result.name,result.tennis_level,result.email,result.preferences)
+    );
+    
+    const coordinates = await Promise.all(promises);
+
+    return coordinates;
+  };
+
+  //cordinates = [{lat, long}]
+  const [latLngList, setLatLngList] = React.useState([]);
+  console.log("checking:",latLngList);
+
+  React.useEffect(() => {
+    fetchCoordinates().then((coordinates) => setLatLngList(coordinates));
+  }, [searchResult]);
+
+
 
   const handleMarkerClick = (id, lat, lng, name, tennis_level, email, preferences) => {
     mapRef?.panTo({ lat, lng });
