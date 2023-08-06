@@ -3,7 +3,7 @@
     width: 18%;
     object-fit: cover;
     right:0;
-    margin-left: 1000px;
+    margin-left: 250px;
     margin-top: -100px;
     margin-bottom: -20px;
 }
@@ -140,7 +140,9 @@ body{
 .home-container .no-match-message {
     color: #090808;
     text-align: center;
-    margin-top: 40px;
+    margin-top: -100px;
+    margin-left: 700px;
+    margin-bottom:100px;
     font-weight: bold;
     font-size: larger;
   }
@@ -529,11 +531,11 @@ textarea {
 }
 
 .map-container {
-  height: 80%;
+  height: 60%;
   width: 45%;
   position: absolute;
   left: 75%; /* Adjust the left value to control the map width */
-  top:70%;
+  top:69%;
   transform: translateX(-50%);
   margin-bottom: 10px;
 }

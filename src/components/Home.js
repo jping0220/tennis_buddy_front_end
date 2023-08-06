@@ -13,7 +13,7 @@ export const Home = ({ onSearch, searchResult, matchFound, isAuthenticated }) =>
             <SearchForm onSearch={onSearch} searchResult={searchResult} />
             {matchFound ? (
                 <TennisUserList searchResult={searchResult} />) : (
-                <p className='no-match-message'>No Match Player Was Found</p>
+                <p className='no-match-message'>No Match Player Was Found!</p>
             )}
 
             {/* below code for showing google map */}
