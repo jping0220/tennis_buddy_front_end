@@ -210,6 +210,7 @@ const App = () => {
                     onSearch={handleSearch}
                     searchResult={searchResult}
                     matchFound={matchFound}
+                    isAuthenticated={isAuthenticated}
 
                   
                   />
