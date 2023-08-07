@@ -39,8 +39,13 @@ export const MapDisplay = ({ searchResult }) => {
       }
   
       const data = await response.json();
-      const latitude = data.results[0]?.geometry?.location?.lat || null;
-      const longitude = data.results[0]?.geometry?.location?.lng || null;
+      const multiplier = .05;
+      const randomLat = (Math.random() - 0.5) * multiplier;
+      const randomLong = (Math.random() - .5) * multiplier;
+      const latitude =
+        data.results[0]?.geometry?.location?.lat + randomLat;
+      const longitude =
+        data.results[0]?.geometry?.location?.lng + randomLong;
       
       return {latitude,longitude, name, tennis_level,email,preferences};
     
@@ -58,7 +63,7 @@ export const MapDisplay = ({ searchResult }) => {
     );
     
     const coordinates = await Promise.all(promises);
-
+    console.log(coordinates);
     return coordinates;
   };
 
