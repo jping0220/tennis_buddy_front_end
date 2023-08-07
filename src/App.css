@@ -219,14 +219,8 @@ body{
 
 .tennis-user-list-container {
     display: flex;
-    flex-wrap: wrap;
     flex-direction:column;
-    justify-content:left;
-    max-height:calc(100vh - 200px);
     overflow-y: auto;
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 600px;
 }
 
 
@@ -275,7 +269,7 @@ body{
 }
 
 h2 {
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
   color: #070807; 
 }
@@ -531,13 +525,23 @@ textarea {
 }
 
 .map-container {
-  height: 60%;
+  position: relative;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  /* height: 60%;
   width: 45%;
   position: absolute;
   left: 75%; /* Adjust the left value to control the map width */
-  top:69%;
+  /* top:69%;
   transform: translateX(-50%);
-  margin-bottom: 10px;
+  margin-bottom: 10px; */ 
+}
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .map-info p {

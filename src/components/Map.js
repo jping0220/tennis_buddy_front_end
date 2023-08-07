@@ -94,9 +94,7 @@ export const MapDisplay = ({ searchResult }) => {
 
 
   return (
-    <div className="App">
-      {/* {console.log('isOpen:', isOpen, 'clickedMarkerIndex:', clickedMarkerIndex)} */}
-      {!isLoaded ? (
+     !isLoaded ? (
         <h1>Loading...</h1>
       ) : (
         <GoogleMap
@@ -105,17 +103,25 @@ export const MapDisplay = ({ searchResult }) => {
           zoom={10}
           onClick={() => setIsOpen(false)}
         >
-            {latLngList.map((position, index) => (
-              <Marker
-                key={index}
-                position={{ lat: position.latitude, lng: position.longitude }}
-                onClick={() => {
-                  handleMarkerClick(index, position.latitude, position.longitude, position.name, position.tennis_level, position.email, position.preferences);
-                }}
-              />
-            ))}
-            {isOpen && infoWindowData?.id !== null && (
-              <InfoWindow
+          {latLngList.map((position, index) => (
+            <Marker
+              key={index}
+              position={{ lat: position.latitude, lng: position.longitude }}
+              onClick={() => {
+                handleMarkerClick(
+                  index,
+                  position.latitude,
+                  position.longitude,
+                  position.name,
+                  position.tennis_level,
+                  position.email,
+                  position.preferences
+                );
+              }}
+            />
+          ))}
+          {isOpen && infoWindowData?.id !== null && (
+            <InfoWindow
               position={{
                 lat: latLngList[clickedMarkerIndex]?.latitude,
                 lng: latLngList[clickedMarkerIndex]?.longitude,
@@ -123,18 +129,17 @@ export const MapDisplay = ({ searchResult }) => {
               onCloseClick={() => {
                 setIsOpen(false);
               }}
-              >
+            >
               <div className="map-info">
-                  <h4>{infoWindowData.name}</h4>
-                  <p>tennis level: {infoWindowData.tennis_level}</p>
-                  <p>email: {infoWindowData.email}</p>
-                  <p>preferences: {infoWindowData.preferences}</p>
+                <h4>{infoWindowData.name}</h4>
+                <p>tennis level: {infoWindowData.tennis_level}</p>
+                <p>email: {infoWindowData.email}</p>
+                <p>preferences: {infoWindowData.preferences}</p>
               </div>
-              </InfoWindow>
-              )}   
+            </InfoWindow>
+          )}
           {/* <Marker position={center}></Marker> */}
         </GoogleMap>
-      )}
-    </div>
+      )
   );
 }
