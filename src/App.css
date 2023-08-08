@@ -119,11 +119,6 @@ body{
 
 /* below are the styling for search message in Home component*/
 
-.home-container {
-    padding: 20px;
-    margin-top: 20px;
-  }
-
 .home-container h2 {
     color:#0b0c0b;
     text-align: center;
@@ -137,12 +132,9 @@ body{
 }
 
 
-.home-container .no-match-message {
+.no-match-message {
     color: #090808;
     text-align: center;
-    margin-top: -100px;
-    margin-left: 700px;
-    margin-bottom:100px;
     font-weight: bold;
     font-size: larger;
   }
@@ -220,9 +212,13 @@ body{
 .tennis-user-list-container {
     display: flex;
     flex-direction:column;
+    height: 400px; /* to-do calculate this number */
     overflow-y: auto;
 }
 
+.tennis-user-list-column {
+  flex: 0 0 300px;
+}
 
 .text-background{
   background-color: #f1f1f1;
@@ -547,3 +543,4 @@ textarea {
 .map-info p {
   font-weight: bold;
 }
+
