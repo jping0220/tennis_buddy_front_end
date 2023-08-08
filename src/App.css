@@ -344,10 +344,10 @@ textarea {
   background-color: #f2f6a0;
   border-radius: 20px;
   /* box-shadow: 0 2px 4px rgba(129, 30, 30, 0.1); */
-  padding: 20px;
+  padding: 1%;
   max-width: 400px;
   margin: 20px;
-  margin-left: 500px;
+  margin-left: 40%;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -361,13 +361,13 @@ textarea {
 
 .profile-container h2 {
   color: #008080; 
-  margin-left: 20px;
-  margin-bottom: -10px;
+  margin-left: 1%;
+  margin-bottom: 10%;
 }
 
 .profile-container p {
-  margin: 20px;
-
+  
+  margin: 1%;
   text-align: left;
 
 }
@@ -375,7 +375,7 @@ textarea {
 .profile-info {
   text-align: left;
   margin-bottom: 20px;
-  padding:10px;
+  padding:2%;
   border-radius: 10px;
   border:2px solid #008080;
 }

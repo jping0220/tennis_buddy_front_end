@@ -54,7 +54,7 @@ export const Profile = ({
       <div className="profile-container">
         <img src={user.picture} alt={user.name} className="email-image" />
         <h2>{user.name}</h2>
-        <p>{user.email}</p>
+        {/* <p>{user.email}</p> */}
 
         {userData && (
           <React.Fragment>
