@@ -340,14 +340,21 @@ textarea {
   margin-left: 500px;
 }
 
+.no-personal-profile-msg{
+  margin: 10%;
+  margin-left: 10%;
+  margin-left: 20%;
+  width:100%;
+}
+
 .profile-container {
   background-color: #f2f6a0;
   border-radius: 20px;
-  /* box-shadow: 0 2px 4px rgba(129, 30, 30, 0.1); */
   padding: 1%;
-  max-width: 400px;
-  margin: 20px;
-  margin-left: 40%;
+  max-width: 100%;
+  margin: 1%;
+  margin-left: 20%;
+  margin-right: 20%;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -374,11 +381,13 @@ textarea {
 
 .profile-info {
   text-align: left;
+  margin-top: -5%;
   margin-bottom: 20px;
-  padding:2%;
+  /* padding:2%; */
   border-radius: 10px;
   border:2px solid #008080;
 }
+
 
 
 .profile-info p {
