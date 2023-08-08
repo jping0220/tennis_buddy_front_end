@@ -1,10 +1,10 @@
 /* logo pic on top of page */
 .logo-pic img {
-    width: 18%;
+    width: 20%;
     object-fit: cover;
     right:0;
-    margin-left: 250px;
-    margin-top: -100px;
+    margin-left: 80%;
+    margin-top: -6%;
     margin-bottom: -20px;
 }
 

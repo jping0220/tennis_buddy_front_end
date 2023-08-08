@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 export const AboutUs = () => {
   return (
     <div className="about-us-container">
-      <Card className="about-us-container" style={{ width: "30rem" }}>
+      <Card style={{ width: "30rem" }}>
         <Card.Img variant="top" src={Ping_Laura} />
         <Card.Body>
           <Card.Title>About Us</Card.Title>
