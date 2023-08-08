@@ -342,16 +342,22 @@ textarea {
 
 /* below are the styling for user info in Proile component*/
 
-.no-personal-profile-msg{
+/* .no-personal-profile-msg{
   margin: 100px;
   margin-left: 500px;
+} */
+
+.h3-personal-profile {
+  font-size: calc(1.3rem + .6vw);
+  text-align: center;
+  margin-right: 200px;
 }
 
 .no-personal-profile-msg{
   margin: 10%;
-  margin-left: 10%;
   margin-left: 20%;
   width:100%;
+  position: center;
 }
 
 .profile-container {
@@ -460,6 +466,27 @@ textarea {
 @media (max-width: 767px) { .profile-container { margin: 10px; }
 .profile-container img { width: 120px; height: 120px; }
 .profile-container h2 { margin-bottom: 5%; }}
+
+.sign-up-button {
+  background-color:#255b28;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 10px;
+  font-size: 16px;
+  color: white;
+  cursor:pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  margin-left: 90px;
+}
+
+.p-personal-profile {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: end;
+  margin-right: 50%;
+}
+
 
 /* below code are for save change button after editing in EidtForm component. */
 .save-change-button{
