@@ -254,6 +254,8 @@ body{
 
 .tennis-image {
   max-width: 150px; 
+  margin-left: 40px;
+  margin-top: 70px;
 }
 
 .registration-form {
@@ -262,6 +264,7 @@ body{
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 400px;
+  margin-top: 70px;
 }
 
 h2 {
