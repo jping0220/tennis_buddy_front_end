@@ -1,4 +1,6 @@
-# tennis_buddy_front_end
+# Tennis Buddy
+## Introduction
+
 Tennis_buddy_front_end is the front-end part of a full-stack web application. This repository contains the client-side code built with React, responsible for the user interface and interactions.
 
 The backend for this application is located in a separate repository called Tennis_buddy_back_end. It provides the server-side logic and API endpoints for the application. You can find the backend repository at the following link:(https://github.com/jping0220/tennis_buddy_back_end).
@@ -13,12 +15,14 @@ matches or just to find someone to hit the tennis for fun!
 
 * Registered user is able to modify their information.
 
-* Any user can perform a search based in one or two parameters such as location or tennis level. Search results show a list of users that matches with their criteria with contact information.
+* Any user can perform a search based in one or two parameters such as location or tennis level. Search results show a list of users that matches with their criteria with contact information. 
   
-* User can register using a thir party service authentication: Auth0.
+* The search result is displayed with markers in Google Map showing the location of the registered users and their information.  
+  
+* User can register using a third party service authentication: Auth0.
 
 ## Main Front-end Technology
-React - React Boostrap 
+React - React Boostrap - Google Maps API 
 
 ## Authentication and Authorization
 The app uses Auth0 for authentication. When a user wants to register or log in to your React app, they are redirected to the Auth0 login page.
@@ -35,5 +39,3 @@ git clone https://github.com/jping0220/tennis_buddy_front_end
 ## Credits
 Team members: 
 Jiaping Chen / Laura Perez
-
-testing.........
