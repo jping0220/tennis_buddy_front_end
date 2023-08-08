@@ -53,6 +53,10 @@ body{
 
  /* below are the styling for search form in SearchForm component*/
 
+.w-100{
+  margin-top:40px;
+}
+
 .tennis-search-form {
     display:flex;
     flex-direction: column;
@@ -509,7 +513,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items:center;
-  margin-top: 110px;
+  margin-top: 500px;
   
 }
 
