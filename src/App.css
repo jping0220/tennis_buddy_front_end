@@ -212,7 +212,7 @@ body{
 .tennis-user-list-container {
     display: flex;
     flex-direction:column;
-    height: 400px; /* to-do calculate this number */
+    height: 550px; 
     overflow-y: auto;
 }
 
@@ -546,6 +546,7 @@ textarea {
   /* top:69%;
   transform: translateX(-50%);
   margin-bottom: 10px; */ 
+  display:block;
 }
 .map-container iframe {
     position: absolute;
@@ -558,4 +559,6 @@ textarea {
 .map-info p {
   font-weight: bold;
 }
+
+@media (max-width: 767px) { .map-container { display: none; /* Hide the map container */ } }
 
