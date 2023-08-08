@@ -17,12 +17,10 @@ import { AuthenticationGuard } from "./components/Authentication-guard";
 import toast, { Toaster } from 'react-hot-toast';
 import Footer from "./components/Footer";
 
-
-
-
 // const notify = () => toast('Here is your toast.');
 
 const App = () => {
+
     const {
       // loginWithPopup,
       // loginWithRedirect,
@@ -34,10 +32,10 @@ const App = () => {
 
   const API = "https://tennis-buddy-back-end.onrender.com";
   const [searchResult, setSearchResults] = useState([])
-  const [matchFound, setMatchFound] = useState(true);
+  const [matchFound, setMatchFound] = useState(undefined); //undefined (no search), false (not found) or true (found)
   const [userData, setUserData] = useState(null);
   // these are for the new_form state (after post):
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(true);   
   const [errorMessage, setErrorMessage] = useState(null);
   // these are the editform statex
   const [showEditForm, setShowEditForm] = useState(false);
@@ -192,7 +190,7 @@ const App = () => {
     <React.Fragment>
       <div>
       {/* <button onClick={notify}>Make me a toast</button> */}
-      <Toaster />
+        <Toaster />
       </div>
       <Router>
         <div className="logo-pic">
@@ -203,7 +201,6 @@ const App = () => {
 
         <div className="main-container">
           <NavigationBar />
-          <Layout>
             <Routes>
               <Route
                 path="/"
@@ -212,6 +209,9 @@ const App = () => {
                     onSearch={handleSearch}
                     searchResult={searchResult}
                     matchFound={matchFound}
+                    isAuthenticated={isAuthenticated}
+
+                  
                   />
                 }
               />
@@ -246,11 +246,10 @@ const App = () => {
                 }
               />
             </Routes>
-          </Layout>
           {/* <footer className="footer">
                 <p className="footer-content">&copy; {new Date().getFullYear()} Tennis Buddy. All rights reserved.</p>
           </footer> */}
-          <Footer></Footer>
+          <Footer />
         </div>
       </Router>
     </React.Fragment>

@@ -24,10 +24,10 @@ export const Profile = ({
   if (!userData) {
     return (
       <div className="no-personal-profile-msg">
-        <h3>No Personal Profile Available</h3>
-        <p>
+        <h3 className="h3-personal-profile">No Personal Profile Available</h3>
+        <p className="p-personal-profile">
           <Link to="/sign_up">
-            <Button className="tennis-search-button" variant="primary">
+            <Button className="sign-up-button" variant="primary">
             <span role='img' aria-label="search-icon">🎾 </span>
               Click here to sign up</Button>
           </Link>
@@ -54,7 +54,7 @@ export const Profile = ({
       <div className="profile-container">
         <img src={user.picture} alt={user.name} className="email-image" />
         <h2>{user.name}</h2>
-        <p>{user.email}</p>
+        {/* <p>{user.email}</p> */}
 
         {userData && (
           <React.Fragment>

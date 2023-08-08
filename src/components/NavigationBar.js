@@ -2,7 +2,7 @@ import '../App.css';
 import React from "react";
 import { Nav, Navbar } from 'react-bootstrap';
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { RouterNavLink } from "./RouterNavLink";
 
 
@@ -24,8 +24,7 @@ export const NavigationBar = () => {
       const { isAuthenticated } = useAuth0();
 
   return (
-     
-      <Navbar expand="lg" variant="dark" bg="dark">
+    <Navbar expand="lg" variant="dark" bg="dark">
         <Navbar.Toggle ria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto" >
@@ -67,5 +66,6 @@ export const NavigationBar = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+  
     );
 };
