@@ -2,6 +2,9 @@
   "name": "tennis_buddy_front_end",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18 <19"
+  },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
