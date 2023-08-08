@@ -351,10 +351,10 @@ textarea {
   background-color: #f2f6a0;
   border-radius: 20px;
   padding: 1%;
-  max-width: 100%;
-  margin: 1%;
-  margin-left: 20%;
-  margin-right: 20%;
+  max-width: 400px;
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -450,6 +450,9 @@ textarea {
   margin-right:100px;
 }
 
+@media (max-width: 767px) { .profile-container { margin: 10px; }
+.profile-container img { width: 120px; height: 120px; }
+.profile-container h2 { margin-bottom: 5%; }}
 
 /* below code are for save change button after editing in EidtForm component. */
 .save-change-button{
