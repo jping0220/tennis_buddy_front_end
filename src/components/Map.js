@@ -10,10 +10,7 @@ import { useState } from "react";
 
 
 
-// https://maps.googleapis.com/maps/api/geocode/json?address=98029&key=AIzaSyDEOIDOOW9FnOSJaGSonLlNeSBHijucsvM
-
 export const MapDisplay = ({ searchResult }) => {
-  // console.log(`here we are in maps: ${searchResult[0].name}`)
   // MAP DISPLAY:
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY_2,
@@ -67,7 +64,7 @@ export const MapDisplay = ({ searchResult }) => {
     return coordinates;
   };
 
-  // cordinates = [{lat, long}]
+ 
   const [latLngList, setLatLngList] = React.useState([]);
   console.log("checking:",latLngList);
 
@@ -138,7 +135,6 @@ export const MapDisplay = ({ searchResult }) => {
               </div>
             </InfoWindow>
           )}
-          {/* <Marker position={center}></Marker> */}
         </GoogleMap>
       )
   );

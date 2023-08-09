@@ -37,10 +37,9 @@
 body{ 
   background-image: url('./assets/tennisPlayer copy.jpg');
   background-size:cover;
-  background-repeat: no-repeat; /* Prevent image repetition */
-  /* background-attachment: fixed; */
+  background-repeat: no-repeat; 
   background-position: center center;
-  flex: 1; /* Use flex: 1 to make the main container take up the remaining vertical space */
+  flex: 1; 
   padding-top: 75px;
 }
 @media screen and (max-width: 768px) {
@@ -128,10 +127,6 @@ body{
     text-align: center;
     margin-bottom: 20px;
     font-weight: bold;
-    /* background-color: #f1f1f1; */
-    /* padding: 10px 20px;
-    border-radius: 5px;
-    width:100%; */
 
 }
 
@@ -156,7 +151,6 @@ body{
     display: flex;
     flex-direction: row;
     justify-content:left;
-    /* overflow: hidden; */
     position: relative; 
   
 }
@@ -342,11 +336,6 @@ textarea {
 
 /* below are the styling for user info in Proile component*/
 
-/* .no-personal-profile-msg{
-  margin: 100px;
-  margin-left: 500px;
-} */
-
 .h3-personal-profile {
   font-size: calc(1.3rem + .6vw);
   text-align: center;
@@ -402,7 +391,6 @@ textarea {
   text-align: left;
   margin-top: -5%;
   margin-bottom: 20px;
-  /* padding:2%; */
   border-radius: 10px;
   border:2px solid #008080;
 }
@@ -421,7 +409,6 @@ textarea {
   left: -10px; 
   width: 20px; 
   height: 20px; 
-  /* background-color: #008080; */
   border-radius: 5px; 
 }
 
@@ -508,35 +495,6 @@ textarea {
   margin-bottom: 0px;
 }
 
-/* .black-footer {
-  background-color: rgb(9, 10, 9);
-  color: rgb(249, 244, 244);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: auto;
-  padding: 20px;
-  text-align: center;
-  position:fix;
-  width: 100%;
-} */
-
-/* .footer {
-  background-color:transparent;
-  text-align:center;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  width: 18%;
-}
-
-.footer-content {
-  background-color: #f0f0eb;
-  border: 1px solid #37a95f;
-  border-radius: 10px; 
-
-
-} */
 
 .footer-text-center{ 
   background-color:#000000;
@@ -560,10 +518,7 @@ textarea {
 .social-icons a {
   margin: 0 8px; /* Adjust the margin as needed */
 }
-/* 
- .footer-text-muted {
-  color:white;
-} */
+
 
 
 /* google map */
@@ -574,15 +529,8 @@ textarea {
 
 .map-container {
   position: relative;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  /* height: 60%;
-  width: 45%;
-  position: absolute;
-  left: 75%; /* Adjust the left value to control the map width */
-  /* top:69%;
-  transform: translateX(-50%);
-  margin-bottom: 10px; */ 
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
   display:block;
 }
 .map-container iframe {

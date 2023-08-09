@@ -17,15 +17,10 @@ import { AuthenticationGuard } from "./components/Authentication-guard";
 import toast, { Toaster } from 'react-hot-toast';
 import Footer from "./components/Footer";
 
-// const notify = () => toast('Here is your toast.');
 
 const App = () => {
 
     const {
-      // loginWithPopup,
-      // loginWithRedirect,
-      // logout,
-      // user,
       isAuthenticated,
       getAccessTokenSilently,
     } = useAuth0();
@@ -189,7 +184,6 @@ const App = () => {
   return (
     <React.Fragment>
       <div>
-      {/* <button onClick={notify}>Make me a toast</button> */}
         <Toaster />
       </div>
       <Router>
@@ -246,9 +240,6 @@ const App = () => {
                 }
               />
             </Routes>
-          {/* <footer className="footer">
-                <p className="footer-content">&copy; {new Date().getFullYear()} Tennis Buddy. All rights reserved.</p>
-          </footer> */}
           <Footer />
         </div>
       </Router>
